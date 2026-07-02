@@ -1,9 +1,9 @@
 neu_group05_task\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/queue.c
-neu_group05_task\queue.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-neu_group05_task\queue.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+neu_group05_task\queue.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdlib.h
+neu_group05_task\queue.o: E:\MDK\ARM\ARMCC\Bin\..\include\string.h
 neu_group05_task\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-neu_group05_task\queue.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-neu_group05_task\queue.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+neu_group05_task\queue.o: E:\MDK\ARM\ARMCC\Bin\..\include\stddef.h
+neu_group05_task\queue.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 neu_group05_task\queue.o: ../Core/Inc/FreeRTOSConfig.h
 neu_group05_task\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 neu_group05_task\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

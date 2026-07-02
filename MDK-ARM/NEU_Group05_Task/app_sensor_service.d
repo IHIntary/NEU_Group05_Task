@@ -1,6 +1,6 @@
 neu_group05_task\app_sensor_service.o: ..\Core\Src\app_sensor_service.c
 neu_group05_task\app_sensor_service.o: ../Core/Inc/app_sensor_service.h
-neu_group05_task\app_sensor_service.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+neu_group05_task\app_sensor_service.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 neu_group05_task\app_sensor_service.o: ../Core/Inc/app_sensor_config.h
 neu_group05_task\app_sensor_service.o: ../Core/Inc/ad8232.h
 neu_group05_task\app_sensor_service.o: ../Core/Inc/main.h
@@ -18,7 +18,7 @@ neu_group05_task\app_sensor_service.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 neu_group05_task\app_sensor_service.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 neu_group05_task\app_sensor_service.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 neu_group05_task\app_sensor_service.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-neu_group05_task\app_sensor_service.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+neu_group05_task\app_sensor_service.o: E:\MDK\ARM\ARMCC\Bin\..\include\stddef.h
 neu_group05_task\app_sensor_service.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 neu_group05_task\app_sensor_service.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 neu_group05_task\app_sensor_service.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
@@ -51,5 +51,5 @@ neu_group05_task\app_sensor_service.o: ../Drivers/CMSIS/RTOS2/Include/cmsis_os2.
 neu_group05_task\app_sensor_service.o: ../Drivers/MAX30102/max30102.h
 neu_group05_task\app_sensor_service.o: ../Core/Inc/app_i2c_bus.h
 neu_group05_task\app_sensor_service.o: ../Core/Inc/bp_service.h
-neu_group05_task\app_sensor_service.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-neu_group05_task\app_sensor_service.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+neu_group05_task\app_sensor_service.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdio.h
+neu_group05_task\app_sensor_service.o: E:\MDK\ARM\ARMCC\Bin\..\include\string.h

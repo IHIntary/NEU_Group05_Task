@@ -4,8 +4,8 @@ neu_group05_task\touchgfxhal.o: ../TouchGFX/target/generated/TouchGFXGeneratedHA
 neu_group05_task\touchgfxhal.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/HAL.hpp
 neu_group05_task\touchgfxhal.o: ../middlewares/st/touchgfx/framework/include/platform/core/MCUInstrumentation.hpp
 neu_group05_task\touchgfxhal.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Types.hpp
-neu_group05_task\touchgfxhal.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-neu_group05_task\touchgfxhal.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+neu_group05_task\touchgfxhal.o: E:\MDK\ARM\ARMCC\Bin\..\include\assert.h
+neu_group05_task\touchgfxhal.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 neu_group05_task\touchgfxhal.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Config.hpp
 neu_group05_task\touchgfxhal.o: ../middlewares/st/touchgfx/framework/include/platform/driver/button/ButtonController.hpp
 neu_group05_task\touchgfxhal.o: ../middlewares/st/touchgfx/framework/include/platform/driver/touch/TouchController.hpp
@@ -24,7 +24,7 @@ neu_group05_task\touchgfxhal.o: ../middlewares/st/touchgfx/framework/include/tou
 neu_group05_task\touchgfxhal.o: ../middlewares/st/touchgfx/framework/include/touchgfx/lcd/LCD.hpp
 neu_group05_task\touchgfxhal.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Font.hpp
 neu_group05_task\touchgfxhal.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Unicode.hpp
-neu_group05_task\touchgfxhal.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+neu_group05_task\touchgfxhal.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdarg.h
 neu_group05_task\touchgfxhal.o: ../middlewares/st/touchgfx/framework/include/touchgfx/TextProvider.hpp
 neu_group05_task\touchgfxhal.o: ../middlewares/st/touchgfx/framework/include/touchgfx/TextureMapTypes.hpp
 neu_group05_task\touchgfxhal.o: ../middlewares/st/touchgfx/framework/include/touchgfx/lcd/DebugPrinter.hpp

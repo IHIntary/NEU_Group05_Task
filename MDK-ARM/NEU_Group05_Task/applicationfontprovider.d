@@ -3,10 +3,10 @@ neu_group05_task\applicationfontprovider.o: ../touchgfx/generated/fonts/include/
 neu_group05_task\applicationfontprovider.o: ../middlewares/st/touchgfx/framework/include/touchgfx/FontManager.hpp
 neu_group05_task\applicationfontprovider.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Font.hpp
 neu_group05_task\applicationfontprovider.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Unicode.hpp
-neu_group05_task\applicationfontprovider.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+neu_group05_task\applicationfontprovider.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdarg.h
 neu_group05_task\applicationfontprovider.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Types.hpp
-neu_group05_task\applicationfontprovider.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-neu_group05_task\applicationfontprovider.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+neu_group05_task\applicationfontprovider.o: E:\MDK\ARM\ARMCC\Bin\..\include\assert.h
+neu_group05_task\applicationfontprovider.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 neu_group05_task\applicationfontprovider.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Config.hpp
 neu_group05_task\applicationfontprovider.o: ../touchgfx/generated/fonts/include/fonts/GeneratedFont.hpp
 neu_group05_task\applicationfontprovider.o: ../middlewares/st/touchgfx/framework/include/touchgfx/ConstFont.hpp

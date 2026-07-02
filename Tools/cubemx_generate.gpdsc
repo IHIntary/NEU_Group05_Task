@@ -1,0 +1,3 @@
+load NEU_Group05_Task.ioc
+generate code
+exit

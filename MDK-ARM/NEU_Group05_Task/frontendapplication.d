@@ -2,13 +2,13 @@ neu_group05_task\frontendapplication.o: ../touchgfx/gui/src/common/frontendappli
 neu_group05_task\frontendapplication.o: ../touchgfx/gui/include/gui/common/FrontendApplication.hpp
 neu_group05_task\frontendapplication.o: ../touchgfx/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp
 neu_group05_task\frontendapplication.o: ../middlewares/st/touchgfx/framework/include/mvp/MVPApplication.hpp
-neu_group05_task\frontendapplication.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\new
-neu_group05_task\frontendapplication.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-neu_group05_task\frontendapplication.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\exception
+neu_group05_task\frontendapplication.o: E:\MDK\ARM\ARMCC\Bin\..\include\new
+neu_group05_task\frontendapplication.o: E:\MDK\ARM\ARMCC\Bin\..\include\stddef.h
+neu_group05_task\frontendapplication.o: E:\MDK\ARM\ARMCC\Bin\..\include\exception
 neu_group05_task\frontendapplication.o: ../middlewares/st/touchgfx/framework/include/common/AbstractPartition.hpp
 neu_group05_task\frontendapplication.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Types.hpp
-neu_group05_task\frontendapplication.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-neu_group05_task\frontendapplication.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+neu_group05_task\frontendapplication.o: E:\MDK\ARM\ARMCC\Bin\..\include\assert.h
+neu_group05_task\frontendapplication.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 neu_group05_task\frontendapplication.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Config.hpp
 neu_group05_task\frontendapplication.o: ../middlewares/st/touchgfx/framework/include/mvp/MVPHeap.hpp
 neu_group05_task\frontendapplication.o: ../middlewares/st/touchgfx/framework/include/mvp/Presenter.hpp
@@ -23,7 +23,7 @@ neu_group05_task\frontendapplication.o: ../middlewares/st/touchgfx/framework/inc
 neu_group05_task\frontendapplication.o: ../middlewares/st/touchgfx/framework/include/touchgfx/lcd/LCD.hpp
 neu_group05_task\frontendapplication.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Font.hpp
 neu_group05_task\frontendapplication.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Unicode.hpp
-neu_group05_task\frontendapplication.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+neu_group05_task\frontendapplication.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdarg.h
 neu_group05_task\frontendapplication.o: ../middlewares/st/touchgfx/framework/include/touchgfx/TextProvider.hpp
 neu_group05_task\frontendapplication.o: ../middlewares/st/touchgfx/framework/include/touchgfx/TextureMapTypes.hpp
 neu_group05_task\frontendapplication.o: ../middlewares/st/touchgfx/framework/include/touchgfx/lcd/DebugPrinter.hpp

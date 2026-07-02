@@ -2,8 +2,8 @@ neu_group05_task\stm32touchcontroller.o: ../TouchGFX/target/STM32TouchController
 neu_group05_task\stm32touchcontroller.o: ../TouchGFX/target/STM32TouchController.hpp
 neu_group05_task\stm32touchcontroller.o: ../middlewares/st/touchgfx/framework/include/platform/driver/touch/TouchController.hpp
 neu_group05_task\stm32touchcontroller.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Types.hpp
-neu_group05_task\stm32touchcontroller.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-neu_group05_task\stm32touchcontroller.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+neu_group05_task\stm32touchcontroller.o: E:\MDK\ARM\ARMCC\Bin\..\include\assert.h
+neu_group05_task\stm32touchcontroller.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 neu_group05_task\stm32touchcontroller.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Config.hpp
 neu_group05_task\stm32touchcontroller.o: ../Drivers/TOUCH/gt9xxx.h
 neu_group05_task\stm32touchcontroller.o: ../Core/Inc/usart.h
@@ -22,7 +22,7 @@ neu_group05_task\stm32touchcontroller.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 neu_group05_task\stm32touchcontroller.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
 neu_group05_task\stm32touchcontroller.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
 neu_group05_task\stm32touchcontroller.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-neu_group05_task\stm32touchcontroller.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+neu_group05_task\stm32touchcontroller.o: E:\MDK\ARM\ARMCC\Bin\..\include\stddef.h
 neu_group05_task\stm32touchcontroller.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h
 neu_group05_task\stm32touchcontroller.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h
 neu_group05_task\stm32touchcontroller.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h
@@ -49,4 +49,4 @@ neu_group05_task\stm32touchcontroller.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm
 neu_group05_task\stm32touchcontroller.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 neu_group05_task\stm32touchcontroller.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 neu_group05_task\stm32touchcontroller.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-neu_group05_task\stm32touchcontroller.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+neu_group05_task\stm32touchcontroller.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdio.h

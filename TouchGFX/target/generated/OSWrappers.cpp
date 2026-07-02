@@ -22,16 +22,8 @@
 
 #include <cmsis_os2.h>
 
-static osSemaphoreId_t Group05_FBSem = NULL;
-static osMessageQueueId_t Group05_VSyncQ = NULL;
-
-static const osSemaphoreAttr_t Group05_FBSem_attributes = {
-    "Group05_FBSem", 0, NULL, 0
-};
-
-static const osMessageQueueAttr_t Group05_VSyncQ_attributes = {
-    "Group05_VSyncQ", 0, NULL, 0, NULL, 0
-};
+static osSemaphoreId_t frame_buffer_sem = NULL;
+static osMessageQueueId_t vsync_queue = NULL;
 
 // Just a dummy value to insert in the VSYNC queue.
 static uint32_t dummy = 0x5a;
@@ -44,12 +36,12 @@ using namespace touchgfx;
 void OSWrappers::initialize()
 {
     // Create a queue of length 1
-    Group05_FBSem = osSemaphoreNew(1, 1, &Group05_FBSem_attributes); // Binary semaphore
-    assert((Group05_FBSem != NULL) && "Creation of framebuffer semaphore failed");
+    frame_buffer_sem = osSemaphoreNew(1, 1, NULL); // Binary semaphore
+    assert((frame_buffer_sem != NULL) && "Creation of framebuffer semaphore failed");
 
     // Create a queue of length 1
-    Group05_VSyncQ = osMessageQueueNew(1, 4, &Group05_VSyncQ_attributes);
-    assert((Group05_VSyncQ != NULL) && "Creation of vsync message queue failed");
+    vsync_queue = osMessageQueueNew(1, 4, NULL);
+    assert((vsync_queue != NULL) && "Creation of vsync message queue failed");
 }
 
 /*
@@ -57,7 +49,7 @@ void OSWrappers::initialize()
  */
 void OSWrappers::takeFrameBufferSemaphore()
 {
-    osSemaphoreAcquire(Group05_FBSem, osWaitForever);
+    osSemaphoreAcquire(frame_buffer_sem, osWaitForever);
 }
 
 /*
@@ -65,7 +57,7 @@ void OSWrappers::takeFrameBufferSemaphore()
  */
 void OSWrappers::giveFrameBufferSemaphore()
 {
-    osSemaphoreRelease(Group05_FBSem);
+    osSemaphoreRelease(frame_buffer_sem);
 }
 
 /*
@@ -77,7 +69,7 @@ void OSWrappers::giveFrameBufferSemaphore()
  */
 void OSWrappers::tryTakeFrameBufferSemaphore()
 {
-    osSemaphoreAcquire(Group05_FBSem, 0);
+    osSemaphoreAcquire(frame_buffer_sem, 0);
 }
 
 /*
@@ -89,7 +81,7 @@ void OSWrappers::tryTakeFrameBufferSemaphore()
  */
 void OSWrappers::giveFrameBufferSemaphoreFromISR()
 {
-    osSemaphoreRelease(Group05_FBSem);
+    osSemaphoreRelease(frame_buffer_sem);
 }
 
 /*
@@ -100,7 +92,7 @@ void OSWrappers::giveFrameBufferSemaphoreFromISR()
  */
 void OSWrappers::signalVSync()
 {
-    osMessageQueuePut(Group05_VSyncQ, &dummy, 0, 0);
+    osMessageQueuePut(vsync_queue, &dummy, 0, 0);
 }
 
 /*
@@ -122,10 +114,10 @@ void OSWrappers::waitForVSync()
 {
     uint32_t dummyGet;
     // First make sure the queue is empty, by trying to remove an element with 0 timeout.
-    osMessageQueueGet(Group05_VSyncQ, &dummyGet, 0, 0);
+    osMessageQueueGet(vsync_queue, &dummyGet, 0, 0);
 
     // Then, wait for next VSYNC to occur.
-    osMessageQueueGet(Group05_VSyncQ, &dummyGet, 0, osWaitForever);
+    osMessageQueueGet(vsync_queue, &dummyGet, 0, osWaitForever);
 }
 
 /*

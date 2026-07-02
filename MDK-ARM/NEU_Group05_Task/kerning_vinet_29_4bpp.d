@@ -1,8 +1,8 @@
 neu_group05_task\kerning_vinet_29_4bpp.o: ../touchgfx/generated/fonts/src/kerning_vinet_29_4bpp.cpp
 neu_group05_task\kerning_vinet_29_4bpp.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Font.hpp
 neu_group05_task\kerning_vinet_29_4bpp.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Unicode.hpp
-neu_group05_task\kerning_vinet_29_4bpp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+neu_group05_task\kerning_vinet_29_4bpp.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdarg.h
 neu_group05_task\kerning_vinet_29_4bpp.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Types.hpp
-neu_group05_task\kerning_vinet_29_4bpp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-neu_group05_task\kerning_vinet_29_4bpp.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+neu_group05_task\kerning_vinet_29_4bpp.o: E:\MDK\ARM\ARMCC\Bin\..\include\assert.h
+neu_group05_task\kerning_vinet_29_4bpp.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 neu_group05_task\kerning_vinet_29_4bpp.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Config.hpp

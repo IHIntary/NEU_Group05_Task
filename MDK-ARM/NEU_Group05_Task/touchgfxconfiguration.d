@@ -3,10 +3,10 @@ neu_group05_task\touchgfxconfiguration.o: ../touchgfx/generated/texts/include/te
 neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/include/touchgfx/TypedText.hpp
 neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Font.hpp
 neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Unicode.hpp
-neu_group05_task\touchgfxconfiguration.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+neu_group05_task\touchgfxconfiguration.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdarg.h
 neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Types.hpp
-neu_group05_task\touchgfxconfiguration.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-neu_group05_task\touchgfxconfiguration.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+neu_group05_task\touchgfxconfiguration.o: E:\MDK\ARM\ARMCC\Bin\..\include\assert.h
+neu_group05_task\touchgfxconfiguration.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Config.hpp
 neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Texts.hpp
 neu_group05_task\touchgfxconfiguration.o: ../touchgfx/generated/fonts/include/fonts/ApplicationFontProvider.hpp
@@ -49,9 +49,9 @@ neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/i
 neu_group05_task\touchgfxconfiguration.o: ../touchgfx/gui/include/gui/common/FrontendApplication.hpp
 neu_group05_task\touchgfxconfiguration.o: ../touchgfx/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp
 neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/include/mvp/MVPApplication.hpp
-neu_group05_task\touchgfxconfiguration.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\new
-neu_group05_task\touchgfxconfiguration.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-neu_group05_task\touchgfxconfiguration.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\exception
+neu_group05_task\touchgfxconfiguration.o: E:\MDK\ARM\ARMCC\Bin\..\include\new
+neu_group05_task\touchgfxconfiguration.o: E:\MDK\ARM\ARMCC\Bin\..\include\stddef.h
+neu_group05_task\touchgfxconfiguration.o: E:\MDK\ARM\ARMCC\Bin\..\include\exception
 neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/include/mvp/Presenter.hpp
 neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Screen.hpp
 neu_group05_task\touchgfxconfiguration.o: ../touchgfx/gui/include/gui/model/Model.hpp
@@ -77,7 +77,7 @@ neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/i
 neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/include/touchgfx/canvas_widget_renderer/Outline.hpp
 neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/include/touchgfx/canvas_widget_renderer/Cell.hpp
 neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainter.hpp
-neu_group05_task\touchgfxconfiguration.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+neu_group05_task\touchgfxconfiguration.o: E:\MDK\ARM\ARMCC\Bin\..\include\string.h
 neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/include/touchgfx/transforms/DisplayTransformation.hpp
 neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp
 neu_group05_task\touchgfxconfiguration.o: ../middlewares/st/touchgfx/framework/include/touchgfx/widgets/canvas/Canvas.hpp

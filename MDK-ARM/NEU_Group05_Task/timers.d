@@ -1,8 +1,8 @@
 neu_group05_task\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/timers.c
-neu_group05_task\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+neu_group05_task\timers.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdlib.h
 neu_group05_task\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-neu_group05_task\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-neu_group05_task\timers.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+neu_group05_task\timers.o: E:\MDK\ARM\ARMCC\Bin\..\include\stddef.h
+neu_group05_task\timers.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 neu_group05_task\timers.o: ../Core/Inc/FreeRTOSConfig.h
 neu_group05_task\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 neu_group05_task\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

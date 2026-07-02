@@ -1,7 +1,7 @@
 neu_group05_task\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/port.c
 neu_group05_task\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-neu_group05_task\port.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-neu_group05_task\port.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+neu_group05_task\port.o: E:\MDK\ARM\ARMCC\Bin\..\include\stddef.h
+neu_group05_task\port.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 neu_group05_task\port.o: ../Core/Inc/FreeRTOSConfig.h
 neu_group05_task\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 neu_group05_task\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

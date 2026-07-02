@@ -1,7 +1,7 @@
 neu_group05_task\freertos.o: ../Core/Src/freertos.c
 neu_group05_task\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-neu_group05_task\freertos.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-neu_group05_task\freertos.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+neu_group05_task\freertos.o: E:\MDK\ARM\ARMCC\Bin\..\include\stddef.h
+neu_group05_task\freertos.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 neu_group05_task\freertos.o: ../Core/Inc/FreeRTOSConfig.h
 neu_group05_task\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 neu_group05_task\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
@@ -61,7 +61,7 @@ neu_group05_task\freertos.o: ../Core/Inc/app_i2c_bus.h
 neu_group05_task\freertos.o: ../Core/Inc/ad8232.h
 neu_group05_task\freertos.o: ../Drivers/TOUCH/gt9xxx.h
 neu_group05_task\freertos.o: ../Core/Inc/usart.h
-neu_group05_task\freertos.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-neu_group05_task\freertos.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+neu_group05_task\freertos.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdarg.h
+neu_group05_task\freertos.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdio.h
 neu_group05_task\freertos.o: ../Core/Inc/app_sensor_service.h
 neu_group05_task\freertos.o: ../Core/Inc/app_buzzer_service.h

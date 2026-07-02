@@ -4,13 +4,13 @@ neu_group05_task\bloodpressurescreenpresenter.o: ../touchgfx/generated/gui_gener
 neu_group05_task\bloodpressurescreenpresenter.o: ../touchgfx/gui/include/gui/common/FrontendApplication.hpp
 neu_group05_task\bloodpressurescreenpresenter.o: ../touchgfx/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/mvp/MVPApplication.hpp
-neu_group05_task\bloodpressurescreenpresenter.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\new
-neu_group05_task\bloodpressurescreenpresenter.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-neu_group05_task\bloodpressurescreenpresenter.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\exception
+neu_group05_task\bloodpressurescreenpresenter.o: E:\MDK\ARM\ARMCC\Bin\..\include\new
+neu_group05_task\bloodpressurescreenpresenter.o: E:\MDK\ARM\ARMCC\Bin\..\include\stddef.h
+neu_group05_task\bloodpressurescreenpresenter.o: E:\MDK\ARM\ARMCC\Bin\..\include\exception
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/common/AbstractPartition.hpp
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Types.hpp
-neu_group05_task\bloodpressurescreenpresenter.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-neu_group05_task\bloodpressurescreenpresenter.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+neu_group05_task\bloodpressurescreenpresenter.o: E:\MDK\ARM\ARMCC\Bin\..\include\assert.h
+neu_group05_task\bloodpressurescreenpresenter.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Config.hpp
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/mvp/MVPHeap.hpp
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/mvp/Presenter.hpp
@@ -25,7 +25,7 @@ neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/fram
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/touchgfx/lcd/LCD.hpp
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Font.hpp
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Unicode.hpp
-neu_group05_task\bloodpressurescreenpresenter.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+neu_group05_task\bloodpressurescreenpresenter.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdarg.h
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/touchgfx/TextProvider.hpp
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/touchgfx/TextureMapTypes.hpp
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/touchgfx/lcd/DebugPrinter.hpp
@@ -63,7 +63,7 @@ neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/fram
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/touchgfx/canvas_widget_renderer/Outline.hpp
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/touchgfx/canvas_widget_renderer/Cell.hpp
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainter.hpp
-neu_group05_task\bloodpressurescreenpresenter.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+neu_group05_task\bloodpressurescreenpresenter.o: E:\MDK\ARM\ARMCC\Bin\..\include\string.h
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/touchgfx/transforms/DisplayTransformation.hpp
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp
 neu_group05_task\bloodpressurescreenpresenter.o: ../middlewares/st/touchgfx/framework/include/touchgfx/widgets/canvas/Canvas.hpp

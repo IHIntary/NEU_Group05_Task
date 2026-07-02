@@ -51,7 +51,7 @@ void max30102_i2c_write(uint8_t reg_adder, uint8_t data)
  */
 void max30102_i2c_read(uint8_t reg_adder, uint8_t *pdata, uint8_t data_size)
 {
-	AppI2c2_MemRead8(I2C_WRITE_ADDR, reg_adder, pdata, data_size, 10);
+	AppI2c3_MemRead8(I2C_WRITE_ADDR, reg_adder, pdata, data_size, 10);
 }
 
 /**

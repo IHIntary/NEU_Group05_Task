@@ -1,11 +1,11 @@
 neu_group05_task\texts.o: ../touchgfx/generated/texts/src/texts.cpp
-neu_group05_task\texts.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+neu_group05_task\texts.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdarg.h
 neu_group05_task\texts.o: ../middlewares/st/touchgfx/framework/include/touchgfx/TextProvider.hpp
 neu_group05_task\texts.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Font.hpp
 neu_group05_task\texts.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Unicode.hpp
 neu_group05_task\texts.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Types.hpp
-neu_group05_task\texts.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-neu_group05_task\texts.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+neu_group05_task\texts.o: E:\MDK\ARM\ARMCC\Bin\..\include\assert.h
+neu_group05_task\texts.o: E:\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 neu_group05_task\texts.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Config.hpp
 neu_group05_task\texts.o: ../middlewares/st/touchgfx/framework/include/touchgfx/Texts.hpp
 neu_group05_task\texts.o: ../middlewares/st/touchgfx/framework/include/touchgfx/TypedText.hpp

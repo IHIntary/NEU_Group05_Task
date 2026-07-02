@@ -143,7 +143,7 @@ osThreadId_t Group05_BuzzerHandle;
 const osThreadAttr_t Group05_Buzzer_attributes = {
   .name = "Group05_Buzzer",
   .stack_size = 384 * 4,
-  .priority = (osPriority_t) osPriorityBelowNormal,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -165,6 +165,7 @@ void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 void taskTouchInit(void *argument);
 extern void StartTaskSensorService(void *argument);
+void AppBuzzerService_Task(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
