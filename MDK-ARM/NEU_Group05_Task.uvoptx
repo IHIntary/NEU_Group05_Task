@@ -977,7 +977,7 @@
       <GroupNumber>5</GroupNumber>
       <FileNumber>58</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\Drivers\MAX30102\max30102.c</PathWithFileName>
@@ -1173,7 +1173,7 @@
 
   <Group>
     <GroupName>Application/User/TouchGFX/target</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1217,7 +1217,7 @@
 
   <Group>
     <GroupName>Application/User/TouchGFX/target/generated</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1273,7 +1273,7 @@
 
   <Group>
     <GroupName>Application/User/TouchGFX/App</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1421,7 +1421,7 @@
 
   <Group>
     <GroupName>generated</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1941,7 +1941,7 @@
 
   <Group>
     <GroupName>Drivers/TOUCH</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

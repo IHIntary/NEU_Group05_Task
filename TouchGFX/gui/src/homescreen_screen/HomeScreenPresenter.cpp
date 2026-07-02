@@ -16,3 +16,8 @@ void HomeScreenPresenter::deactivate()
 {
 
 }
+
+void HomeScreenPresenter::chipTempUpdated(float tempC, uint8_t valid)
+{
+    view.updateChipTemp(tempC, valid);
+}

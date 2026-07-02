@@ -12,6 +12,8 @@ enum LANGUAGES
 
 enum TEXTS
 {
+    T_TEMP,
+    T___SINGLEUSE_XY3W,
     T___SINGLEUSE_ENQY,
     T___SINGLEUSE_K72T,
     T___SINGLEUSE_08OS,

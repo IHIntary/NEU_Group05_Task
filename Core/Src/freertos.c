@@ -165,7 +165,7 @@ void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 void taskTouchInit(void *argument);
 extern void StartTaskSensorService(void *argument);
-void AppBuzzerService_Task(void *argument);
+extern void AppBuzzerService_Task(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 

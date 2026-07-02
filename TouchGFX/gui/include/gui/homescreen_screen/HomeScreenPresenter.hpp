@@ -25,6 +25,8 @@ public:
      */
     virtual void deactivate();
 
+    virtual void chipTempUpdated(float tempC, uint8_t valid);
+
     virtual ~HomeScreenPresenter() {}
 
 private:

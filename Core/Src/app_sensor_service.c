@@ -100,14 +100,14 @@ static uint16_t SensorService_FilterEcg(uint16_t raw)
     return averaged;
 }
 
-static uint16_t ReadAdcChannel(uint32_t channel)
+static uint16_t ReadAdcChannelWithSampleTime(uint32_t channel, uint32_t samplingTime)
 {
     ADC_ChannelConfTypeDef sConfig = {0};
     uint16_t value = 0;
 
     sConfig.Channel = channel;
     sConfig.Rank = 1;
-    sConfig.SamplingTime = ADC_SAMPLETIME_144CYCLES;
+    sConfig.SamplingTime = samplingTime;
 
     if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
     {
@@ -126,6 +126,31 @@ static uint16_t ReadAdcChannel(uint32_t channel)
 
     HAL_ADC_Stop(&hadc1);
     return value;
+}
+
+static uint16_t ReadAdcChannel(uint32_t channel)
+{
+    return ReadAdcChannelWithSampleTime(channel, ADC_SAMPLETIME_144CYCLES);
+}
+
+#define SENSOR_TEMP_V25        0.76f
+#define SENSOR_TEMP_AVG_SLOPE  0.0025f
+#define SENSOR_TEMP_PERIOD_MS  1000U
+
+static void SensorService_UpdateChipTemp(void)
+{
+    uint16_t raw;
+    float vsense;
+    float tempC;
+
+    raw = ReadAdcChannelWithSampleTime(ADC_CHANNEL_TEMPSENSOR, ADC_SAMPLETIME_480CYCLES);
+    vsense = ((float)raw * 3.3f) / 4095.0f;
+    tempC = ((vsense - SENSOR_TEMP_V25) / SENSOR_TEMP_AVG_SLOPE) + 25.0f;
+
+    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    g_sensorData.chipTempC = tempC;
+    g_sensorData.chipTempValid = 1U;
+    osMutexRelease(Group05_SensMtx);
 }
 
 void SensorService_Init(void)
@@ -397,6 +422,7 @@ void SensorService_Task(void *argument)
     uint32_t lastEcg = 0;
     uint32_t lastPressure = 0;
     uint32_t lastPulse = 0;
+		uint32_t lastChipTemp = 0;
 
     SensorService_Init();
 
@@ -406,6 +432,12 @@ void SensorService_Task(void *argument)
         SensorData_t snapshot;
 
         SensorService_GetData(&snapshot);
+
+        if ((now - lastChipTemp) >= SENSOR_TEMP_PERIOD_MS)
+        {
+            lastChipTemp = now;
+            SensorService_UpdateChipTemp();
+        }
 
         if ((snapshot.ecgRunning != 0U) && ((now - lastEcg) >= SENSOR_ECG_SAMPLE_PERIOD_MS))
         {

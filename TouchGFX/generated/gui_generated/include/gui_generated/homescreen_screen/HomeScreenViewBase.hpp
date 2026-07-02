@@ -11,6 +11,7 @@
 #include <touchgfx/widgets/Button.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/Image.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 
 class HomeScreenViewBase : public touchgfx::View<HomeScreenPresenter>
 {
@@ -47,6 +48,7 @@ protected:
     touchgfx::Button bpButton;
     touchgfx::TextArea textAreaBP;
     touchgfx::Image image1;
+    touchgfx::TextAreaWithOneWildcard txtChipTemp;
 
 private:
 

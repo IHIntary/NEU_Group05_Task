@@ -32,7 +32,7 @@
             "X": 283,
             "Y": 68,
             "Width": 459,
-            "Height": 49,
+            "Height": 48,
             "TextId": "__SingleUse_PC48",
             "TextRotation": "0",
             "AutoSize": true
@@ -54,7 +54,7 @@
             "X": 323,
             "Y": 219,
             "Width": 379,
-            "Height": 39,
+            "Height": 33,
             "TextId": "__SingleUse_9K9T",
             "TextRotation": "0",
             "AutoSize": true
@@ -126,6 +126,20 @@
             "Width": 50,
             "Height": 50,
             "RelativeFilename": "__generated\\icon_theme_images_action_accessible_forward_50_50_000000.svg.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtChipTemp",
+            "X": 399,
+            "Y": 146,
+            "Width": 226,
+            "Height": 31,
+            "TextId": "__SingleUse_XY3W",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "temp"
+            }
           }
         ],
         "Interactions": [

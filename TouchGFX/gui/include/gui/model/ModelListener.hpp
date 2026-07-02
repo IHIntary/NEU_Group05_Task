@@ -17,6 +17,7 @@ public:
     virtual void bpDataUpdated(float pressure, float speed, const char* state, const char* hint,
                                float sbp, float dbp, uint8_t hr, uint8_t valid) {}
     virtual void led0StateUpdated(uint8_t on) {}
+    virtual void chipTempUpdated(float tempC, uint8_t valid) {}
 
     void bind(Model* m)
     {

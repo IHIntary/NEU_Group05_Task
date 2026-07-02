@@ -31,6 +31,9 @@ typedef struct
     uint8_t pulseDone;
 
     uint8_t max30102Ready;
+
+    float chipTempC;
+    uint8_t chipTempValid;
 } SensorData_t;
 
 void SensorService_Init(void);

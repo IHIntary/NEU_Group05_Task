@@ -65,6 +65,14 @@ HomeScreenViewBase::HomeScreenViewBase() :
     image1.setXY(233, 66);
     image1.setBitmap(touchgfx::Bitmap(BITMAP_ICON_THEME_IMAGES_ACTION_ACCESSIBLE_FORWARD_50_50_000000_SVG_ID));
     add(image1);
+
+    txtChipTemp.setXY(399, 146);
+    txtChipTemp.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    txtChipTemp.setLinespacing(0);
+    txtChipTemp.setWildcard(touchgfx::TypedText(T_TEMP).getText());
+    txtChipTemp.resizeToCurrentText();
+    txtChipTemp.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XY3W));
+    add(txtChipTemp);
 }
 
 HomeScreenViewBase::~HomeScreenViewBase()

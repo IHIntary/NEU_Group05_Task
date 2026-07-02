@@ -48,51 +48,54 @@ void Model::tick()
     notifyLed0IfChanged();
     BP_Service_Tick();
 
-    if ((modelListener != 0) &&
-        ((ecgNotificationsEnabled != 0U) ||
-         (pressureNotificationsEnabled != 0U) ||
-         (pulseNotificationsEnabled != 0U) ||
-         (bpNotificationsEnabled != 0U)))
+    if (modelListener != 0)
     {
         SensorData_t data;
         SensorService_GetData(&data);
+        modelListener->chipTempUpdated(data.chipTempC, data.chipTempValid);
 
-        AppAlarmInput_t alarmInput;
-        alarmInput.sensor = data;
-        alarmInput.bpState = BP_Service_GetState();
-        alarmInput.bpPressure = BP_Service_GetPressure();
-        alarmInput.bpDeflateSpeed = BP_Service_GetDeflateSpeed();
-        alarmInput.bpSbp = BP_Service_GetSBP();
-        alarmInput.bpDbp = BP_Service_GetDBP();
-        alarmInput.bpHr = BP_Service_GetHR();
-        alarmInput.bpResultValid = BP_Service_IsResultValid();
-        AppAlarm_Update(&alarmInput);
-
-        if (ecgNotificationsEnabled != 0U)
+        if ((ecgNotificationsEnabled != 0U) ||
+            (pressureNotificationsEnabled != 0U) ||
+            (pulseNotificationsEnabled != 0U) ||
+            (bpNotificationsEnabled != 0U))
         {
-            modelListener->ecgDataUpdated(data.ecgRaw, data.ecgFiltered, data.ecgLeadsOff, data.ecgRunning);
-        }
+            AppAlarmInput_t alarmInput;
+            alarmInput.sensor = data;
+            alarmInput.bpState = BP_Service_GetState();
+            alarmInput.bpPressure = BP_Service_GetPressure();
+            alarmInput.bpDeflateSpeed = BP_Service_GetDeflateSpeed();
+            alarmInput.bpSbp = BP_Service_GetSBP();
+            alarmInput.bpDbp = BP_Service_GetDBP();
+            alarmInput.bpHr = BP_Service_GetHR();
+            alarmInput.bpResultValid = BP_Service_IsResultValid();
+            AppAlarm_Update(&alarmInput);
 
-        if (pressureNotificationsEnabled != 0U)
-        {
-            modelListener->pressureDataUpdated(data.pressureRaw, data.pressureMmHgTenths, data.pressureRunning);
-        }
+            if (ecgNotificationsEnabled != 0U)
+            {
+                modelListener->ecgDataUpdated(data.ecgRaw, data.ecgFiltered, data.ecgLeadsOff, data.ecgRunning);
+            }
 
-        if (pulseNotificationsEnabled != 0U)
-        {
-            modelListener->pulseDataUpdated(data.ppgIr, data.ppgRed, data.heartRate, data.spo2, data.pulseProgressPercent);
-        }
+            if (pressureNotificationsEnabled != 0U)
+            {
+                modelListener->pressureDataUpdated(data.pressureRaw, data.pressureMmHgTenths, data.pressureRunning);
+            }
 
-        if (bpNotificationsEnabled != 0U)
-        {
-            modelListener->bpDataUpdated(BP_Service_GetPressure(),
-                                         BP_Service_GetDeflateSpeed(),
-                                         BP_Service_GetStateText(),
-                                         BP_Service_GetHintText(),
-                                         alarmInput.bpSbp,
-                                         alarmInput.bpDbp,
-                                         alarmInput.bpHr,
-                                         alarmInput.bpResultValid);
+            if (pulseNotificationsEnabled != 0U)
+            {
+                modelListener->pulseDataUpdated(data.ppgIr, data.ppgRed, data.heartRate, data.spo2, data.pulseProgressPercent);
+            }
+
+            if (bpNotificationsEnabled != 0U)
+            {
+                modelListener->bpDataUpdated(BP_Service_GetPressure(),
+                                             BP_Service_GetDeflateSpeed(),
+                                             BP_Service_GetStateText(),
+                                             BP_Service_GetHintText(),
+                                             alarmInput.bpSbp,
+                                             alarmInput.bpDbp,
+                                             alarmInput.bpHr,
+                                             alarmInput.bpResultValid);
+            }
         }
     }
 }
