@@ -34,6 +34,10 @@ public:
     {
         // Override and implement this function in BloodPressureScreen
     }
+    virtual void unitToggleClicked()
+    {
+        // Override and implement this function in BloodPressureScreen
+    }
 
 protected:
     FrontendApplication& application() {
@@ -63,6 +67,8 @@ protected:
     touchgfx::GraphWrapAndClear<100> BPgraph;
     touchgfx::GraphElementLine BPgraphLine1;
     touchgfx::PainterRGB565 BPgraphLine1Painter;
+    touchgfx::Button btnUnitToggle;
+    touchgfx::TextArea textArea1;
 
 private:
 

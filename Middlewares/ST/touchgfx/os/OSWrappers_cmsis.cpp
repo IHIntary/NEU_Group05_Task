@@ -8,8 +8,8 @@
 
 using namespace touchgfx;
 
-static osSemaphoreId Group05_FBSem = 0;
-static osMessageQId Group05_VSyncQ = 0;
+static osSemaphoreId frame_buffer_sem = 0;
+static osMessageQId vsync_queue = 0;
 
 // Just a dummy value to insert in the VSYNC queue.
 static uint32_t dummy = 0x5a;
@@ -17,56 +17,56 @@ static uint32_t dummy = 0x5a;
 void OSWrappers::initialize()
 {
     // Create a queue of length 1
-    osSemaphoreDef(Group05_FBSem);
-    Group05_FBSem = osSemaphoreCreate(osSemaphore(Group05_FBSem), 1); // Binary semaphore
-    osSemaphoreWait(Group05_FBSem, osWaitForever); // take the lock
+    osSemaphoreDef(frame_buffer_sem);
+    frame_buffer_sem = osSemaphoreCreate(osSemaphore(frame_buffer_sem), 1); // Binary semaphore
+    osSemaphoreWait(frame_buffer_sem, osWaitForever); // take the lock
 
     // Create a queue of length 1
-    osMessageQDef(Group05_VSyncQ, 1, uint32_t);
-    Group05_VSyncQ = osMessageCreate(osMessageQ(Group05_VSyncQ),NULL);
+    osMessageQDef(vsync_queue, 1, uint32_t);
+    vsync_queue = osMessageCreate(osMessageQ(vsync_queue),NULL);
 }
 
 void OSWrappers::takeFrameBufferSemaphore()
 {
-    assert(Group05_FBSem);
-    osSemaphoreWait(Group05_FBSem, osWaitForever);
+    assert(frame_buffer_sem);
+    osSemaphoreWait(frame_buffer_sem, osWaitForever);
 }
 
 void OSWrappers::giveFrameBufferSemaphore()
 {
-    assert(Group05_FBSem);
-    osSemaphoreRelease(Group05_FBSem);
+    assert(frame_buffer_sem);
+    osSemaphoreRelease(frame_buffer_sem);
 }
 
 void OSWrappers::tryTakeFrameBufferSemaphore()
 {
-    assert(Group05_FBSem);
-    osSemaphoreWait(Group05_FBSem, 0);
+    assert(frame_buffer_sem);
+    osSemaphoreWait(frame_buffer_sem, 0);
 }
 
 void OSWrappers::giveFrameBufferSemaphoreFromISR()
 {
-    assert(Group05_FBSem);
-    osSemaphoreRelease(Group05_FBSem);
+    assert(frame_buffer_sem);
+    osSemaphoreRelease(frame_buffer_sem);
 }
 
 void OSWrappers::signalVSync()
 {
-    if (Group05_VSyncQ)
+    if (vsync_queue)
     {
-        osMessagePut(Group05_VSyncQ, dummy, 0);
+        osMessagePut(vsync_queue, dummy, 0);
     }
 }
 
 void OSWrappers::waitForVSync()
 {
-    if (Group05_VSyncQ)
+    if (vsync_queue)
     {
         // First make sure the queue is empty, by trying to remove an element with 0 timeout.
-        osMessageGet(Group05_VSyncQ, 0);
+        osMessageGet(vsync_queue, 0);
 
         // Then, wait for next VSYNC to occur.
-        osMessageGet(Group05_VSyncQ, osWaitForever);
+        osMessageGet(vsync_queue, osWaitForever);
     }
 }
 

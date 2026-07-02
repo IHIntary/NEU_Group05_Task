@@ -17,6 +17,8 @@ public:
     virtual void startBPClicked();
     virtual void resetBPClicked();
 
+    virtual void unitToggleClicked();
+
     void updatePressure(float pressure);
     void updateSpeed(float speed);
     void updateState(const char* state);
@@ -25,15 +27,23 @@ public:
     void clearBPGraph();
     void addBPGraphPoint(float pressure);
 protected:
-    static const uint16_t PRESSURE_SIZE = 16;
-    static const uint16_t SPEED_SIZE = 16;
+    static const uint16_t PRESSURE_SIZE = 24;
+    static const uint16_t SPEED_SIZE = 24;
     static const uint16_t STATE_SIZE = 16;
     static const uint16_t HINT_SIZE = 32;
-    static const uint16_t RESULT_SIZE = 12;
+    static const uint16_t RESULT_SIZE = 24;
 
     int lastPressureValue;
     int lastSpeedTenths;
     char lastStateText[STATE_SIZE];
+
+    uint8_t displayPa;
+    float lastPressureMmHg;
+    float lastSpeedMmHg;
+    float lastSbpMmHg;
+    float lastDbpMmHg;
+    uint8_t lastHr;
+    uint8_t lastResultValid;
 
     touchgfx::Unicode::UnicodeChar pressureBuffer[PRESSURE_SIZE];
     touchgfx::Unicode::UnicodeChar speedBuffer[SPEED_SIZE];

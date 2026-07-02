@@ -8,31 +8,31 @@
 
 using namespace touchgfx;
 
-static xSemaphoreHandle Group05_FBSem;
-static xQueueHandle Group05_VSyncQ = 0;
+static xSemaphoreHandle frame_buffer_sem;
+static xQueueHandle vsync_q = 0;
 
 // Just a dummy value to insert in the VSYNC queue.
 static uint8_t dummy = 0x5a;
 
 void OSWrappers::initialize()
 {
-    vSemaphoreCreateBinary(Group05_FBSem);
+    vSemaphoreCreateBinary(frame_buffer_sem);
     // Create a queue of length 1
-    Group05_VSyncQ = xQueueGenericCreate(1, 1, 0);
+    vsync_q = xQueueGenericCreate(1, 1, 0);
 }
 
 void OSWrappers::takeFrameBufferSemaphore()
 {
-    xSemaphoreTake(Group05_FBSem, portMAX_DELAY);
+    xSemaphoreTake(frame_buffer_sem, portMAX_DELAY);
 }
 void OSWrappers::giveFrameBufferSemaphore()
 {
-    xSemaphoreGive(Group05_FBSem);
+    xSemaphoreGive(frame_buffer_sem);
 }
 
 void OSWrappers::tryTakeFrameBufferSemaphore()
 {
-    xSemaphoreTake(Group05_FBSem, 0);
+    xSemaphoreTake(frame_buffer_sem, 0);
 }
 
 void OSWrappers::giveFrameBufferSemaphoreFromISR()
@@ -40,18 +40,18 @@ void OSWrappers::giveFrameBufferSemaphoreFromISR()
     // Since this is called from an interrupt, FreeRTOS requires special handling to trigger a
     // re-scheduling. May be applicable for other OSes as well.
     portBASE_TYPE px = pdFALSE;
-    xSemaphoreGiveFromISR(Group05_FBSem, &px);
+    xSemaphoreGiveFromISR(frame_buffer_sem, &px);
     portEND_SWITCHING_ISR(px);
 }
 
 void OSWrappers::signalVSync()
 {
-    if (Group05_VSyncQ)
+    if (vsync_q)
     {
         // Since this is called from an interrupt, FreeRTOS requires special handling to trigger a
         // re-scheduling. May be applicable for other OSes as well.
         portBASE_TYPE px = pdFALSE;
-        xQueueSendFromISR(Group05_VSyncQ, &dummy, &px);
+        xQueueSendFromISR(vsync_q, &dummy, &px);
         portEND_SWITCHING_ISR(px);
     }
 }
@@ -59,10 +59,10 @@ void OSWrappers::signalVSync()
 void OSWrappers::waitForVSync()
 {
     // First make sure the queue is empty, by trying to remove an element with 0 timeout.
-    xQueueReceive(Group05_VSyncQ, &dummy, 0);
+    xQueueReceive(vsync_q, &dummy, 0);
 
     // Then, wait for next VSYNC to occur.
-    xQueueReceive(Group05_VSyncQ, &dummy, portMAX_DELAY);
+    xQueueReceive(vsync_q, &dummy, portMAX_DELAY);
 }
 
 void OSWrappers::taskDelay(uint16_t ms)

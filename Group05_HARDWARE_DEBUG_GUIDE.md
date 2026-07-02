@@ -11,7 +11,7 @@
 | 封装 | LQFP176 |
 | 工具链 | MDK-ARM V5.32 |
 | CubeMX 文件 | `NEU_Group05_Task.ioc` |
-| TouchGFX 文件 | `TouchGFX/Group05.touchgfx` |
+| TouchGFX 文件 | `TouchGFX/NEU_Group05_Task.touchgfx` |
 | UI 框架 | TouchGFX 4.22.0 |
 | RTOS | FreeRTOS CMSIS-RTOS V2 |
 | 屏幕分辨率 | 1024 x 600 |

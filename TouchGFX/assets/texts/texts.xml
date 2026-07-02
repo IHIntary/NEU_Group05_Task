@@ -6,6 +6,9 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_ENQY" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">Switch mmHg / Pa</Translation>
+      </Text>
       <Text Id="__SingleUse_K72T" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">LED0</Translation>
       </Text>
@@ -46,10 +49,10 @@
         <Translation Language="GB">Blood Pressure Monitor</Translation>
       </Text>
       <Text Id="__SingleUse_BP_PRESSURE" Alignment="Left" TypographyId="Typography_03">
-        <Translation Language="GB">Pressure: &lt;pressure&gt; mmHg</Translation>
+        <Translation Language="GB">Pressure: &lt;pressure&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_BP_SPEED" Alignment="Left" TypographyId="Typography_03">
-        <Translation Language="GB">Speed: &lt;speed&gt; mmHg/s</Translation>
+        <Translation Language="GB">Speed: &lt;speed&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_BP_STATE" Alignment="Left" TypographyId="Typography_03">
         <Translation Language="GB">State: &lt;state&gt;</Translation>
@@ -58,10 +61,10 @@
         <Translation Language="GB">Hint: &lt;hint&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_BP_SBP" Alignment="Left" TypographyId="Typography_03">
-        <Translation Language="GB">SBP: &lt;sbp&gt; mmHg</Translation>
+        <Translation Language="GB">SBP: &lt;sbp&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_BP_DBP" Alignment="Left" TypographyId="Typography_03">
-        <Translation Language="GB">DBP: &lt;dbp&gt; mmHg</Translation>
+        <Translation Language="GB">DBP: &lt;dbp&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_BP_HR" Alignment="Left" TypographyId="Typography_03">
         <Translation Language="GB">HR: &lt;hr&gt; bpm</Translation>
