@@ -1010,6 +1010,28 @@
                 }
               }
             ]
+          },
+          {
+            "Type": "Button",
+            "Name": "btnUnitToggle",
+            "X": 537,
+            "Y": 24,
+            "Width": 110,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_tiny_round_disabled.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_tiny_round_disabled.png",
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\tiny_round_disabled.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 672,
+            "Y": 34,
+            "Width": 242,
+            "Height": 31,
+            "TextId": "__SingleUse_ENQY",
+            "TextRotation": "0",
+            "AutoSize": true
           }
         ],
         "Interactions": [
@@ -1045,6 +1067,17 @@
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "HomeScreen"
+            }
+          },
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btnUnitToggle"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "unitToggleClicked"
             }
           }
         ]

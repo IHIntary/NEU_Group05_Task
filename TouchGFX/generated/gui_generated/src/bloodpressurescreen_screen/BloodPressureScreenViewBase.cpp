@@ -226,6 +226,17 @@ BloodPressureScreenViewBase::BloodPressureScreenViewBase() :
     BPgraph.addDataPoint(230.04177f);
     BPgraph.addDataPoint(245.71752f);
     add(BPgraph);
+
+    btnUnitToggle.setXY(537, 24);
+    btnUnitToggle.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_TINY_ROUND_DISABLED_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_TINY_ROUND_DISABLED_ID));
+    btnUnitToggle.setAction(buttonCallback);
+    add(btnUnitToggle);
+
+    textArea1.setXY(672, 34);
+    textArea1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    textArea1.setLinespacing(0);
+    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_ENQY));
+    add(textArea1);
 }
 
 BloodPressureScreenViewBase::~BloodPressureScreenViewBase()
@@ -260,5 +271,12 @@ void BloodPressureScreenViewBase::buttonCallbackHandler(const touchgfx::Abstract
         //When btnHome clicked change screen to HomeScreen
         //Go to HomeScreen with no screen transition
         application().gotoHomeScreenScreenNoTransition();
+    }
+    if (&src == &btnUnitToggle)
+    {
+        //Interaction1
+        //When btnUnitToggle clicked call virtual function
+        //Call unitToggleClicked
+        unitToggleClicked();
     }
 }

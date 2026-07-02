@@ -21,9 +21,20 @@ static void copyAscii(touchgfx::Unicode::UnicodeChar* dst, uint16_t size, const 
     dst[i] = 0U;
 }
 
-BloodPressureScreenView::BloodPressureScreenView()
+static float mmHgToPa(float mmHg)
 {
+    return mmHg * 133.322f;
+}
 
+BloodPressureScreenView::BloodPressureScreenView()
+    : displayPa(0U),
+      lastPressureMmHg(0.0f),
+      lastSpeedMmHg(0.0f),
+      lastSbpMmHg(0.0f),
+      lastDbpMmHg(0.0f),
+      lastHr(0U),
+      lastResultValid(0U)
+{
 }
 
 void BloodPressureScreenView::setupScreen()
@@ -65,21 +76,46 @@ void BloodPressureScreenView::resetBPClicked()
     presenter->resetBPMeasure();
 }
 
+void BloodPressureScreenView::unitToggleClicked()
+{
+    displayPa = (displayPa == 0U) ? 1U : 0U;
+
+    lastPressureValue = -1;
+    lastSpeedTenths = -1;
+
+    updatePressure(lastPressureMmHg);
+    updateSpeed(lastSpeedMmHg);
+    updateResult(lastSbpMmHg, lastDbpMmHg, lastHr, lastResultValid);
+}
+
 void BloodPressureScreenView::updatePressure(float pressure)
 {
-    int value = (int)(pressure + 0.5f);
-    if (value < 0)
+    int value;
+
+    if (pressure < 0.0f)
     {
-        value = 0;
+        pressure = 0.0f;
+    }
+
+    lastPressureMmHg = pressure;
+
+    if (displayPa != 0U)
+    {
+        value = (int)(mmHgToPa(pressure) + 0.5f);
+        touchgfx::Unicode::snprintf(pressureBuffer, PRESSURE_SIZE, "%d Pa", value);
+    }
+    else
+    {
+        value = (int)(pressure + 0.5f);
+        touchgfx::Unicode::snprintf(pressureBuffer, PRESSURE_SIZE, "%03d mmHg", value);
     }
 
     if (value == lastPressureValue)
     {
         return;
     }
-    lastPressureValue = value;
 
-    touchgfx::Unicode::snprintf(pressureBuffer, PRESSURE_SIZE, "%03d", value);
+    lastPressureValue = value;
     txtPressure.invalidate();
 }
 
@@ -92,14 +128,25 @@ void BloodPressureScreenView::updateSpeed(float speed)
         speed = 0.0f;
     }
 
-    tenths = (int)((speed * 10.0f) + 0.5f);
+    lastSpeedMmHg = speed;
+
+    if (displayPa != 0U)
+    {
+        tenths = (int)((mmHgToPa(speed) * 10.0f) + 0.5f);
+        touchgfx::Unicode::snprintf(speedBuffer, SPEED_SIZE, "%d.%d Pa/s", tenths / 10, tenths % 10);
+    }
+    else
+    {
+        tenths = (int)((speed * 10.0f) + 0.5f);
+        touchgfx::Unicode::snprintf(speedBuffer, SPEED_SIZE, "%d.%d mmHg/s", tenths / 10, tenths % 10);
+    }
+
     if (tenths == lastSpeedTenths)
     {
         return;
     }
-    lastSpeedTenths = tenths;
 
-    touchgfx::Unicode::snprintf(speedBuffer, SPEED_SIZE, "%d.%d", tenths / 10, tenths % 10);
+    lastSpeedTenths = tenths;
     txtSpeed.invalidate();
 }
 
@@ -149,16 +196,39 @@ void BloodPressureScreenView::updateHint(const char* hint)
 
 void BloodPressureScreenView::updateResult(float sbp, float dbp, uint8_t hr, uint8_t valid)
 {
+    lastSbpMmHg = sbp;
+    lastDbpMmHg = dbp;
+    lastHr = hr;
+    lastResultValid = valid;
+
     if (valid != 0U)
     {
-        touchgfx::Unicode::snprintf(sbpBuffer, RESULT_SIZE, "%03d", (int)(sbp + 0.5f));
-        touchgfx::Unicode::snprintf(dbpBuffer, RESULT_SIZE, "%03d", (int)(dbp + 0.5f));
+        if (displayPa != 0U)
+        {
+            touchgfx::Unicode::snprintf(sbpBuffer, RESULT_SIZE, "%d Pa", (int)(mmHgToPa(sbp) + 0.5f));
+            touchgfx::Unicode::snprintf(dbpBuffer, RESULT_SIZE, "%d Pa", (int)(mmHgToPa(dbp) + 0.5f));
+        }
+        else
+        {
+            touchgfx::Unicode::snprintf(sbpBuffer, RESULT_SIZE, "%03d mmHg", (int)(sbp + 0.5f));
+            touchgfx::Unicode::snprintf(dbpBuffer, RESULT_SIZE, "%03d mmHg", (int)(dbp + 0.5f));
+        }
+
         touchgfx::Unicode::snprintf(hrBuffer, RESULT_SIZE, "%03u", (unsigned int)hr);
     }
     else
     {
-        touchgfx::Unicode::snprintf(sbpBuffer, RESULT_SIZE, "000");
-        touchgfx::Unicode::snprintf(dbpBuffer, RESULT_SIZE, "000");
+        if (displayPa != 0U)
+        {
+            touchgfx::Unicode::snprintf(sbpBuffer, RESULT_SIZE, "0 Pa");
+            touchgfx::Unicode::snprintf(dbpBuffer, RESULT_SIZE, "0 Pa");
+        }
+        else
+        {
+            touchgfx::Unicode::snprintf(sbpBuffer, RESULT_SIZE, "000 mmHg");
+            touchgfx::Unicode::snprintf(dbpBuffer, RESULT_SIZE, "000 mmHg");
+        }
+
         touchgfx::Unicode::snprintf(hrBuffer, RESULT_SIZE, "000");
     }
 
