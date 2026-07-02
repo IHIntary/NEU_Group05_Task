@@ -1,0 +1,2 @@
+group05\image_clay_theme_images_widgets_button_regular_height_36_large_rounded_disabled.o: ../touchgfx/generated/images/src/__generated/image_clay_theme_images_widgets_button_regular_height_36_large_rounded_disabled.cpp
+group05\image_clay_theme_images_widgets_button_regular_height_36_large_rounded_disabled.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Config.hpp

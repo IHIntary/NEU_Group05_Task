@@ -1,0 +1,10 @@
+group05\stm32dma.o: ../TouchGFX/target/generated/STM32DMA.cpp
+group05\stm32dma.o: ../TouchGFX/target/generated/STM32DMA.hpp
+group05\stm32dma.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/BlitOp.hpp
+group05\stm32dma.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Types.hpp
+group05\stm32dma.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
+group05\stm32dma.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+group05\stm32dma.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Config.hpp
+group05\stm32dma.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/DMA.hpp
+group05\stm32dma.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Atomic.hpp
+group05\stm32dma.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h

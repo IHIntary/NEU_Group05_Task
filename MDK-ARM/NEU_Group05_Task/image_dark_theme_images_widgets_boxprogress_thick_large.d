@@ -1,0 +1,2 @@
+neu_group05_task\image_dark_theme_images_widgets_boxprogress_thick_large.o: ../touchgfx/generated/images/src/__generated/image_dark_theme_images_widgets_boxprogress_thick_large.cpp
+neu_group05_task\image_dark_theme_images_widgets_boxprogress_thick_large.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Config.hpp

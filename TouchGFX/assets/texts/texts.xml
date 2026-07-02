@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="texts.xsd" Version="4.22.0">
+  <Languages>
+    <Language Id="GB" />
+  </Languages>
+  <Texts>
+    <TextGroup Id="Group1" />
+    <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_K72T" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">LED0</Translation>
+      </Text>
+      <Text Id="__SingleUse_08OS" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">LED1</Translation>
+      </Text>
+      <Text Id="__SingleUse_75JD" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">RESET</Translation>
+      </Text>
+      <Text Id="__SingleUse_5UN1" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">HOME</Translation>
+      </Text>
+      <Text Id="__SingleUse_BT0V" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">STOP</Translation>
+      </Text>
+      <Text Id="__SingleUse_57W8" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">START</Translation>
+      </Text>
+      <Text Id="__SingleUse_8TOQ" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">HOME</Translation>
+      </Text>
+      <Text Id="__SingleUse_WENI" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">STOP</Translation>
+      </Text>
+      <Text Id="__SingleUse_PGQT" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">START</Translation>
+      </Text>
+      <Text Id="__SingleUse_5UE2" Alignment="Left" TypographyId="Typography_01">
+        <Translation Language="GB">Pulse monitor</Translation>
+      </Text>
+      <Text Id="__SingleUse_OMPN" Alignment="Left" TypographyId="Typography_01">
+        <Translation Language="GB">ECG monitor</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_HOME" Alignment="Left" TypographyId="Typography_01">
+        <Translation Language="GB">BP monitor</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_TITLE" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">Blood Pressure Monitor</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_PRESSURE" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">Pressure: &lt;pressure&gt; mmHg</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_SPEED" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">Speed: &lt;speed&gt; mmHg/s</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_STATE" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">State: &lt;state&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_HINT" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">Hint: &lt;hint&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_SBP" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">SBP: &lt;sbp&gt; mmHg</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_DBP" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">DBP: &lt;dbp&gt; mmHg</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_HR" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">HR: &lt;hr&gt; bpm</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_PRESSURE_W" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">000</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_SPEED_W" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_STATE_W" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">IDLE</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_HINT_W" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">Press START</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_SBP_W" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">000</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_DBP_W" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">000</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_HR_W" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">000</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_START" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">START</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_RESET" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">RESET</Translation>
+      </Text>
+      <Text Id="__SingleUse_BP_HOME_BTN" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">HOME</Translation>
+      </Text>
+      <Text Id="__SingleUse_JBU6" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="__SingleUse_61WN" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="__SingleUse_S49V" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="__SingleUse_G3YR" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="__SingleUse_FSTJ" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="spo2TextBuffer" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="__SingleUse_FI0G" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">RED: &lt;red&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_PAUF" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">IR: &lt;ir&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_LE66" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">HR: &lt;hr&gt; bpm</Translation>
+      </Text>
+      <Text Id="__SingleUse_KKU4" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">SpO2: &lt;spo2&gt;%</Translation>
+      </Text>
+      <Text Id="__SingleUse_Z8F7" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="__SingleUse_P0RO" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">SpO2 and Heart Rate</Translation>
+      </Text>
+      <Text Id="__SingleUse_IV1H" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">LEADS OFF</Translation>
+      </Text>
+      <Text Id="__SingleUse_HLD3" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">RAW: &lt;raw&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_3AVM" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="__SingleUse_9K9T" Alignment="Left" TypographyId="Typography_02">
+        <Translation Language="GB">Select a function</Translation>
+      </Text>
+      <Text Id="__SingleUse_PC48" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">Health Monitor System</Translation>
+      </Text>
+      <Text Id="__SingleUse_N8L6" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">ECG Measurement</Translation>
+      </Text>
+    </TextGroup>
+  </Texts>
+  <Typographies>
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz :./%bpmHg" />
+    <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz :./%bpmHg" />
+    <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz :./%bpmHg" />
+    <Typography Id="Typography_00" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz :./%bpmHg" />
+    <Typography Id="Typography_01" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Typography_02" Font="vinet.ttf" Size="29" Bpp="4" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Typography_03" Font="verdana.ttf" Size="26" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz _.:/-%bpmHg" />
+  </Typographies>
+</TextDatabase>

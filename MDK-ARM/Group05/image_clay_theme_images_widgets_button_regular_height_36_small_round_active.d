@@ -1,0 +1,2 @@
+group05\image_clay_theme_images_widgets_button_regular_height_36_small_round_active.o: ../touchgfx/generated/images/src/__generated/image_clay_theme_images_widgets_button_regular_height_36_small_round_active.cpp
+group05\image_clay_theme_images_widgets_button_regular_height_36_small_round_active.o: ../middlewares/st/touchgfx/framework/include/touchgfx/hal/Config.hpp

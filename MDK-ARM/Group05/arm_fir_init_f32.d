@@ -1,0 +1,16 @@
+group05\arm_fir_init_f32.o: ..\Drivers\CMSIS\DSP\Source\FilteringFunctions\arm_fir_init_f32.c
+group05\arm_fir_init_f32.o: ../Drivers/CMSIS/DSP/Include/dsp/filtering_functions.h
+group05\arm_fir_init_f32.o: ../Drivers/CMSIS/DSP/Include/arm_math_types.h
+group05\arm_fir_init_f32.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+group05\arm_fir_init_f32.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+group05\arm_fir_init_f32.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+group05\arm_fir_init_f32.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+group05\arm_fir_init_f32.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+group05\arm_fir_init_f32.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
+group05\arm_fir_init_f32.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+group05\arm_fir_init_f32.o: ../Drivers/CMSIS/DSP/Include/arm_math_memory.h
+group05\arm_fir_init_f32.o: ../Drivers/CMSIS/DSP/Include/dsp/none.h
+group05\arm_fir_init_f32.o: ../Drivers/CMSIS/DSP/Include/dsp/utils.h
+group05\arm_fir_init_f32.o: ../Drivers/CMSIS/DSP/Include/dsp/support_functions.h
+group05\arm_fir_init_f32.o: ../Drivers/CMSIS/DSP/Include/dsp/fast_math_functions.h
+group05\arm_fir_init_f32.o: ../Drivers/CMSIS/DSP/Include/dsp/basic_math_functions.h
