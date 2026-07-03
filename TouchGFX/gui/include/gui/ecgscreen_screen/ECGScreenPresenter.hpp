@@ -28,11 +28,8 @@ public:
     void startECG();
     void pauseECG();
     void resetECG();
-    void toggleLED0();
-    void toggleLED1();
 
     virtual void ecgDataUpdated(uint16_t raw, uint16_t filtered, uint8_t leadsOff, uint8_t running);
-    virtual void led0StateUpdated(uint8_t on);
 
     virtual ~ECGScreenPresenter() {}
 

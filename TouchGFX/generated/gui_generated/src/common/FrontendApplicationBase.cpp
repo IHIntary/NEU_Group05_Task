@@ -17,6 +17,8 @@
 #include <gui/pulsescreen_screen/PulseScreenPresenter.hpp>
 #include <gui/bloodpressurescreen_screen/BloodPressureScreenView.hpp>
 #include <gui/bloodpressurescreen_screen/BloodPressureScreenPresenter.hpp>
+#include <gui/ledscreen_screen/LEDScreenView.hpp>
+#include <gui/ledscreen_screen/LEDScreenPresenter.hpp>
 
 using namespace touchgfx;
 
@@ -97,4 +99,17 @@ void FrontendApplicationBase::gotoBloodPressureScreenScreenSlideTransitionEast()
 void FrontendApplicationBase::gotoBloodPressureScreenScreenSlideTransitionEastImpl()
 {
     touchgfx::makeTransition<BloodPressureScreenView, BloodPressureScreenPresenter, touchgfx::SlideTransition<EAST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// LEDScreen
+
+void FrontendApplicationBase::gotoLEDScreenScreenSlideTransitionEast()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoLEDScreenScreenSlideTransitionEastImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoLEDScreenScreenSlideTransitionEastImpl()
+{
+    touchgfx::makeTransition<LEDScreenView, LEDScreenPresenter, touchgfx::SlideTransition<EAST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

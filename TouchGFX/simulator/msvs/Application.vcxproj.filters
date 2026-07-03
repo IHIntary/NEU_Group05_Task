@@ -220,6 +220,18 @@
     <Filter Include="Header Files\generated\gui_generated\bloodpressurescreen_screen">
       <UniqueIdentifier>2E539AC6-5395-FA43-0C37-45C2D7D0A55D</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gui\ledscreen_screen">
+      <UniqueIdentifier>F1C2A730-FCBD-B46A-B075-5F55C477F422</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\ledscreen_screen">
+      <UniqueIdentifier>58D519D6-4411-A4B3-8278-87AFDF230BB0</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\ledscreen_screen">
+      <UniqueIdentifier>F01F2B37-0DF8-EC0C-AC46-5C87B9505A8B</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\ledscreen_screen">
+      <UniqueIdentifier>9D91F94B-4BD3-F44B-9155-478E4C5E7FA9</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -287,6 +299,15 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\bloodpressurescreen_screen\BloodPressureScreenViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\bloodpressurescreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\ledscreen_screen\LEDScreenPresenter.cpp">
+      <Filter>Source Files\gui\ledscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\ledscreen_screen\LEDScreenView.cpp">
+      <Filter>Source Files\gui\ledscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\ledscreen_screen\LEDScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\ledscreen_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -765,6 +786,15 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\bloodpressurescreen_screen\BloodPressureScreenViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\bloodpressurescreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\ledscreen_screen\LEDScreenPresenter.hpp">
+      <Filter>Header Files\gui\ledscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\ledscreen_screen\LEDScreenView.hpp">
+      <Filter>Header Files\gui\ledscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\ledscreen_screen\LEDScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\ledscreen_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

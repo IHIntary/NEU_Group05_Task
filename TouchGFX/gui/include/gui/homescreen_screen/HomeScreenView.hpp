@@ -13,9 +13,11 @@ public:
     virtual ~HomeScreenView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+
     void updateChipTemp(float tempC, uint8_t valid);
 protected:
     static const uint16_t CHIP_TEMP_SIZE = 16;
+
     touchgfx::Unicode::UnicodeChar chipTempBuffer[CHIP_TEMP_SIZE];
 };
 

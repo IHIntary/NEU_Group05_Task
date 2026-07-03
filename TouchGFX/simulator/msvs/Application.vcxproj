@@ -33,6 +33,9 @@
     <ClCompile Include="..\..\gui\src\bloodpressurescreen_screen\BloodPressureScreenPresenter.cpp"/>
     <ClCompile Include="..\..\gui\src\bloodpressurescreen_screen\BloodPressureScreenView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\bloodpressurescreen_screen\BloodPressureScreenViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\ledscreen_screen\LEDScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\ledscreen_screen\LEDScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\ledscreen_screen\LEDScreenViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -195,6 +198,9 @@
     <ClInclude Include="..\..\gui\include\gui\bloodpressurescreen_screen\BloodPressureScreenPresenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\bloodpressurescreen_screen\BloodPressureScreenView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\bloodpressurescreen_screen\BloodPressureScreenViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\ledscreen_screen\LEDScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\ledscreen_screen\LEDScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\ledscreen_screen\LEDScreenViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

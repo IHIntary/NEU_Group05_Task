@@ -6,33 +6,15 @@ extern "C"
 #include "app_sensor_service.h"
 #include "app_alarm_service.h"
 #include "app_buzzer_service.h"
+#include "app_light_service.h"
 #include "bp_service.h"
 #include "main.h"
 }
 
-#define LED_ON_STATE  GPIO_PIN_RESET
-#define LED_OFF_STATE GPIO_PIN_SET
-
-static void setLed0(uint8_t on)
-{
-    HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, on ? LED_ON_STATE : LED_OFF_STATE);
-}
-
-static uint8_t isLed1On()
-{
-    return (HAL_GPIO_ReadPin(LED1_GPIO_Port, LED1_Pin) == LED_ON_STATE) ? 1U : 0U;
-}
-
-static void setLed1(uint8_t on)
-{
-    HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, on ? LED_ON_STATE : LED_OFF_STATE);
-}
-
 Model::Model()
     : modelListener(0),
-      lastKey0Pressed(0),
-      key0StableTicks(0),
-      lastNotifiedLed0On(0xFFU),
+      lastKey2Pressed(0),
+      key2StableTicks(0),
       ecgNotificationsEnabled(0U),
       pressureNotificationsEnabled(0U),
       pulseNotificationsEnabled(0U),
@@ -40,19 +22,29 @@ Model::Model()
 {
     BP_Service_Init();
     AppAlarm_Init();
+    AppLightService_Init();
 }
 
 void Model::tick()
 {
-    handleKey0();
-    notifyLed0IfChanged();
+    handleKey2();
+    AppLightService_Tick();
     BP_Service_Tick();
 
     if (modelListener != 0)
     {
         SensorData_t data;
+        AppLightStatus_t light;
+
         SensorService_GetData(&data);
+        AppLightService_GetStatus(&light);
+
         modelListener->chipTempUpdated(data.chipTempC, data.chipTempValid);
+        modelListener->lightControlUpdated(light.lightRaw,
+                                           light.threshold,
+                                           light.autoMode,
+                                           light.led0On,
+                                           light.alarmActive);
 
         if ((ecgNotificationsEnabled != 0U) ||
             (pressureNotificationsEnabled != 0U) ||
@@ -149,56 +141,67 @@ void Model::resetBPMeasure()
 
 void Model::toggleLed0()
 {
-    setLed0(isLed0On() == 0U);
-    notifyLed0IfChanged();
+    AppLightService_ToggleLed0Manual();
 }
 
 void Model::toggleLed1()
 {
-    setLed1(isLed1On() == 0U);
+    AppLightService_ToggleAlarmManual();
+}
+
+void Model::toggleLightMode()
+{
+    AppLightService_ToggleMode();
+}
+
+void Model::toggleLed0Manual()
+{
+    AppLightService_ToggleLed0Manual();
+}
+
+void Model::toggleAlarmManual()
+{
+    AppLightService_ToggleAlarmManual();
+}
+
+void Model::toggleAlarmAuto()
+{
+    AppLightService_ToggleAlarmAuto();
+}
+
+void Model::adjustLightThreshold(int16_t delta)
+{
+    AppLightService_AdjustThreshold(delta);
 }
 
 uint8_t Model::isLed0On() const
 {
-    return (HAL_GPIO_ReadPin(LED0_GPIO_Port, LED0_Pin) == LED_ON_STATE) ? 1U : 0U;
+    AppLightStatus_t light;
+    AppLightService_GetStatus(&light);
+    return light.led0On;
 }
 
-void Model::handleKey0()
+void Model::handleKey2()
 {
-    uint8_t key0Pressed = (HAL_GPIO_ReadPin(KEY0_GPIO_Port, KEY0_Pin) == GPIO_PIN_RESET) ? 1U : 0U;
+    uint8_t key2Pressed = (HAL_GPIO_ReadPin(KEY2_GPIO_Port, KEY2_Pin) == GPIO_PIN_RESET) ? 1U : 0U;
 
-    if (key0Pressed != lastKey0Pressed)
+    if (key2Pressed != lastKey2Pressed)
     {
-        key0StableTicks++;
-        if (key0StableTicks >= 2U)
+        key2StableTicks++;
+        if (key2StableTicks >= 2U)
         {
-            lastKey0Pressed = key0Pressed;
-            key0StableTicks = 0U;
+            lastKey2Pressed = key2Pressed;
+            key2StableTicks = 0U;
 
-            if (key0Pressed != 0U)
+            if (key2Pressed != 0U)
             {
-                toggleLed0();
+                AppLightService_HandleKey2Pressed();
             }
         }
     }
     else
     {
-        key0StableTicks = 0U;
+        key2StableTicks = 0U;
     }
 }
 
-void Model::notifyLed0IfChanged()
-{
-    uint8_t on = isLed0On();
-
-    if (on == lastNotifiedLed0On)
-    {
-        return;
-    }
-
-    lastNotifiedLed0On = on;
-    if (modelListener != 0)
-    {
-        modelListener->led0StateUpdated(on);
-    }
-}

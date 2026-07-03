@@ -429,6 +429,11 @@
               <FilePath>..\Core\Src\app_alarm_service.c</FilePath>
             </File>
             <File>
+              <FileName>app_light_service.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\app_light_service.c</FilePath>
+            </File>
+            <File>
               <FileName>buzzer.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Src\buzzer.c</FilePath>
@@ -2930,6 +2935,16 @@
               <FilePath>../touchgfx/gui/src/homescreen_screen/homescreenview.cpp</FilePath>
             </File>
             <File>
+              <FileName>LEDScreenPresenter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/gui/src/ledscreen_screen/ledscreenpresenter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LEDScreenView.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/gui/src/ledscreen_screen/ledscreenview.cpp</FilePath>
+            </File>
+            <File>
               <FileName>Model.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../touchgfx/gui/src/model/model.cpp</FilePath>
@@ -3045,16 +3060,6 @@
               <FilePath>../touchgfx/generated/images/src/__generated/image_alternate_theme_images_widgets_button_regular_height_50_tiny_round_disabled.cpp</FilePath>
             </File>
             <File>
-              <FileName>image_alternate_theme_images_widgets_togglebutton_medium_rounded_off_light.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>../touchgfx/generated/images/src/__generated/image_alternate_theme_images_widgets_togglebutton_medium_rounded_off_light.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>image_alternate_theme_images_widgets_togglebutton_medium_rounded_on_normal.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>../touchgfx/generated/images/src/__generated/image_alternate_theme_images_widgets_togglebutton_medium_rounded_on_normal.cpp</FilePath>
-            </File>
-            <File>
               <FileName>image_clay_theme_images_widgets_button_regular_height_36_large_rounded_action.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../touchgfx/generated/images/src/__generated/image_clay_theme_images_widgets_button_regular_height_36_large_rounded_action.cpp</FilePath>
@@ -3103,6 +3108,11 @@
               <FileName>LanguageGb.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../touchgfx/generated/texts/src/languagegb.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LEDScreenViewBase.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/generated/gui_generated/src/ledscreen_screen/ledscreenviewbase.cpp</FilePath>
             </File>
             <File>
               <FileName>PulseScreenViewBase.cpp</FileName>

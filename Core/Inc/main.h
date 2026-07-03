@@ -59,6 +59,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define GT9XXX_RST_Pin GPIO_PIN_8
 #define GT9XXX_RST_GPIO_Port GPIOI
+#define KEY2_Pin GPIO_PIN_13
+#define KEY2_GPIO_Port GPIOC
 #define WKUP_Pin GPIO_PIN_0
 #define WKUP_GPIO_Port GPIOA
 #define KEY1_Pin GPIO_PIN_2

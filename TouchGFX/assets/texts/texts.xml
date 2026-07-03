@@ -6,6 +6,54 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="alarm" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">OFF</Translation>
+      </Text>
+      <Text Id="__SingleUse_LED_TITLE" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">LED Control</Translation>
+      </Text>
+      <Text Id="__SingleUse_LED_HOME" Alignment="Left" TypographyId="Typography_01">
+        <Translation Language="GB">LED control</Translation>
+      </Text>
+      <Text Id="__SingleUse_LED_MODE_BTN" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">MODE</Translation>
+      </Text>
+      <Text Id="__SingleUse_LED0_BTN" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">LED0</Translation>
+      </Text>
+      <Text Id="__SingleUse_ALARM_BTN" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">LED1</Translation>
+      </Text>
+      <Text Id="__SingleUse_LED_HOME_BTN" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">HOME</Translation>
+      </Text>
+      <Text Id="__SingleUse_5A6Y" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">LED1: &lt;alarm&gt;</Translation>
+      </Text>
+      <Text Id="led0" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">OFF</Translation>
+      </Text>
+      <Text Id="__SingleUse_YB85" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">LED0: &lt;led0&gt;</Translation>
+      </Text>
+      <Text Id="mode" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">AUTO</Translation>
+      </Text>
+      <Text Id="__SingleUse_BV2F" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">Mode: &lt;mode&gt;</Translation>
+      </Text>
+      <Text Id="threshold" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">2000</Translation>
+      </Text>
+      <Text Id="__SingleUse_2EEG" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">Threshold: &lt;threshold&gt;</Translation>
+      </Text>
+      <Text Id="light" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">0000</Translation>
+      </Text>
+      <Text Id="__SingleUse_UOP7" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">Light: &lt;light&gt;</Translation>
+      </Text>
       <Text Id="temp" Alignment="Left" TypographyId="Typography_03">
         <Translation Language="GB">--.-</Translation>
       </Text>
@@ -14,12 +62,6 @@
       </Text>
       <Text Id="__SingleUse_ENQY" Alignment="Left" TypographyId="Typography_03">
         <Translation Language="GB">Switch mmHg / Pa</Translation>
-      </Text>
-      <Text Id="__SingleUse_K72T" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">LED0</Translation>
-      </Text>
-      <Text Id="__SingleUse_08OS" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">LED1</Translation>
       </Text>
       <Text Id="__SingleUse_75JD" Alignment="Left" TypographyId="Typography_03">
         <Translation Language="GB">RESET</Translation>

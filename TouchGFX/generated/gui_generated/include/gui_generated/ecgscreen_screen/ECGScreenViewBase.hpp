@@ -15,7 +15,6 @@
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/Button.hpp>
-#include <touchgfx/widgets/ToggleButton.hpp>
 
 class ECGScreenViewBase : public touchgfx::View<ECGScreenPresenter>
 {
@@ -36,14 +35,6 @@ public:
         // Override and implement this function in ECGScreen
     }
     virtual void resetECG()
-    {
-        // Override and implement this function in ECGScreen
-    }
-    virtual void toggleLED1()
-    {
-        // Override and implement this function in ECGScreen
-    }
-    virtual void toggleLED0()
     {
         // Override and implement this function in ECGScreen
     }
@@ -75,11 +66,6 @@ protected:
     touchgfx::TextArea textArea3;
     touchgfx::Button resetButton;
     touchgfx::TextArea textArea3_1;
-    touchgfx::ToggleButton led1ToggleButton;
-    touchgfx::Button led0Button;
-    touchgfx::TextArea LED1toggle;
-    touchgfx::Box led0StateBox;
-    touchgfx::TextArea textArea4;
 
 private:
 

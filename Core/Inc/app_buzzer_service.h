@@ -18,6 +18,7 @@ typedef enum
 
 void AppBuzzerService_Init(void);
 void AppBuzzerService_Task(void *argument);
+void AppBuzzer_SetOutput(uint8_t on);
 void AppBuzzer_Play(AppBuzzerPattern_t pattern);
 void AppBuzzer_Beep(uint16_t durationMs);
 void AppBuzzer_SetMuted(uint8_t muted);

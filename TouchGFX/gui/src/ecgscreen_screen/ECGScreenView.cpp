@@ -1,5 +1,4 @@
 #include <gui/ecgscreen_screen/ECGScreenView.hpp>
-#include <touchgfx/Color.hpp>
 #include <touchgfx/Unicode.hpp>
 
 ECGScreenView::ECGScreenView()
@@ -40,16 +39,6 @@ void ECGScreenView::resetECG()
     presenter->resetECG();
 }
 
-void ECGScreenView::toggleLED1()
-{
-    presenter->toggleLED1();
-}
-
-void ECGScreenView::toggleLED0()
-{
-    presenter->toggleLED0();
-}
-
 void ECGScreenView::prepareEcgStart()
 {
     leadsOffText.setVisible(false);
@@ -83,18 +72,4 @@ void ECGScreenView::showLeadsOff(uint8_t leadsOff)
 void ECGScreenView::addEcgPoint(uint16_t filtered)
 {
     ecgGraph.addDataPoint((int)filtered);
-}
-
-void ECGScreenView::showLed0State(uint8_t on)
-{
-    if (on != 0U)
-    {
-        led0StateBox.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    }
-    else
-    {
-        led0StateBox.setColor(touchgfx::Color::getColorFromRGB(150, 150, 150));
-    }
-
-    led0StateBox.invalidate();
 }

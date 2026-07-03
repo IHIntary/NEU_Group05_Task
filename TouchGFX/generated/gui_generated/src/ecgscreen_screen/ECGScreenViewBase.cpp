@@ -265,32 +265,6 @@ ECGScreenViewBase::ECGScreenViewBase() :
     textArea3_1.setLinespacing(0);
     textArea3_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_75JD));
     add(textArea3_1);
-
-    led1ToggleButton.setXY(10, 334);
-    led1ToggleButton.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_TOGGLEBUTTON_MEDIUM_ROUNDED_ON_NORMAL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_TOGGLEBUTTON_MEDIUM_ROUNDED_OFF_LIGHT_ID));
-    led1ToggleButton.setAction(buttonCallback);
-    add(led1ToggleButton);
-
-    led0Button.setXY(331, 334);
-    led0Button.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_TINY_ROUND_DISABLED_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_TINY_ROUND_DISABLED_ID));
-    led0Button.setAction(buttonCallback);
-    add(led0Button);
-
-    LED1toggle.setXY(39, 397);
-    LED1toggle.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-    LED1toggle.setLinespacing(0);
-    LED1toggle.setTypedText(touchgfx::TypedText(T___SINGLEUSE_08OS));
-    add(LED1toggle);
-
-    led0StateBox.setPosition(238, 334, 34, 27);
-    led0StateBox.setColor(touchgfx::Color::getColorFromRGB(17, 252, 5));
-    add(led0StateBox);
-
-    textArea4.setXY(229, 373);
-    textArea4.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-    textArea4.setLinespacing(0);
-    textArea4.setTypedText(touchgfx::TypedText(T___SINGLEUSE_K72T));
-    add(textArea4);
 }
 
 ECGScreenViewBase::~ECGScreenViewBase()
@@ -332,19 +306,5 @@ void ECGScreenViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& sr
         //When resetButton clicked call virtual function
         //Call resetECG
         resetECG();
-    }
-    if (&src == &led1ToggleButton)
-    {
-        //Interaction4
-        //When led1ToggleButton clicked call virtual function
-        //Call toggleLED1
-        toggleLED1();
-    }
-    if (&src == &led0Button)
-    {
-        //Interaction5
-        //When led0Button clicked call virtual function
-        //Call toggleLED0
-        toggleLED0();
     }
 }

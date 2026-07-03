@@ -19,7 +19,7 @@ static const osMessageQueueAttr_t Group05_BuzzerQ_attributes = {
     .name = "Group05_BuzzerQ",
 };
 
-static void AppBuzzer_SetOutput(uint8_t on)
+void AppBuzzer_SetOutput(uint8_t on)
 {
     uint8_t value = on ? 0x00U : 0x01U;
     (void)AppI2c2_MasterTransmit(APP_BUZZER_I2C_ADDR, &value, 1U, APP_BUZZER_I2C_TIMEOUT_MS);

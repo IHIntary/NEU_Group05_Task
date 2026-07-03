@@ -33,7 +33,7 @@ HomeScreenViewBase::HomeScreenViewBase() :
     pulseButton.setAction(buttonCallback);
     add(pulseButton);
 
-    tipText.setXY(323, 219);
+    tipText.setXY(323, 284);
     tipText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     tipText.setLinespacing(0);
     tipText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_9K9T));
@@ -66,13 +66,24 @@ HomeScreenViewBase::HomeScreenViewBase() :
     image1.setBitmap(touchgfx::Bitmap(BITMAP_ICON_THEME_IMAGES_ACTION_ACCESSIBLE_FORWARD_50_50_000000_SVG_ID));
     add(image1);
 
-    txtChipTemp.setXY(399, 146);
+    txtChipTemp.setXY(395, 147);
     txtChipTemp.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     txtChipTemp.setLinespacing(0);
     txtChipTemp.setWildcard(touchgfx::TypedText(T_TEMP).getText());
     txtChipTemp.resizeToCurrentText();
     txtChipTemp.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XY3W));
     add(txtChipTemp);
+
+    ledButton.setXY(342, 455);
+    ledButton.setBitmaps(touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_ACTION_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_PRESSED_ID));
+    ledButton.setAction(buttonCallback);
+    add(ledButton);
+
+    textAreaLED.setXY(456, 483);
+    textAreaLED.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    textAreaLED.setLinespacing(0);
+    textAreaLED.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LED_HOME));
+    add(textAreaLED);
 }
 
 HomeScreenViewBase::~HomeScreenViewBase()
@@ -107,5 +118,12 @@ void HomeScreenViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& s
         //When bpButton clicked change screen to BloodPressureScreen
         //Go to BloodPressureScreen with screen transition towards East
         application().gotoBloodPressureScreenScreenSlideTransitionEast();
+    }
+    if (&src == &ledButton)
+    {
+        //InteractionLED
+        //When ledButton clicked change screen to LEDScreen
+        //Go to LEDScreen with screen transition towards East
+        application().gotoLEDScreenScreenSlideTransitionEast();
     }
 }

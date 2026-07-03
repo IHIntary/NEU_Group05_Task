@@ -32,7 +32,7 @@
             "X": 283,
             "Y": 68,
             "Width": 459,
-            "Height": 48,
+            "Height": 49,
             "TextId": "__SingleUse_PC48",
             "TextRotation": "0",
             "AutoSize": true
@@ -52,9 +52,9 @@
             "Type": "TextArea",
             "Name": "tipText",
             "X": 323,
-            "Y": 219,
+            "Y": 284,
             "Width": 379,
-            "Height": 33,
+            "Height": 39,
             "TextId": "__SingleUse_9K9T",
             "TextRotation": "0",
             "AutoSize": true
@@ -130,16 +130,43 @@
           {
             "Type": "TextArea",
             "Name": "txtChipTemp",
-            "X": 399,
-            "Y": 146,
+            "X": 395,
+            "Y": 147,
             "Width": 226,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_XY3W",
             "TextRotation": "0",
             "AutoSize": true,
             "Wildcard1": {
               "TextId": "temp"
             }
+          },
+          {
+            "Type": "Button",
+            "Name": "ledButton",
+            "X": 342,
+            "Y": 455,
+            "Width": 340,
+            "Height": 80,
+            "Pressed": "__generated\\clay_theme_images_widgets_button_regular_height_36_large_rounded_pressed.png",
+            "Released": "__generated\\clay_theme_images_widgets_button_regular_height_36_large_rounded_action.png",
+            "Preset": "clay_theme\\presets\\button\\regular\\height_36\\large_rounded_action.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaLED",
+            "X": 456,
+            "Y": 483,
+            "Width": 115,
+            "Height": 24,
+            "TextId": "__SingleUse_LED_HOME",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
           }
         ],
         "Interactions": [
@@ -180,6 +207,19 @@
               "ScreenTransitionType": "ScreenTransitionSlide",
               "ScreenTransitionDirection": "East",
               "ActionComponent": "BloodPressureScreen"
+            }
+          },
+          {
+            "InteractionName": "InteractionLED",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "ledButton"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "LEDScreen"
             }
           }
         ],
@@ -422,63 +462,6 @@
               "Blue": 255
             },
             "AutoSize": true
-          },
-          {
-            "Type": "ToggleButton",
-            "Name": "led1ToggleButton",
-            "X": 10,
-            "Y": 334,
-            "Width": 110,
-            "Height": 50,
-            "Pressed": "__generated\\alternate_theme_images_widgets_togglebutton_medium_rounded_off_light.png",
-            "Released": "__generated\\alternate_theme_images_widgets_togglebutton_medium_rounded_on_normal.png",
-            "Preset": "alternate_theme\\presets\\togglebutton\\medium\\rounded.json"
-          },
-          {
-            "Type": "Button",
-            "Name": "led0Button",
-            "X": 331,
-            "Y": 334,
-            "Width": 110,
-            "Height": 50,
-            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_tiny_round_disabled.png",
-            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_tiny_round_disabled.png",
-            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\tiny_round_disabled.json"
-          },
-          {
-            "Type": "TextArea",
-            "Name": "LED1toggle",
-            "X": 39,
-            "Y": 397,
-            "Width": 52,
-            "Height": 24,
-            "TextId": "__SingleUse_08OS",
-            "TextRotation": "0",
-            "AutoSize": true
-          },
-          {
-            "Type": "Box",
-            "Name": "led0StateBox",
-            "X": 238,
-            "Y": 334,
-            "Width": 34,
-            "Height": 27,
-            "Color": {
-              "Red": 17,
-              "Green": 252,
-              "Blue": 5
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea4",
-            "X": 229,
-            "Y": 373,
-            "Width": 52,
-            "Height": 24,
-            "TextId": "__SingleUse_K72T",
-            "TextRotation": "0",
-            "AutoSize": true
           }
         ],
         "Interactions": [
@@ -526,28 +509,6 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "resetECG"
-            }
-          },
-          {
-            "InteractionName": "Interaction4",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "led1ToggleButton"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "toggleLED1"
-            }
-          },
-          {
-            "InteractionName": "Interaction5",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "led0Button"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "toggleLED0"
             }
           }
         ]
@@ -998,7 +959,7 @@
             "X": 509,
             "Y": 419,
             "Width": 83,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_BP_START",
             "TextRotation": "0",
             "Color": {
@@ -1014,7 +975,7 @@
             "X": 859,
             "Y": 420,
             "Width": 84,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_BP_RESET",
             "TextRotation": "0",
             "Color": {
@@ -1030,7 +991,7 @@
             "X": 687,
             "Y": 503,
             "Width": 78,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_BP_HOME_BTN",
             "TextRotation": "0",
             "Color": {
@@ -1085,7 +1046,7 @@
             "X": 672,
             "Y": 34,
             "Width": 242,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_ENQY",
             "TextRotation": "0",
             "AutoSize": true
@@ -1135,6 +1096,259 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "unitToggleClicked"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "LEDScreen",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "LEDBG",
+            "Width": 1024,
+            "Height": 600,
+            "Color": {
+              "Red": 224,
+              "Green": 252,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "ledTitleText",
+            "X": 386,
+            "Y": 48,
+            "Width": 237,
+            "Height": 49,
+            "TextId": "__SingleUse_LED_TITLE",
+            "TextRotation": "0",
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtAlarmState",
+            "X": 90,
+            "Y": 135,
+            "Width": 148,
+            "Height": 32,
+            "TextId": "__SingleUse_5A6Y",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "alarm"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtLed0State",
+            "X": 438,
+            "Y": 135,
+            "Width": 138,
+            "Height": 32,
+            "TextId": "__SingleUse_YB85",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "led0"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtLightMode",
+            "X": 710,
+            "Y": 135,
+            "Width": 162,
+            "Height": 32,
+            "TextId": "__SingleUse_BV2F",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "mode"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtLightRaw",
+            "X": 90,
+            "Y": 225,
+            "Width": 152,
+            "Height": 32,
+            "TextId": "__SingleUse_UOP7",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "light"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtLightThreshold",
+            "X": 438,
+            "Y": 225,
+            "Width": 216,
+            "Height": 32,
+            "TextId": "__SingleUse_2EEG",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "threshold"
+            }
+          },
+          {
+            "Type": "Button",
+            "Name": "btnLightMode",
+            "X": 85,
+            "Y": 350,
+            "Width": 240,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_action.png",
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\medium_round_action.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtLightModeButtonLabel",
+            "X": 172,
+            "Y": 360,
+            "Width": 78,
+            "Height": 32,
+            "TextId": "__SingleUse_LED_MODE_BTN",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Button",
+            "Name": "btnLed0Toggle",
+            "X": 392,
+            "Y": 350,
+            "Width": 240,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_action.png",
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\medium_round_action.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtLed0ButtonLabel",
+            "X": 478,
+            "Y": 360,
+            "Width": 67,
+            "Height": 32,
+            "TextId": "__SingleUse_LED0_BTN",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Button",
+            "Name": "btnAlarmToggle",
+            "X": 699,
+            "Y": 350,
+            "Width": 240,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_action.png",
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\medium_round_action.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtAlarmButtonLabel",
+            "X": 774,
+            "Y": 360,
+            "Width": 90,
+            "Height": 32,
+            "TextId": "__SingleUse_ALARM_BTN",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Button",
+            "Name": "homeButton",
+            "X": 392,
+            "Y": 500,
+            "Width": 240,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_action.png",
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\medium_round_action.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtHomeButtonLabel",
+            "X": 473,
+            "Y": 510,
+            "Width": 78,
+            "Height": 32,
+            "TextId": "__SingleUse_LED_HOME_BTN",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "lightModeClicked",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btnLightMode"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "lightModeClicked"
+            }
+          },
+          {
+            "InteractionName": "led0ToggleClicked",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btnLed0Toggle"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "led0ToggleClicked"
+            }
+          },
+          {
+            "InteractionName": "alarmToggleClicked",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btnAlarmToggle"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "alarmToggleClicked"
+            }
+          },
+          {
+            "InteractionName": "HomeScreen",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "homeButton"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "West",
+              "ActionComponent": "HomeScreen"
             }
           }
         ]

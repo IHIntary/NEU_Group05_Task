@@ -34,6 +34,9 @@ public:
     // BloodPressureScreen
     void gotoBloodPressureScreenScreenSlideTransitionEast();
 
+    // LEDScreen
+    void gotoLEDScreenScreenSlideTransitionEast();
+
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
     FrontendHeap& frontendHeap;
@@ -52,6 +55,9 @@ protected:
 
     // BloodPressureScreen
     void gotoBloodPressureScreenScreenSlideTransitionEastImpl();
+
+    // LEDScreen
+    void gotoLEDScreenScreenSlideTransitionEastImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

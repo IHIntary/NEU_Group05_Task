@@ -49,6 +49,8 @@ protected:
     touchgfx::TextArea textAreaBP;
     touchgfx::Image image1;
     touchgfx::TextAreaWithOneWildcard txtChipTemp;
+    touchgfx::Button ledButton;
+    touchgfx::TextArea textAreaLED;
 
 private:
 

@@ -8,8 +8,9 @@ HomeScreenView::HomeScreenView()
 void HomeScreenView::setupScreen()
 {
     HomeScreenViewBase::setupScreen();
-		txtChipTemp.setWildcard(chipTempBuffer);
-		updateChipTemp(0.0f, 0U);
+    txtChipTemp.setWildcard(chipTempBuffer);
+
+    updateChipTemp(0.0f, 0U);
 }
 
 void HomeScreenView::tearDownScreen()

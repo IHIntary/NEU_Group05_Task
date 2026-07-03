@@ -19,7 +19,6 @@ void ECGScreenPresenter::activate()
     lastEcgRaw = 0xFFFFU;
     lastLeadsOff = 0xFFU;
     uiStarted = 0U;
-    view.showLed0State(model->isLed0On());
 }
 
 void ECGScreenPresenter::deactivate()
@@ -60,17 +59,6 @@ void ECGScreenPresenter::resetECG()
     view.clearEcg();
 }
 
-void ECGScreenPresenter::toggleLED0()
-{
-    model->toggleLed0();
-    view.showLed0State(model->isLed0On());
-}
-
-void ECGScreenPresenter::toggleLED1()
-{
-    model->toggleLed1();
-}
-
 void ECGScreenPresenter::ecgDataUpdated(uint16_t raw, uint16_t filtered, uint8_t leadsOff, uint8_t running)
 {
     if (uiStarted == 0U)
@@ -98,9 +86,4 @@ void ECGScreenPresenter::ecgDataUpdated(uint16_t raw, uint16_t filtered, uint8_t
     {
         view.addEcgPoint(filtered);
     }
-}
-
-void ECGScreenPresenter::led0StateUpdated(uint8_t on)
-{
-    view.showLed0State(on);
 }
