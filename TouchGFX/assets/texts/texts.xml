@@ -96,25 +96,25 @@
       <Text Id="__SingleUse_CLOCK_STATUS" Alignment="Left" TypographyId="Typography_03">
         <Translation Language="GB">Status: &lt;statusValue&gt;</Translation>
       </Text>
-      <Text Id="__SingleUse_CLOCK_STYLE" Alignment="Left" TypographyId="Typography_03">
+      <Text Id="__SingleUse_CLOCK_STYLE" Alignment="Center" TypographyId="Typography_03">
         <Translation Language="GB">STYLE</Translation>
       </Text>
-      <Text Id="__SingleUse_CLOCK_FIELD_BTN" Alignment="Left" TypographyId="Typography_03">
+      <Text Id="__SingleUse_CLOCK_FIELD_BTN" Alignment="Center" TypographyId="Typography_03">
         <Translation Language="GB">FIELD</Translation>
       </Text>
-      <Text Id="__SingleUse_CLOCK_MINUS" Alignment="Left" TypographyId="Typography_03">
+      <Text Id="__SingleUse_CLOCK_MINUS" Alignment="Center" TypographyId="Typography_03">
         <Translation Language="GB">DOWN</Translation>
       </Text>
-      <Text Id="__SingleUse_CLOCK_PLUS" Alignment="Left" TypographyId="Typography_03">
+      <Text Id="__SingleUse_CLOCK_PLUS" Alignment="Center" TypographyId="Typography_03">
         <Translation Language="GB">UP</Translation>
       </Text>
-      <Text Id="__SingleUse_CLOCK_SET" Alignment="Left" TypographyId="Typography_03">
+      <Text Id="__SingleUse_CLOCK_SET" Alignment="Center" TypographyId="Typography_03">
         <Translation Language="GB">SET</Translation>
       </Text>
-      <Text Id="__SingleUse_CLOCK_SYNC" Alignment="Left" TypographyId="Typography_03">
+      <Text Id="__SingleUse_CLOCK_SYNC" Alignment="Center" TypographyId="Typography_03">
         <Translation Language="GB">SYNC</Translation>
       </Text>
-      <Text Id="__SingleUse_CLOCK_HOME_BTN" Alignment="Left" TypographyId="Typography_03">
+      <Text Id="__SingleUse_CLOCK_HOME_BTN" Alignment="Center" TypographyId="Typography_03">
         <Translation Language="GB">HOME</Translation>
       </Text>
       <Text Id="alarm" Alignment="Left" TypographyId="Typography_03">

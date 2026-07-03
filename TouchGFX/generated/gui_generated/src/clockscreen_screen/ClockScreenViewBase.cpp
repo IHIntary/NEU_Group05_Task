@@ -31,7 +31,7 @@ ClockScreenViewBase::ClockScreenViewBase() :
     titleText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CLOCK_TITLE));
     add(titleText);
 
-    timeText.setXY(7, 177);
+    timeText.setXY(100, 223);
     timeText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     timeText.setLinespacing(0);
     timeText.setWildcard(touchgfx::TypedText(T_CLOCKVALUE).getText());
@@ -39,7 +39,7 @@ ClockScreenViewBase::ClockScreenViewBase() :
     timeText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CLOCK_VALUE));
     add(timeText);
 
-    dateText.setXY(7, 262);
+    dateText.setXY(100, 308);
     dateText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     dateText.setLinespacing(0);
     dateText.setWildcard(touchgfx::TypedText(T_DATEVALUE).getText());
@@ -47,7 +47,7 @@ ClockScreenViewBase::ClockScreenViewBase() :
     dateText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CLOCK_DATE));
     add(dateText);
 
-    statusText.setXY(7, 327);
+    statusText.setXY(100, 373);
     statusText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     statusText.setLinespacing(0);
     statusText.setWildcard(touchgfx::TypedText(T_STATUSVALUE).getText());
@@ -111,23 +111,21 @@ ClockScreenViewBase::ClockScreenViewBase() :
     editText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CLOCK_EDIT));
     add(editText);
 
-    fieldText.setXY(616, 191);
+    fieldText.setPosition(616, 191, 200, 32);
     fieldText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     fieldText.setLinespacing(0);
     fieldText.setWildcard(touchgfx::TypedText(T_FIELDVALUE).getText());
-    fieldText.resizeToCurrentText();
     fieldText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CLOCK_FIELD));
     add(fieldText);
 
-    txText.setXY(616, 241);
+    txText.setPosition(616, 241, 200, 32);
     txText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     txText.setLinespacing(0);
     txText.setWildcard(touchgfx::TypedText(T_TXHEXVALUE).getText());
-    txText.resizeToCurrentText();
     txText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CLOCK_TX));
     add(txText);
 
-    analogClock.setXY(240, 154);
+    analogClock.setXY(109, 191);
     analogClock.setBackground(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_ANALOGCLOCK_BACKGROUNDS_SMALL_PLAIN_DARK_ID, 120, 120);
     analogClock.setupSecondHand(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_ANALOGCLOCK_HANDS_SMALL_SECOND_PLAIN_DARK_ID, 2, 100);
     analogClock.setupMinuteHand(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_ANALOGCLOCK_HANDS_SMALL_MINUTE_PLAIN_DARK_ID, 10, 87);

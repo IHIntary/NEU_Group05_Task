@@ -130,13 +130,12 @@
           {
             "Type": "TextArea",
             "Name": "txtChipTemp",
-            "X": 395,
+            "X": 386,
             "Y": 147,
-            "Width": 226,
+            "Width": 280,
             "Height": 32,
             "TextId": "__SingleUse_XY3W",
             "TextRotation": "0",
-            "AutoSize": true,
             "Wildcard1": {
               "TextId": "temp"
             }
@@ -386,7 +385,7 @@
             "X": 34,
             "Y": 45,
             "Width": 371,
-            "Height": 48,
+            "Height": 49,
             "TextId": "__SingleUse_N8L6",
             "TextRotation": "0",
             "Color": {
@@ -426,7 +425,7 @@
             "X": 108,
             "Y": 146,
             "Width": 223,
-            "Height": 48,
+            "Height": 49,
             "TextId": "__SingleUse_IV1H",
             "TextRotation": "0",
             "Color": {
@@ -473,7 +472,7 @@
             "X": 155,
             "Y": 443,
             "Width": 83,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_PGQT",
             "TextRotation": "0",
             "Color": {
@@ -489,7 +488,7 @@
             "X": 460,
             "Y": 443,
             "Width": 69,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_WENI",
             "TextRotation": "0",
             "Color": {
@@ -505,7 +504,7 @@
             "X": 455,
             "Y": 519,
             "Width": 78,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_8TOQ",
             "TextRotation": "0",
             "Color": {
@@ -532,7 +531,7 @@
             "X": 787,
             "Y": 443,
             "Width": 84,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_75JD",
             "TextRotation": "0",
             "Color": {
@@ -1234,7 +1233,7 @@
             "Name": "txtAlarmState",
             "X": 90,
             "Y": 135,
-            "Width": 148,
+            "Width": 138,
             "Height": 32,
             "TextId": "__SingleUse_5A6Y",
             "TextRotation": "0",
@@ -1369,7 +1368,7 @@
             "Name": "txtAlarmButtonLabel",
             "X": 774,
             "Y": 360,
-            "Width": 90,
+            "Width": 67,
             "Height": 32,
             "TextId": "__SingleUse_ALARM_BTN",
             "TextRotation": "0",
@@ -1499,8 +1498,8 @@
             "Name": "titleText",
             "X": 408,
             "Y": 44,
-            "Width": 206,
-            "Height": 62,
+            "Width": 321,
+            "Height": 49,
             "TextId": "__SingleUse_CLOCK_TITLE",
             "TextRotation": "0",
             "AutoSize": true
@@ -1508,10 +1507,10 @@
           {
             "Type": "TextArea",
             "Name": "timeText",
-            "X": 7,
-            "Y": 177,
-            "Width": 300,
-            "Height": 48,
+            "X": 100,
+            "Y": 223,
+            "Width": 186,
+            "Height": 49,
             "TextId": "__SingleUse_CLOCK_VALUE",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1522,10 +1521,10 @@
           {
             "Type": "TextArea",
             "Name": "dateText",
-            "X": 7,
-            "Y": 262,
-            "Width": 320,
-            "Height": 48,
+            "X": 100,
+            "Y": 308,
+            "Width": 242,
+            "Height": 32,
             "TextId": "__SingleUse_CLOCK_DATE",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1536,10 +1535,10 @@
           {
             "Type": "TextArea",
             "Name": "statusText",
-            "X": 7,
-            "Y": 327,
-            "Width": 320,
-            "Height": 48,
+            "X": 100,
+            "Y": 373,
+            "Width": 259,
+            "Height": 32,
             "TextId": "__SingleUse_CLOCK_STATUS",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1690,8 +1689,8 @@
             "Name": "editText",
             "X": 616,
             "Y": 141,
-            "Width": 390,
-            "Height": 48,
+            "Width": 365,
+            "Height": 32,
             "TextId": "__SingleUse_CLOCK_EDIT",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1704,11 +1703,10 @@
             "Name": "fieldText",
             "X": 616,
             "Y": 191,
-            "Width": 180,
-            "Height": 48,
+            "Width": 200,
+            "Height": 32,
             "TextId": "__SingleUse_CLOCK_FIELD",
             "TextRotation": "0",
-            "AutoSize": true,
             "Wildcard1": {
               "TextId": "fieldValue"
             }
@@ -1718,11 +1716,10 @@
             "Name": "txText",
             "X": 616,
             "Y": 241,
-            "Width": 390,
-            "Height": 48,
+            "Width": 200,
+            "Height": 32,
             "TextId": "__SingleUse_CLOCK_TX",
             "TextRotation": "0",
-            "AutoSize": true,
             "Wildcard1": {
               "TextId": "txHexValue"
             }
@@ -1730,8 +1727,8 @@
           {
             "Type": "AnalogClock",
             "Name": "analogClock",
-            "X": 240,
-            "Y": 154,
+            "X": 109,
+            "Y": 191,
             "Width": 240,
             "Height": 240,
             "FileNameBackground": "__generated\\alternate_theme_images_widgets_analogclock_backgrounds_small_plain_dark.png",
