@@ -571,8 +571,8 @@
           {
             "Type": "TextArea",
             "Name": "spo2Text",
-            "X": 12,
-            "Y": 163,
+            "X": 17,
+            "Y": 202,
             "Width": 183,
             "Height": 49,
             "TextId": "__SingleUse_KKU4",
@@ -585,8 +585,8 @@
           {
             "Type": "TextArea",
             "Name": "heartRateText",
-            "X": 23,
-            "Y": 275,
+            "X": 12,
+            "Y": 251,
             "Width": 193,
             "Height": 49,
             "TextId": "__SingleUse_LE66",
@@ -599,8 +599,8 @@
           {
             "Type": "TextArea",
             "Name": "irText",
-            "X": 341,
-            "Y": 275,
+            "X": 12,
+            "Y": 300,
             "Width": 77,
             "Height": 49,
             "TextId": "__SingleUse_PAUF",
@@ -613,8 +613,8 @@
           {
             "Type": "TextArea",
             "Name": "redText",
-            "X": 341,
-            "Y": 163,
+            "X": 12,
+            "Y": 153,
             "Width": 116,
             "Height": 49,
             "TextId": "__SingleUse_FI0G",
@@ -721,7 +721,7 @@
           },
           {
             "Type": "DynamicGraph",
-            "Name": "pulseGraph",
+            "Name": "HRGraph",
             "X": 558,
             "Y": 115,
             "Width": 399,
@@ -740,9 +740,34 @@
                 "LineWidth": 2,
                 "FileNameImage": "",
                 "Color": {
-                  "Red": 20,
-                  "Green": 151,
-                  "Blue": 197
+                  "Red": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "DynamicGraph",
+            "Name": "SPGraph",
+            "X": 558,
+            "Y": 115,
+            "Width": 399,
+            "Height": 299,
+            "DataSeed": -1040636640,
+            "NumberOfValues": 100,
+            "MaxY": 200.0,
+            "Precision": "1",
+            "LastIndex": 99,
+            "XAxisScale": 1.0,
+            "InsertRandomValues": true,
+            "GraphType": "GraphWrapClear",
+            "GraphDrawers": [
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 2,
+                "FileNameImage": "",
+                "Color": {
+                  "Green": 255,
+                  "Blue": 21
                 }
               }
             ]

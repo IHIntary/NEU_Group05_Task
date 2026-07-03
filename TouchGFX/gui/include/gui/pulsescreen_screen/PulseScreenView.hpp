@@ -23,7 +23,7 @@ public:
     void showHeartRate(uint16_t heartRate);
     void showIr(uint32_t ir);
     void showRed(uint32_t red);
-		void addPulseGraphPoint(uint32_t heartRate);
+	void addPulseGraphPoints(uint16_t heartRate, int16_t spo2Tenths);
 
 protected:
     static const uint16_t SPO2TEXT_SIZE = 16;
@@ -35,6 +35,8 @@ protected:
     touchgfx::Unicode::UnicodeChar heartRateTextBuffer[HEARTRATETEXT_SIZE];
     touchgfx::Unicode::UnicodeChar irTextBuffer[IRTEXT_SIZE];
     touchgfx::Unicode::UnicodeChar redTextBuffer[REDTEXT_SIZE];
+    uint16_t lastGraphHeartRate;
+    int16_t lastGraphSpo2Tenths;
 };
 
 #endif

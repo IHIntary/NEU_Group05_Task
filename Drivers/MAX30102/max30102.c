@@ -17,6 +17,7 @@
  */
 /* USER CODE END Header */
 #include "max30102.h"
+#include "app_sensor_config.h"
 #include "max30102_fir.h"
 #include "stdio.h"
 
@@ -79,11 +80,11 @@ void max30102_init(void)
 
 	max30102_i2c_write(MODE_CONFIGURATION, 0x03); // MODE configuration:SpO2 mode
 
-	max30102_i2c_write(SPO2_CONFIGURATION, 0x2A); // SpO2 configuration:ACD resolution:15.63pA,sample rate control:200Hz, 
+	max30102_i2c_write(SPO2_CONFIGURATION, 0x26); // SpO2 configuration:ADC range 4096nA,sample rate control:100Hz,
 	                                              //                    LED pulse width:215 us
 
-	max30102_i2c_write(LED1_PULSE_AMPLITUDE, 0x2f); // IR LED
-	max30102_i2c_write(LED2_PULSE_AMPLITUDE, 0x2f); // RED LED current
+	max30102_i2c_write(LED1_PULSE_AMPLITUDE, 0x2f); // RED LED
+	max30102_i2c_write(LED2_PULSE_AMPLITUDE, 0x2f); // IR LED current
 
 	max30102_i2c_write(TEMPERATURE_CONFIG, 0x01); // temp
 
@@ -103,8 +104,8 @@ void max30102_fifo_read(float *output_data)
 	max30102_i2c_read(FIFO_DATA, receive_data, 6);
 	data[0] = ((receive_data[0] << 16 | receive_data[1] << 8 | receive_data[2]) & 0x03ffff);
 	data[1] = ((receive_data[3] << 16 | receive_data[4] << 8 | receive_data[5]) & 0x03ffff);
-	*output_data = data[0];
-	*(output_data + 1) = data[1];
+	*output_data = data[1];
+	*(output_data + 1) = data[0];
 }
 
 /**
@@ -114,48 +115,97 @@ void max30102_fifo_read(float *output_data)
  */
 uint16_t max30102_getHeartRate(float *input_data, uint16_t cache_nums)
 {
-	float input_data_sum_aver = 0;
+	float input_data_sum_aver = 0.0f;
+	float input_data_max;
+	float input_data_min;
 	uint16_t i;
-	uint16_t temp = 0;
-	uint8_t first_found = 0;
+	uint16_t first_crossing = 0U;
+	uint16_t period_samples = 0U;
+	uint16_t min_period_samples;
+	uint16_t max_period_samples;
+	uint32_t sample_period_ms = SENSOR_PPG_SAMPLE_PERIOD_MS;
+	uint32_t heart_rate;
+
+	if ((input_data == 0) || (cache_nums < 2U) || (sample_period_ms == 0U))
+	{
+		return 0U;
+	}
+
+	min_period_samples = (uint16_t)((60000UL + ((uint32_t)180U * sample_period_ms) - 1UL) /
+	                                ((uint32_t)180U * sample_period_ms));
+	max_period_samples = (uint16_t)(60000UL / ((uint32_t)40U * sample_period_ms));
+
+	if (min_period_samples < 1U)
+	{
+		min_period_samples = 1U;
+	}
+	if (max_period_samples >= cache_nums)
+	{
+		max_period_samples = (uint16_t)(cache_nums - 1U);
+	}
+	if (min_period_samples > max_period_samples)
+	{
+		return 0U;
+	}
+
+	input_data_max = input_data[0];
+	input_data_min = input_data[0];
 
 	for (i = 0; i < cache_nums; i++)
 	{
-		input_data_sum_aver += *(input_data + i);
+		float value = input_data[i];
+
+		input_data_sum_aver += value;
+		if (value > input_data_max)
+		{
+			input_data_max = value;
+		}
+		if (value < input_data_min)
+		{
+			input_data_min = value;
+		}
 	}
 	input_data_sum_aver = input_data_sum_aver / cache_nums;
+
+	if ((input_data_max - input_data_min) < 1000.0f)
+	{
+		return 0U;
+	}
+
 	for (i = 0; i + 1U < cache_nums; i++)
 	{
-		if ((*(input_data + i) > input_data_sum_aver) && (*(input_data + i + 1) < input_data_sum_aver))
+		if ((input_data[i] > input_data_sum_aver) && (input_data[i + 1U] <= input_data_sum_aver))
 		{
-			temp = i;
-			first_found = 1;
+			first_crossing = i;
 			break;
 		}
 	}
 
-	if (first_found == 0U)
+	if (i + 1U >= cache_nums)
 	{
-		return 0;
+		return 0U;
 	}
 
 	i++;
 	for (; i + 1U < cache_nums; i++)
 	{
-		if ((*(input_data + i) > input_data_sum_aver) && (*(input_data + i + 1) < input_data_sum_aver))
+		if ((input_data[i] > input_data_sum_aver) && (input_data[i + 1U] <= input_data_sum_aver))
 		{
-			temp = i - temp;
-			break;
+			period_samples = (uint16_t)(i - first_crossing);
+			if ((period_samples >= min_period_samples) && (period_samples <= max_period_samples))
+			{
+				heart_rate = (60000UL + (((uint32_t)period_samples * sample_period_ms) / 2UL)) /
+				             ((uint32_t)period_samples * sample_period_ms);
+				if ((heart_rate >= 40UL) && (heart_rate <= 180UL))
+				{
+					return (uint16_t)heart_rate;
+				}
+				return 0U;
+			}
 		}
 	}
-	if ((temp > 14) && (temp < 100))
-	{
-		return 3000 / temp;
-	}
-	else
-	{
-		return 0;
-	}
+
+	return 0U;
 }
 
 /**
@@ -200,7 +250,7 @@ float max30102_getSpO2(float *ir_input_data, float *red_input_data, uint16_t cac
 	ret = ((-45.060f) * R * R + 30.354f * R + 94.845f);
 	
 	if(ret<0 || ret>100)
-		ret = 100.0f;
+		ret = 0.0f;
 	
 	return ret;
 }

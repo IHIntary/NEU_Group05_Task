@@ -1,6 +1,8 @@
 #include <gui/pulsescreen_screen/PulseScreenView.hpp>
 
 PulseScreenView::PulseScreenView()
+    : lastGraphHeartRate(0U),
+      lastGraphSpo2Tenths(0)
 {
 }
 
@@ -43,14 +45,18 @@ void PulseScreenView::clearPulse()
     touchgfx::Unicode::snprintf(heartRateTextBuffer, HEARTRATETEXT_SIZE, "--");
     touchgfx::Unicode::snprintf(irTextBuffer, IRTEXT_SIZE, "0");
     touchgfx::Unicode::snprintf(redTextBuffer, REDTEXT_SIZE, "0");
+    lastGraphHeartRate = 0U;
+    lastGraphSpo2Tenths = 0;
 
     pulseProgress.invalidate();
     spo2Text.invalidate();
     heartRateText.invalidate();
     irText.invalidate();
     redText.invalidate();
-		pulseGraph.clear();
-		pulseGraph.invalidate();
+		HRGraph.clear();
+		SPGraph.clear();
+		HRGraph.invalidate();
+		SPGraph.invalidate();
 }
 
 void PulseScreenView::showPulseProgress(uint8_t progressPercent)
@@ -103,17 +109,21 @@ void PulseScreenView::showRed(uint32_t red)
     );
     redText.invalidate();
 }
-void PulseScreenView::addPulseGraphPoint(uint32_t heartRate)
+void PulseScreenView::addPulseGraphPoints(uint16_t heartRate, int16_t spo2Tenths)
 {
-    if (heartRate == 0U)
+    if (heartRate >= 40U && heartRate <= 180U)
     {
-        return;
+        lastGraphHeartRate = heartRate;
     }
 
-    if (heartRate > 200U)
+    if (spo2Tenths >= 700 && spo2Tenths <= 1000)
     {
-        heartRate = 200U;
+        lastGraphSpo2Tenths = spo2Tenths;
     }
 
-    pulseGraph.addDataPoint((int)heartRate);
+    if ((lastGraphHeartRate != 0U) && (lastGraphSpo2Tenths != 0))
+    {
+        HRGraph.addDataPoint((int)lastGraphHeartRate);
+        SPGraph.addDataPoint((int)(lastGraphSpo2Tenths / 10));
+    }
 }

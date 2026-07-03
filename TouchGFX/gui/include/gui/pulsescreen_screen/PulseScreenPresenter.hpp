@@ -42,6 +42,8 @@ private:
     uint16_t lastHeartRate;
     uint8_t lastProgressPercent;
     int16_t lastSpo2Tenths;
+    uint8_t graphRunning;
+    uint8_t graphTickDivider;
 };
 
 #endif // PULSESCREENPRESENTER_HPP

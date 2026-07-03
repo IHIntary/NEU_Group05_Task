@@ -8,7 +8,9 @@ PulseScreenPresenter::PulseScreenPresenter(PulseScreenView& v)
       lastRed(0xFFFFFFFFUL),
       lastHeartRate(0xFFFFU),
       lastProgressPercent(0xFFU),
-      lastSpo2Tenths(-1)
+      lastSpo2Tenths(-1),
+      graphRunning(0U),
+      graphTickDivider(0U)
 {
 }
 
@@ -19,10 +21,15 @@ void PulseScreenPresenter::activate()
     lastHeartRate = 0xFFFFU;
     lastProgressPercent = 0xFFU;
     lastSpo2Tenths = -1;
+    graphRunning = 0U;
+    graphTickDivider = 0U;
+    view.clearPulse();
 }
 
 void PulseScreenPresenter::deactivate()
 {
+    graphRunning = 0U;
+    graphTickDivider = 0U;
     model->setPulseRunning(0U);
 }
 
@@ -33,6 +40,8 @@ void PulseScreenPresenter::startPulse()
     lastHeartRate = 0xFFFFU;
     lastProgressPercent = 0xFFU;
     lastSpo2Tenths = -1;
+    graphRunning = 1U;
+    graphTickDivider = 0U;
 
     view.clearPulse();
     model->setPulseRunning(1U);
@@ -41,6 +50,8 @@ void PulseScreenPresenter::startPulse()
 
 void PulseScreenPresenter::endPulse()
 {
+    graphRunning = 0U;
+    graphTickDivider = 0U;
     model->setPulseRunning(0U);
     model->beep(60U);
 }
@@ -64,7 +75,22 @@ void PulseScreenPresenter::pulseDataUpdated(uint32_t ir, uint32_t red, uint16_t 
     {
         lastHeartRate = heartRate;
         view.showHeartRate(heartRate);
-				view.addPulseGraphPoint(heartRate);
+    }
+
+    if (graphRunning != 0U)
+    {
+        graphTickDivider++;
+        if (graphTickDivider >= 8U)
+        {
+            graphTickDivider = 0U;
+            view.addPulseGraphPoints(heartRate, spo2Tenths);
+        }
+    }
+
+    if (progressPercent >= 100U)
+    {
+        graphRunning = 0U;
+        graphTickDivider = 0U;
     }
 
     if (lastIr != ir)
