@@ -90,11 +90,22 @@ HomeScreenViewBase::HomeScreenViewBase() :
     imuButton.setAction(buttonCallback);
     add(imuButton);
 
-    textAreaIMU.setXY(795, 483);
+    textAreaIMU.setXY(808, 483);
     textAreaIMU.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textAreaIMU.setLinespacing(0);
     textAreaIMU.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IMU_HOME));
     add(textAreaIMU);
+
+    clockButton.setXY(0, 455);
+    clockButton.setBitmaps(touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_ACTION_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_PRESSED_ID));
+    clockButton.setAction(buttonCallback);
+    add(clockButton);
+
+    textAreaClock.setXY(144, 483);
+    textAreaClock.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    textAreaClock.setLinespacing(0);
+    textAreaClock.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CLOCK_HOME));
+    add(textAreaClock);
 }
 
 HomeScreenViewBase::~HomeScreenViewBase()
@@ -143,5 +154,12 @@ void HomeScreenViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& s
         //When imuButton clicked change screen to IMUScreen
         //Go to IMUScreen with screen transition towards East
         application().gotoIMUScreenScreenSlideTransitionEast();
+    }
+    if (&src == &clockButton)
+    {
+        //InteractionClock
+        //When clockButton clicked change screen to ClockScreen
+        //Go to ClockScreen with screen transition towards East
+        application().gotoClockScreenScreenSlideTransitionEast();
     }
 }

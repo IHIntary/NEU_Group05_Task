@@ -7,6 +7,7 @@ extern "C"
 #include "app_alarm_service.h"
 #include "app_buzzer_service.h"
 #include "app_light_service.h"
+#include "app_rtc_service.h"
 #include "bp_service.h"
 #include "main.h"
 }
@@ -23,6 +24,7 @@ Model::Model()
     BP_Service_Init();
     AppAlarm_Init();
     AppLightService_Init();
+    AppRtcService_Init();
 }
 
 void Model::tick()
@@ -35,9 +37,13 @@ void Model::tick()
     {
         SensorData_t data;
         AppLightStatus_t light;
+        AppRtcDateTime_t rtcTime;
+        AppRtcStatus_t rtcStatus;
 
         SensorService_GetData(&data);
         AppLightService_GetStatus(&light);
+        AppRtcService_GetDateTime(&rtcTime);
+        AppRtcService_GetStatus(&rtcStatus);
 
         modelListener->chipTempUpdated(data.chipTempC, data.chipTempValid);
         modelListener->lightControlUpdated(light.lightRaw,
@@ -50,6 +56,7 @@ void Model::tick()
                                       data.imuDataValid,
                                       data.imuFallDetected,
                                       data.imuAlarmActive);
+        modelListener->rtcTimeUpdated(rtcTime, rtcStatus);
 
         if ((ecgNotificationsEnabled != 0U) ||
             (pressureNotificationsEnabled != 0U) ||
@@ -194,6 +201,26 @@ uint8_t Model::isLed0On() const
     AppLightStatus_t light;
     AppLightService_GetStatus(&light);
     return light.led0On;
+}
+
+void Model::getRtcDateTime(AppRtcDateTime_t *out) const
+{
+    AppRtcService_GetDateTime(out);
+}
+
+void Model::getRtcStatus(AppRtcStatus_t *out) const
+{
+    AppRtcService_GetStatus(out);
+}
+
+uint8_t Model::setRtcDateTime(const AppRtcDateTime_t *dateTime)
+{
+    return AppRtcService_SetDateTime(dateTime);
+}
+
+uint8_t Model::sendRtcDateTimeHex(const AppRtcDateTime_t *dateTime)
+{
+    return AppRtcService_SendDateTimeHex(dateTime);
 }
 
 void Model::handleKey2()

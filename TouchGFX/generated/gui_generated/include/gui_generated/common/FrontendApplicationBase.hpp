@@ -37,6 +37,9 @@ public:
     // LEDScreen
     void gotoLEDScreenScreenSlideTransitionEast();
 
+    // ClockScreen
+    void gotoClockScreenScreenSlideTransitionEast();
+
     // IMUScreen
     void gotoIMUScreenScreenSlideTransitionEast();
 
@@ -61,6 +64,9 @@ protected:
 
     // LEDScreen
     void gotoLEDScreenScreenSlideTransitionEastImpl();
+
+    // ClockScreen
+    void gotoClockScreenScreenSlideTransitionEastImpl();
 
     // IMUScreen
     void gotoIMUScreenScreenSlideTransitionEastImpl();

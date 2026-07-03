@@ -27,6 +27,7 @@ public:
                                 uint8_t dataValid,
                                 uint8_t fallDetected,
                                 uint8_t alarmActive) {}
+    virtual void rtcTimeUpdated(const AppRtcDateTime_t& dateTime, const AppRtcStatus_t& status) {}
 
     void bind(Model* m)
     {

@@ -6,6 +6,117 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_6CWX" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Clock</Translation>
+      </Text>
+      <Text Id="__SingleUse_DNG3" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="__SingleUse_4SAP" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">TX: --&#10;</Translation>
+      </Text>
+      <Text Id="__SingleUse_KZ7P" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Field: YEAR&#10;</Translation>
+      </Text>
+      <Text Id="__SingleUse_3AT4" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Edit: 2026-01-01 00:00:00&#10;</Translation>
+      </Text>
+      <Text Id="__SingleUse_5QTI" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">SYNC</Translation>
+      </Text>
+      <Text Id="__SingleUse_R6RJ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">SET</Translation>
+      </Text>
+      <Text Id="__SingleUse_OFKU" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">UP</Translation>
+      </Text>
+      <Text Id="__SingleUse_26PN" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">DOWN</Translation>
+      </Text>
+      <Text Id="__SingleUse_RQWJ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">FIELD</Translation>
+      </Text>
+      <Text Id="__SingleUse_L3PG" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">STYLE</Translation>
+      </Text>
+      <Text Id="__SingleUse_PHC5" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Status: RTC OK LSE&#10;</Translation>
+      </Text>
+      <Text Id="__SingleUse_31W5" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Date: 2026-01-01&#10;</Translation>
+      </Text>
+      <Text Id="__SingleUse_CZFD" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">00:00:00&#10;</Translation>
+      </Text>
+      <Text Id="__SingleUse_B02E" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">Real Time Clock&#10;</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZQDX" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">HOME</Translation>
+      </Text>
+      <Text Id="__SingleUse_CLOCK_HOME" Alignment="Left" TypographyId="Typography_01">
+        <Translation Language="GB">Clock</Translation>
+      </Text>
+      <Text Id="__SingleUse_CLOCK_TITLE" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">Real Time Clock</Translation>
+      </Text>
+      <Text Id="clockValue" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">00:00:00</Translation>
+      </Text>
+      <Text Id="__SingleUse_CLOCK_VALUE" Alignment="Center" TypographyId="Large">
+        <Translation Language="GB">&lt;clockValue&gt;</Translation>
+      </Text>
+      <Text Id="dateValue" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">2026-01-01</Translation>
+      </Text>
+      <Text Id="__SingleUse_CLOCK_DATE" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">Date: &lt;dateValue&gt;</Translation>
+      </Text>
+      <Text Id="editValue" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">2026-01-01 00:00:00</Translation>
+      </Text>
+      <Text Id="__SingleUse_CLOCK_EDIT" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">Edit: &lt;editValue&gt;</Translation>
+      </Text>
+      <Text Id="fieldValue" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">YEAR</Translation>
+      </Text>
+      <Text Id="__SingleUse_CLOCK_FIELD" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">Field: &lt;fieldValue&gt;</Translation>
+      </Text>
+      <Text Id="txHexValue" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">--</Translation>
+      </Text>
+      <Text Id="__SingleUse_CLOCK_TX" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">TX: &lt;txHexValue&gt;</Translation>
+      </Text>
+      <Text Id="statusValue" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">RTC OK LSE</Translation>
+      </Text>
+      <Text Id="__SingleUse_CLOCK_STATUS" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">Status: &lt;statusValue&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_CLOCK_STYLE" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">STYLE</Translation>
+      </Text>
+      <Text Id="__SingleUse_CLOCK_FIELD_BTN" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">FIELD</Translation>
+      </Text>
+      <Text Id="__SingleUse_CLOCK_MINUS" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">DOWN</Translation>
+      </Text>
+      <Text Id="__SingleUse_CLOCK_PLUS" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">UP</Translation>
+      </Text>
+      <Text Id="__SingleUse_CLOCK_SET" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">SET</Translation>
+      </Text>
+      <Text Id="__SingleUse_CLOCK_SYNC" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">SYNC</Translation>
+      </Text>
+      <Text Id="__SingleUse_CLOCK_HOME_BTN" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">HOME</Translation>
+      </Text>
       <Text Id="alarm" Alignment="Left" TypographyId="Typography_03">
         <Translation Language="GB">OFF</Translation>
       </Text>
@@ -204,7 +315,7 @@
       <Text Id="imu_status" Alignment="Left" TypographyId="Typography_03">
         <Translation Language="GB">READY</Translation>
       </Text>
-      <Text Id="__SingleUse_IMU_HOME" Alignment="Left" TypographyId="Typography_03">
+      <Text Id="__SingleUse_IMU_HOME" Alignment="Left" TypographyId="Typography_01">
         <Translation Language="GB">IMU alarm</Translation>
       </Text>
       <Text Id="__SingleUse_IMU_TITLE" Alignment="Left" TypographyId="Typography_03">

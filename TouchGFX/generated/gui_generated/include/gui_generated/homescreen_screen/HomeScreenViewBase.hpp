@@ -53,6 +53,8 @@ protected:
     touchgfx::TextArea textAreaLED;
     touchgfx::Button imuButton;
     touchgfx::TextArea textAreaIMU;
+    touchgfx::Button clockButton;
+    touchgfx::TextArea textAreaClock;
 
 private:
 

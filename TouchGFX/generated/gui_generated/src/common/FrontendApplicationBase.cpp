@@ -19,6 +19,8 @@
 #include <gui/bloodpressurescreen_screen/BloodPressureScreenPresenter.hpp>
 #include <gui/ledscreen_screen/LEDScreenView.hpp>
 #include <gui/ledscreen_screen/LEDScreenPresenter.hpp>
+#include <gui/clockscreen_screen/ClockScreenView.hpp>
+#include <gui/clockscreen_screen/ClockScreenPresenter.hpp>
 #include <gui/imuscreen_screen/IMUScreenView.hpp>
 #include <gui/imuscreen_screen/IMUScreenPresenter.hpp>
 
@@ -114,6 +116,19 @@ void FrontendApplicationBase::gotoLEDScreenScreenSlideTransitionEast()
 void FrontendApplicationBase::gotoLEDScreenScreenSlideTransitionEastImpl()
 {
     touchgfx::makeTransition<LEDScreenView, LEDScreenPresenter, touchgfx::SlideTransition<EAST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// ClockScreen
+
+void FrontendApplicationBase::gotoClockScreenScreenSlideTransitionEast()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoClockScreenScreenSlideTransitionEastImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoClockScreenScreenSlideTransitionEastImpl()
+{
+    touchgfx::makeTransition<ClockScreenView, ClockScreenPresenter, touchgfx::SlideTransition<EAST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
 // IMUScreen

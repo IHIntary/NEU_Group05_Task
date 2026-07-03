@@ -39,6 +39,9 @@
     <ClCompile Include="..\..\gui\src\imuscreen_screen\IMUScreenPresenter.cpp"/>
     <ClCompile Include="..\..\gui\src\imuscreen_screen\IMUScreenView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\imuscreen_screen\IMUScreenViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\clockscreen_screen\ClockScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\clockscreen_screen\ClockScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\clockscreen_screen\ClockScreenViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -207,6 +210,9 @@
     <ClInclude Include="..\..\gui\include\gui\imuscreen_screen\IMUScreenPresenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\imuscreen_screen\IMUScreenView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\imuscreen_screen\IMUScreenViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\clockscreen_screen\ClockScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\clockscreen_screen\ClockScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\clockscreen_screen\ClockScreenViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

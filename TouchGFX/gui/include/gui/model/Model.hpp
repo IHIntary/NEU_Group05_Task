@@ -3,6 +3,11 @@
 
 #include <stdint.h>
 
+extern "C"
+{
+#include "app_rtc_service.h"
+}
+
 class ModelListener;
 
 class Model
@@ -32,6 +37,10 @@ public:
     void beep(uint16_t durationMs);
     void clearImuAlarm();
     uint8_t isLed0On() const;
+    void getRtcDateTime(AppRtcDateTime_t *out) const;
+    void getRtcStatus(AppRtcStatus_t *out) const;
+    uint8_t setRtcDateTime(const AppRtcDateTime_t *dateTime);
+    uint8_t sendRtcDateTimeHex(const AppRtcDateTime_t *dateTime);
 protected:
     ModelListener* modelListener;
 

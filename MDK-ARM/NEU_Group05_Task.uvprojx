@@ -870,6 +870,11 @@
                 </FileArmAds>
               </FileOption>
             </File>
+            <File>
+              <FileName>app_rtc_service.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\app_rtc_service.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1544,6 +1549,16 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
+            </File>
+            <File>
+              <FileName>stm32f4xx_hal_rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_hal_rtc_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2910,6 +2925,16 @@
               <FilePath>../touchgfx/gui/src/bloodpressurescreen_screen/bloodpressurescreenview.cpp</FilePath>
             </File>
             <File>
+              <FileName>ClockScreenPresenter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/gui/src/clockscreen_screen/clockscreenpresenter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ClockScreenView.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/gui/src/clockscreen_screen/clockscreenview.cpp</FilePath>
+            </File>
+            <File>
               <FileName>ECGScreenPresenter.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../touchgfx/gui/src/ecgscreen_screen/ecgscreenpresenter.cpp</FilePath>
@@ -2995,6 +3020,11 @@
               <FilePath>../touchgfx/generated/fonts/src/cachedfont.cpp</FilePath>
             </File>
             <File>
+              <FileName>ClockScreenViewBase.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/generated/gui_generated/src/clockscreen_screen/clockscreenviewbase.cpp</FilePath>
+            </File>
+            <File>
               <FileName>ECGScreenViewBase.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../touchgfx/generated/gui_generated/src/ecgscreen_screen/ecgscreenviewbase.cpp</FilePath>
@@ -3045,6 +3075,26 @@
               <FilePath>../touchgfx/generated/gui_generated/src/homescreen_screen/homescreenviewbase.cpp</FilePath>
             </File>
             <File>
+              <FileName>image_alternate_theme_images_widgets_analogclock_backgrounds_small_plain_dark.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/generated/images/src/__generated/image_alternate_theme_images_widgets_analogclock_backgrounds_small_plain_dark.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>image_alternate_theme_images_widgets_analogclock_hands_small_hour_plain_dark.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/generated/images/src/__generated/image_alternate_theme_images_widgets_analogclock_hands_small_hour_plain_dark.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>image_alternate_theme_images_widgets_analogclock_hands_small_minute_plain_dark.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/generated/images/src/__generated/image_alternate_theme_images_widgets_analogclock_hands_small_minute_plain_dark.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>image_alternate_theme_images_widgets_analogclock_hands_small_second_plain_dark.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/generated/images/src/__generated/image_alternate_theme_images_widgets_analogclock_hands_small_second_plain_dark.cpp</FilePath>
+            </File>
+            <File>
               <FileName>image_alternate_theme_images_widgets_button_regular_height_36_medium_round_action.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../touchgfx/generated/images/src/__generated/image_alternate_theme_images_widgets_button_regular_height_36_medium_round_action.cpp</FilePath>
@@ -3063,6 +3113,16 @@
               <FileName>image_alternate_theme_images_widgets_button_regular_height_50_medium_round_pressed.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../touchgfx/generated/images/src/__generated/image_alternate_theme_images_widgets_button_regular_height_50_medium_round_pressed.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>image_alternate_theme_images_widgets_button_regular_height_50_medium_rounded_normal.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/generated/images/src/__generated/image_alternate_theme_images_widgets_button_regular_height_50_medium_rounded_normal.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>image_alternate_theme_images_widgets_button_regular_height_50_medium_rounded_pressed.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/generated/images/src/__generated/image_alternate_theme_images_widgets_button_regular_height_50_medium_rounded_pressed.cpp</FilePath>
             </File>
             <File>
               <FileName>image_alternate_theme_images_widgets_button_regular_height_50_tiny_round_disabled.cpp</FileName>
