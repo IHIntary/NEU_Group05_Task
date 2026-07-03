@@ -22,6 +22,11 @@ public:
                                      uint8_t autoMode,
                                      uint8_t led0On,
                                      uint8_t alarmActive) {}
+    virtual void imuDataUpdated(const int16_t accMg[3],
+                                uint8_t ready,
+                                uint8_t dataValid,
+                                uint8_t fallDetected,
+                                uint8_t alarmActive) {}
 
     void bind(Model* m)
     {

@@ -201,6 +201,48 @@
       <Text Id="__SingleUse_N8L6" Alignment="Center" TypographyId="Large">
         <Translation Language="GB">ECG Measurement</Translation>
       </Text>
+      <Text Id="imu_status" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">READY</Translation>
+      </Text>
+      <Text Id="__SingleUse_IMU_HOME" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">IMU alarm</Translation>
+      </Text>
+      <Text Id="__SingleUse_IMU_TITLE" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">IMU Fall Alarm</Translation>
+      </Text>
+      <Text Id="__SingleUse_IMU_STATUS" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">Status: &lt;imu_status&gt;</Translation>
+      </Text>
+      <Text Id="imu_fall" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">NORMAL</Translation>
+      </Text>
+      <Text Id="__SingleUse_IMU_FALL" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">Fall: &lt;imu_fall&gt;</Translation>
+      </Text>
+      <Text Id="imu_ax" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">0000</Translation>
+      </Text>
+      <Text Id="__SingleUse_IMU_AX" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">AX: &lt;imu_ax&gt; mg</Translation>
+      </Text>
+      <Text Id="imu_ay" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">0000</Translation>
+      </Text>
+      <Text Id="__SingleUse_IMU_AY" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">AY: &lt;imu_ay&gt; mg</Translation>
+      </Text>
+      <Text Id="imu_az" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">0000</Translation>
+      </Text>
+      <Text Id="__SingleUse_IMU_AZ" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">AZ: &lt;imu_az&gt; mg</Translation>
+      </Text>
+      <Text Id="__SingleUse_IMU_ACK_BTN" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">ACK</Translation>
+      </Text>
+      <Text Id="__SingleUse_IMU_HOME_BTN" Alignment="Left" TypographyId="Typography_03">
+        <Translation Language="GB">HOME</Translation>
+      </Text>
     </TextGroup>
   </Texts>
   <Typographies>
@@ -210,6 +252,6 @@
     <Typography Id="Typography_00" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz :./%bpmHg" />
     <Typography Id="Typography_01" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Typography_02" Font="vinet.ttf" Size="29" Bpp="4" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Typography_03" Font="verdana.ttf" Size="26" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz _.:/-%bpmHg" />
+    <Typography Id="Typography_03" Font="verdana.ttf" Size="26" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz _.:/-%bpmHgREADYFALNORMACKmg" />
   </Typographies>
 </TextDatabase>

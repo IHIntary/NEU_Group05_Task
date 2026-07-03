@@ -7,6 +7,8 @@
 #include "stm32f4xx_hal.h"
 #include "max30102.h"
 #include "bp_service.h"
+#include "app_buzzer_service.h"
+#include "sh3001.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -145,6 +147,43 @@ static uint16_t ReadAdcChannel(uint32_t channel)
 #define SENSOR_TEMP_AVG_SLOPE  0.0025f
 #define SENSOR_TEMP_PERIOD_MS  1000U
 
+#define SENSOR_IMU_SAMPLE_PERIOD_MS         20U
+#define SENSOR_IMU_INIT_RETRY_PERIOD_MS     500U
+#define SENSOR_IMU_ACC_LSB_PER_G            2048L
+#define SENSOR_IMU_AXIS_ALARM_THRESHOLD_MG  50L
+
+static int16_t imuBaselineMg[3] = {0};
+static uint8_t imuBaselineValid = 0U;
+static uint8_t imuRecalibrateBaseline = 1U;
+
+static int16_t SensorService_AccRawToMg(short raw)
+{
+    int32_t mg = ((int32_t)raw * 1000L) / SENSOR_IMU_ACC_LSB_PER_G;
+
+    if (mg > 32767L)
+    {
+        return 32767;
+    }
+
+    if (mg < -32768L)
+    {
+        return -32768;
+    }
+
+    return (int16_t)mg;
+}
+
+static uint8_t SensorService_IsAxisDeltaOverThreshold(int16_t value, int16_t baseline)
+{
+    int32_t delta = (int32_t)value - (int32_t)baseline;
+    if (delta < 0)
+    {
+        delta = -delta;
+    }
+
+    return (delta > SENSOR_IMU_AXIS_ALARM_THRESHOLD_MG) ? 1U : 0U;
+}
+
 static void SensorService_UpdateChipTemp(void)
 {
     uint16_t raw;
@@ -170,6 +209,7 @@ void SensorService_Init(void)
 
     max30102_init();
     g_sensorData.max30102Ready = 1U;
+
 }
 
 void SensorService_GetData(SensorData_t *out)
@@ -237,6 +277,110 @@ void SensorService_SetPressureRunning(uint8_t running)
 				pressureFilterReady = 0U;
 		}
     osMutexRelease(Group05_SensMtx);
+}
+
+void SensorService_SetImuRunning(uint8_t running)
+{
+    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    g_sensorData.imuRunning = running ? 1U : 0U;
+    g_sensorData.imuDataValid = 0U;
+
+    if (running != 0U)
+    {
+        imuRecalibrateBaseline = 1U;
+    }
+    else
+    {
+        g_sensorData.imuFallDetected = 0U;
+        g_sensorData.imuAlarmActive = 0U;
+    }
+
+    osMutexRelease(Group05_SensMtx);
+}
+
+void SensorService_ClearImuAlarm(void)
+{
+    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    g_sensorData.imuFallDetected = 0U;
+    g_sensorData.imuAlarmActive = 0U;
+    imuRecalibrateBaseline = 1U;
+    osMutexRelease(Group05_SensMtx);
+}
+
+static void SensorService_TryInitImu(void)
+{
+    uint8_t ready;
+
+    if (sh3001_init() == SH3001_TRUE)
+    {
+        ready = 1U;
+    }
+    else
+    {
+        ready = 0U;
+    }
+
+    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    g_sensorData.imuReady = ready;
+    g_sensorData.imuDataValid = 0U;
+    imuBaselineValid = 0U;
+    imuRecalibrateBaseline = 1U;
+    osMutexRelease(Group05_SensMtx);
+}
+
+static void SensorService_UpdateImu(void)
+{
+    short accRaw[3] = {0};
+    short gyroRaw[3] = {0};
+    int16_t accMg[3];
+    uint8_t thresholdExceeded;
+    uint8_t latchAlarm = 0U;
+
+    sh3001_get_imu_compdata(accRaw, gyroRaw);
+
+    accMg[0] = SensorService_AccRawToMg(accRaw[0]);
+    accMg[1] = SensorService_AccRawToMg(accRaw[1]);
+    accMg[2] = SensorService_AccRawToMg(accRaw[2]);
+
+    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    if ((imuBaselineValid == 0U) || (imuRecalibrateBaseline != 0U))
+    {
+        imuBaselineMg[0] = accMg[0];
+        imuBaselineMg[1] = accMg[1];
+        imuBaselineMg[2] = accMg[2];
+        imuBaselineValid = 1U;
+        imuRecalibrateBaseline = 0U;
+    }
+
+    thresholdExceeded = ((SensorService_IsAxisDeltaOverThreshold(accMg[0], imuBaselineMg[0]) != 0U) ||
+                         (SensorService_IsAxisDeltaOverThreshold(accMg[1], imuBaselineMg[1]) != 0U) ||
+                         (SensorService_IsAxisDeltaOverThreshold(accMg[2], imuBaselineMg[2]) != 0U)) ? 1U : 0U;
+
+    g_sensorData.imuAccMg[0] = accMg[0];
+    g_sensorData.imuAccMg[1] = accMg[1];
+    g_sensorData.imuAccMg[2] = accMg[2];
+    g_sensorData.imuDataValid = 1U;
+
+    if ((thresholdExceeded != 0U) && (g_sensorData.imuAlarmActive == 0U))
+    {
+        latchAlarm = 1U;
+        g_sensorData.imuFallDetected = 1U;
+        g_sensorData.imuAlarmActive = 1U;
+    }
+    osMutexRelease(Group05_SensMtx);
+
+    if (latchAlarm != 0U)
+    {
+        AppBuzzer_Play(APP_BUZZER_PATTERN_CRITICAL);
+        printf("[SH3001] fall alarm ax=%d ay=%d az=%d base=%d,%d,%d threshold=%ldmg\r\n",
+               (int)accMg[0],
+               (int)accMg[1],
+               (int)accMg[2],
+               (int)imuBaselineMg[0],
+               (int)imuBaselineMg[1],
+               (int)imuBaselineMg[2],
+               (long)SENSOR_IMU_AXIS_ALARM_THRESHOLD_MG);
+    }
 }
 
 static void SensorService_UpdateEcg(void)
@@ -480,6 +624,8 @@ void SensorService_Task(void *argument)
     uint32_t lastPressure = 0;
     uint32_t lastPulse = 0;
 		uint32_t lastChipTemp = 0;
+    uint32_t lastImu = 0;
+    uint32_t lastImuInit = 0;
 
     SensorService_Init();
 
@@ -494,6 +640,22 @@ void SensorService_Task(void *argument)
         {
             lastChipTemp = now;
             SensorService_UpdateChipTemp();
+        }
+
+        if (snapshot.imuRunning != 0U)
+        {
+            if ((snapshot.imuReady == 0U) &&
+                ((lastImuInit == 0U) || ((now - lastImuInit) >= SENSOR_IMU_INIT_RETRY_PERIOD_MS)))
+            {
+                lastImuInit = now;
+                SensorService_TryInitImu();
+            }
+
+            if ((snapshot.imuReady != 0U) && ((now - lastImu) >= SENSOR_IMU_SAMPLE_PERIOD_MS))
+            {
+                lastImu = now;
+                SensorService_UpdateImu();
+            }
         }
 
         if ((snapshot.ecgRunning != 0U) && ((now - lastEcg) >= SENSOR_ECG_SAMPLE_PERIOD_MS))

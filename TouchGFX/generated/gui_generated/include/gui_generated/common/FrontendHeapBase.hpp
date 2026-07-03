@@ -24,6 +24,8 @@
 #include <gui/bloodpressurescreen_screen/BloodPressureScreenPresenter.hpp>
 #include <gui/ledscreen_screen/LEDScreenView.hpp>
 #include <gui/ledscreen_screen/LEDScreenPresenter.hpp>
+#include <gui/imuscreen_screen/IMUScreenView.hpp>
+#include <gui/imuscreen_screen/IMUScreenPresenter.hpp>
 
 
 /**
@@ -51,7 +53,8 @@ public:
             touchgfx::meta::TypeList< PulseScreenView,
             touchgfx::meta::TypeList< BloodPressureScreenView,
             touchgfx::meta::TypeList< LEDScreenView,
-            touchgfx::meta::Nil > > > >
+            touchgfx::meta::TypeList< IMUScreenView,
+            touchgfx::meta::Nil > > > > >
             > GeneratedViewTypes;
 
     /**
@@ -68,7 +71,8 @@ public:
             touchgfx::meta::TypeList< PulseScreenPresenter,
             touchgfx::meta::TypeList< BloodPressureScreenPresenter,
             touchgfx::meta::TypeList< LEDScreenPresenter,
-            touchgfx::meta::Nil > > > >
+            touchgfx::meta::TypeList< IMUScreenPresenter,
+            touchgfx::meta::Nil > > > > >
             > GeneratedPresenterTypes;
 
     /**

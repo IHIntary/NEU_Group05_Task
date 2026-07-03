@@ -19,6 +19,7 @@ public:
     void setEcgRunning(uint8_t running);
     void setPressureRunning(uint8_t running);
     void setPulseRunning(uint8_t running);
+    void setImuRunning(uint8_t running);
     void startBPMeasure();
     void resetBPMeasure();
     void toggleLed0();
@@ -29,6 +30,7 @@ public:
     void toggleAlarmAuto();
     void adjustLightThreshold(int16_t delta);
     void beep(uint16_t durationMs);
+    void clearImuAlarm();
     uint8_t isLed0On() const;
 protected:
     ModelListener* modelListener;

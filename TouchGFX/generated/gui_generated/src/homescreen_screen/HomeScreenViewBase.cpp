@@ -84,6 +84,17 @@ HomeScreenViewBase::HomeScreenViewBase() :
     textAreaLED.setLinespacing(0);
     textAreaLED.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LED_HOME));
     add(textAreaLED);
+
+    imuButton.setXY(690, 455);
+    imuButton.setBitmaps(touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_ACTION_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_PRESSED_ID));
+    imuButton.setAction(buttonCallback);
+    add(imuButton);
+
+    textAreaIMU.setXY(795, 483);
+    textAreaIMU.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    textAreaIMU.setLinespacing(0);
+    textAreaIMU.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IMU_HOME));
+    add(textAreaIMU);
 }
 
 HomeScreenViewBase::~HomeScreenViewBase()
@@ -125,5 +136,12 @@ void HomeScreenViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& s
         //When ledButton clicked change screen to LEDScreen
         //Go to LEDScreen with screen transition towards East
         application().gotoLEDScreenScreenSlideTransitionEast();
+    }
+    if (&src == &imuButton)
+    {
+        //InteractionIMU
+        //When imuButton clicked change screen to IMUScreen
+        //Go to IMUScreen with screen transition towards East
+        application().gotoIMUScreenScreenSlideTransitionEast();
     }
 }

@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F429xx,ARM_MATH_CM4</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Drivers/CMSIS/RTOS2/Include;../Drivers/CMSIS/DSP/Include;../Drivers/MAX30102;../Drivers/CMSIS/DSP/PrivateInclude;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../TouchGFX/App;../TouchGFX/target/generated;../TouchGFX/target;../Drivers/TOUCH;../middlewares/st/touchgfx/framework/include;../touchgfx/generated/fonts/include;../touchgfx/generated/gui_generated/include;../touchgfx/generated/images/include;../touchgfx/generated/texts/include;../touchgfx/generated/videos/include;../touchgfx/gui/include</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;../Drivers/CMSIS/RTOS2/Include;../Drivers/CMSIS/DSP/Include;../Drivers/MAX30102;../Drivers/SH3001;../Drivers/CMSIS/DSP/PrivateInclude;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../TouchGFX/App;../TouchGFX/target/generated;../TouchGFX/target;../Drivers/TOUCH;../middlewares/st/touchgfx/framework/include;../touchgfx/generated/fonts/include;../touchgfx/generated/gui_generated/include;../touchgfx/generated/images/include;../touchgfx/generated/texts/include;../touchgfx/generated/videos/include;../touchgfx/gui/include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -2935,6 +2935,16 @@
               <FilePath>../touchgfx/gui/src/homescreen_screen/homescreenview.cpp</FilePath>
             </File>
             <File>
+              <FileName>IMUScreenPresenter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/gui/src/imuscreen_screen/imuscreenpresenter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>IMUScreenView.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/gui/src/imuscreen_screen/imuscreenview.cpp</FilePath>
+            </File>
+            <File>
               <FileName>LEDScreenPresenter.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../touchgfx/gui/src/ledscreen_screen/ledscreenpresenter.cpp</FilePath>
@@ -3080,6 +3090,11 @@
               <FilePath>../touchgfx/generated/images/src/__generated/image_icon_theme_images_action_accessible_forward_50_50_000000.svg.cpp</FilePath>
             </File>
             <File>
+              <FileName>IMUScreenViewBase.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/generated/gui_generated/src/imuscreen_screen/imuscreenviewbase.cpp</FilePath>
+            </File>
+            <File>
               <FileName>Kerning_verdana_10_4bpp.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../touchgfx/generated/fonts/src/kerning_verdana_10_4bpp.cpp</FilePath>
@@ -3173,6 +3188,16 @@
               <FileName>touchgfx_core.lib</FileName>
               <FileType>4</FileType>
               <FilePath>../middlewares/st/touchgfx/lib/core/cortex_m4f/Keil/touchgfx_core.lib</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Drivers/SH3001</GroupName>
+          <Files>
+            <File>
+              <FileName>sh3001.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\SH3001\sh3001.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -36,6 +36,9 @@
     <ClCompile Include="..\..\gui\src\ledscreen_screen\LEDScreenPresenter.cpp"/>
     <ClCompile Include="..\..\gui\src\ledscreen_screen\LEDScreenView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\ledscreen_screen\LEDScreenViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\imuscreen_screen\IMUScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\imuscreen_screen\IMUScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\imuscreen_screen\IMUScreenViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -201,6 +204,9 @@
     <ClInclude Include="..\..\gui\include\gui\ledscreen_screen\LEDScreenPresenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\ledscreen_screen\LEDScreenView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\ledscreen_screen\LEDScreenViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\imuscreen_screen\IMUScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\imuscreen_screen\IMUScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\imuscreen_screen\IMUScreenViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

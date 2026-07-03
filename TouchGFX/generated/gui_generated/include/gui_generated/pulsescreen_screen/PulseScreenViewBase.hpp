@@ -13,7 +13,7 @@
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/Button.hpp>
 #include <touchgfx/widgets/BoxWithBorder.hpp>
-#include <touchgfx/widgets/graph/GraphScroll.hpp>
+#include <touchgfx/widgets/graph/GraphWrapAndClear.hpp>
 #include <touchgfx/widgets/graph/GraphElements.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 
@@ -60,10 +60,10 @@ protected:
     touchgfx::TextArea textArea2;
     touchgfx::TextArea textArea3;
     touchgfx::BoxWithBorder boxWithBorder1;
-    touchgfx::GraphScroll<100> HRGraph;
+    touchgfx::GraphWrapAndClear<100> HRGraph;
     touchgfx::GraphElementLine HRGraphLine1;
     touchgfx::PainterRGB565 HRGraphLine1Painter;
-    touchgfx::GraphScroll<100> SPGraph;
+    touchgfx::GraphWrapAndClear<100> SPGraph;
     touchgfx::GraphElementLine SPGraphLine1;
     touchgfx::PainterRGB565 SPGraphLine1Painter;
 

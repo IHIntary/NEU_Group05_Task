@@ -37,6 +37,9 @@ public:
     // LEDScreen
     void gotoLEDScreenScreenSlideTransitionEast();
 
+    // IMUScreen
+    void gotoIMUScreenScreenSlideTransitionEast();
+
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
     FrontendHeap& frontendHeap;
@@ -58,6 +61,9 @@ protected:
 
     // LEDScreen
     void gotoLEDScreenScreenSlideTransitionEastImpl();
+
+    // IMUScreen
+    void gotoIMUScreenScreenSlideTransitionEastImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

@@ -34,6 +34,13 @@ typedef struct
 
     float chipTempC;
     uint8_t chipTempValid;
+
+    int16_t imuAccMg[3];
+    uint8_t imuRunning;
+    uint8_t imuReady;
+    uint8_t imuDataValid;
+    uint8_t imuFallDetected;
+    uint8_t imuAlarmActive;
 } SensorData_t;
 
 void SensorService_Init(void);
@@ -46,6 +53,8 @@ void SensorService_GetData(SensorData_t *out);
 void SensorService_SetEcgRunning(uint8_t running);
 void SensorService_SetPulseRunning(uint8_t running);
 void SensorService_SetPressureRunning(uint8_t running);
+void SensorService_SetImuRunning(uint8_t running);
+void SensorService_ClearImuAlarm(void);
 
 #ifdef __cplusplus
 }

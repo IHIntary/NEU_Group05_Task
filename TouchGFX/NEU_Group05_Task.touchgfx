@@ -167,6 +167,33 @@
               "Blue": 255
             },
             "AutoSize": true
+          },
+          {
+            "Type": "Button",
+            "Name": "imuButton",
+            "X": 690,
+            "Y": 455,
+            "Width": 340,
+            "Height": 80,
+            "Pressed": "__generated\\clay_theme_images_widgets_button_regular_height_36_large_rounded_pressed.png",
+            "Released": "__generated\\clay_theme_images_widgets_button_regular_height_36_large_rounded_action.png",
+            "Preset": "clay_theme\\presets\\button\\regular\\height_36\\large_rounded_action.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaIMU",
+            "X": 795,
+            "Y": 483,
+            "Width": 136,
+            "Height": 32,
+            "TextId": "__SingleUse_IMU_HOME",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
           }
         ],
         "Interactions": [
@@ -221,6 +248,19 @@
               "ScreenTransitionDirection": "East",
               "ActionComponent": "LEDScreen"
             }
+          },
+          {
+            "InteractionName": "InteractionIMU",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "imuButton"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "IMUScreen"
+            }
           }
         ],
         "CustomActions": [
@@ -267,11 +307,11 @@
             "Height": 302,
             "DataSeed": 11918985,
             "NumberOfValues": 150,
-            "MaxY": 3500.0,
+            "MaxY": 3500,
             "Precision": "1",
             "UseCustomVisibleDataPointRange": true,
             "LastIndex": 150,
-            "XAxisScale": 1.0,
+            "XAxisScale": 1,
             "InsertRandomValues": true,
             "PaddingTop": 5,
             "PaddingBottom": 5,
@@ -297,7 +337,7 @@
                 "Green": 151,
                 "Blue": 197
               },
-              "Interval": 50.0,
+              "Interval": 50,
               "LineWidth": 1
             }
           },
@@ -728,10 +768,10 @@
             "Height": 300,
             "DataSeed": -531859431,
             "NumberOfValues": 100,
-            "MaxY": 200.0,
+            "MaxY": 200,
             "Precision": "1",
             "LastIndex": 99,
-            "XAxisScale": 1.0,
+            "XAxisScale": 1,
             "InsertRandomValues": true,
             "GraphType": "GraphWrapClear",
             "GraphDrawers": [
@@ -754,10 +794,10 @@
             "Height": 299,
             "DataSeed": -1040636640,
             "NumberOfValues": 100,
-            "MaxY": 200.0,
+            "MaxY": 200,
             "Precision": "1",
             "LastIndex": 99,
-            "XAxisScale": 1.0,
+            "XAxisScale": 1,
             "InsertRandomValues": true,
             "GraphType": "GraphWrapClear",
             "GraphDrawers": [
@@ -1035,10 +1075,10 @@
             "Height": 300,
             "DataSeed": 298088515,
             "NumberOfValues": 100,
-            "MaxY": 250.0,
+            "MaxY": 250,
             "Precision": "1",
             "LastIndex": 99,
-            "XAxisScale": 1.0,
+            "XAxisScale": 1,
             "InsertRandomValues": true,
             "GraphType": "GraphWrapClear",
             "GraphDrawers": [
@@ -1361,6 +1401,183 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "alarmToggleClicked"
+            }
+          },
+          {
+            "InteractionName": "HomeScreen",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "homeButton"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "West",
+              "ActionComponent": "HomeScreen"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "IMUScreen",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "imuBg",
+            "Width": 1024,
+            "Height": 600,
+            "Color": {
+              "Red": 224,
+              "Green": 252,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "imuTitleText",
+            "X": 366,
+            "Y": 42,
+            "Width": 191,
+            "Height": 32,
+            "TextId": "__SingleUse_IMU_TITLE",
+            "TextRotation": "0",
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtImuStatus",
+            "X": 72,
+            "Y": 126,
+            "Width": 193,
+            "Height": 32,
+            "TextId": "__SingleUse_IMU_STATUS",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "imu_status"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtImuFall",
+            "X": 390,
+            "Y": 126,
+            "Width": 176,
+            "Height": 32,
+            "TextId": "__SingleUse_IMU_FALL",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "imu_fall"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtImuAccX",
+            "X": 72,
+            "Y": 218,
+            "Width": 175,
+            "Height": 32,
+            "TextId": "__SingleUse_IMU_AX",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "imu_ax"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtImuAccY",
+            "X": 390,
+            "Y": 218,
+            "Width": 169,
+            "Height": 32,
+            "TextId": "__SingleUse_IMU_AY",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "imu_ay"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtImuAccZ",
+            "X": 722,
+            "Y": 218,
+            "Width": 175,
+            "Height": 32,
+            "TextId": "__SingleUse_IMU_AZ",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "imu_az"
+            }
+          },
+          {
+            "Type": "Button",
+            "Name": "ackButton",
+            "X": 238,
+            "Y": 500,
+            "Width": 240,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_action.png",
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\medium_round_action.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtAckButtonLabel",
+            "X": 331,
+            "Y": 510,
+            "Width": 54,
+            "Height": 32,
+            "TextId": "__SingleUse_IMU_ACK_BTN",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Button",
+            "Name": "homeButton",
+            "X": 546,
+            "Y": 500,
+            "Width": 240,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_action.png",
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\medium_round_action.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "txtHomeButtonLabel",
+            "X": 627,
+            "Y": 510,
+            "Width": 78,
+            "Height": 32,
+            "TextId": "__SingleUse_IMU_HOME_BTN",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "imuAckClicked",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "ackButton"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "imuAckClicked"
             }
           },
           {

@@ -232,6 +232,18 @@
     <Filter Include="Source Files\generated\gui_generated\ledscreen_screen">
       <UniqueIdentifier>9D91F94B-4BD3-F44B-9155-478E4C5E7FA9</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\gui\imuscreen_screen">
+      <UniqueIdentifier>FF515C53-A7CB-28DC-EB8B-383D1C9F8725</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\imuscreen_screen">
+      <UniqueIdentifier>3690001B-BAE9-50CD-66C6-AC8D6D5B83A9</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\imuscreen_screen">
+      <UniqueIdentifier>EAED8147-4E98-121A-5A07-FBEB28B0F174</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\imuscreen_screen">
+      <UniqueIdentifier>A6471B3E-72EB-F161-409A-AA3CA45A32CB</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -308,6 +320,15 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\ledscreen_screen\LEDScreenViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\ledscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\imuscreen_screen\IMUScreenPresenter.cpp">
+      <Filter>Source Files\gui\imuscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\imuscreen_screen\IMUScreenView.cpp">
+      <Filter>Source Files\gui\imuscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\imuscreen_screen\IMUScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\imuscreen_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -795,6 +816,15 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\ledscreen_screen\LEDScreenViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\ledscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\imuscreen_screen\IMUScreenPresenter.hpp">
+      <Filter>Header Files\gui\imuscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\imuscreen_screen\IMUScreenView.hpp">
+      <Filter>Header Files\gui\imuscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\imuscreen_screen\IMUScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\imuscreen_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

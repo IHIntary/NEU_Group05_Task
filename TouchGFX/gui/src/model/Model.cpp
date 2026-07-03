@@ -45,6 +45,11 @@ void Model::tick()
                                            light.autoMode,
                                            light.led0On,
                                            light.alarmActive);
+        modelListener->imuDataUpdated(data.imuAccMg,
+                                      data.imuReady,
+                                      data.imuDataValid,
+                                      data.imuFallDetected,
+                                      data.imuAlarmActive);
 
         if ((ecgNotificationsEnabled != 0U) ||
             (pressureNotificationsEnabled != 0U) ||
@@ -127,6 +132,11 @@ void Model::setPulseRunning(uint8_t running)
     SensorService_SetPulseRunning(running);
 }
 
+void Model::setImuRunning(uint8_t running)
+{
+    SensorService_SetImuRunning(running);
+}
+
 void Model::startBPMeasure()
 {
     bpNotificationsEnabled = 1U;
@@ -172,6 +182,11 @@ void Model::toggleAlarmAuto()
 void Model::adjustLightThreshold(int16_t delta)
 {
     AppLightService_AdjustThreshold(delta);
+}
+
+void Model::clearImuAlarm()
+{
+    SensorService_ClearImuAlarm();
 }
 
 uint8_t Model::isLed0On() const

@@ -51,6 +51,8 @@ protected:
     touchgfx::TextAreaWithOneWildcard txtChipTemp;
     touchgfx::Button ledButton;
     touchgfx::TextArea textAreaLED;
+    touchgfx::Button imuButton;
+    touchgfx::TextArea textAreaIMU;
 
 private:
 
