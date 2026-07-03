@@ -14,6 +14,8 @@
 #include <gui/common/FrontendApplication.hpp>
 #include <gui/model/Model.hpp>
 
+#include <gui/login_screen/LOGINView.hpp>
+#include <gui/login_screen/LOGINPresenter.hpp>
 #include <gui/homescreen_screen/HomeScreenView.hpp>
 #include <gui/homescreen_screen/HomeScreenPresenter.hpp>
 #include <gui/ecgscreen_screen/ECGScreenView.hpp>
@@ -50,14 +52,15 @@ public:
      * A list of all view types. Must end with meta::Nil.
      * @note All view types used in the application MUST be added to this list!
      */
-    typedef touchgfx::meta::TypeList< HomeScreenView,
+    typedef touchgfx::meta::TypeList< LOGINView,
+            touchgfx::meta::TypeList< HomeScreenView,
             touchgfx::meta::TypeList< ECGScreenView,
             touchgfx::meta::TypeList< PulseScreenView,
             touchgfx::meta::TypeList< BloodPressureScreenView,
             touchgfx::meta::TypeList< LEDScreenView,
             touchgfx::meta::TypeList< ClockScreenView,
             touchgfx::meta::TypeList< IMUScreenView,
-            touchgfx::meta::Nil > > > > > >
+            touchgfx::meta::Nil > > > > > > >
             > GeneratedViewTypes;
 
     /**
@@ -69,14 +72,15 @@ public:
      * A list of all presenter types. Must end with meta::Nil.
      * @note All presenter types used in the application MUST be added to this list!
      */
-    typedef touchgfx::meta::TypeList< HomeScreenPresenter,
+    typedef touchgfx::meta::TypeList< LOGINPresenter,
+            touchgfx::meta::TypeList< HomeScreenPresenter,
             touchgfx::meta::TypeList< ECGScreenPresenter,
             touchgfx::meta::TypeList< PulseScreenPresenter,
             touchgfx::meta::TypeList< BloodPressureScreenPresenter,
             touchgfx::meta::TypeList< LEDScreenPresenter,
             touchgfx::meta::TypeList< ClockScreenPresenter,
             touchgfx::meta::TypeList< IMUScreenPresenter,
-            touchgfx::meta::Nil > > > > > >
+            touchgfx::meta::Nil > > > > > > >
             > GeneratedPresenterTypes;
 
     /**
@@ -101,7 +105,7 @@ public:
 
     virtual void gotoStartScreen(FrontendApplication& app)
     {
-        app.gotoHomeScreenScreenNoTransition();
+        app.gotoLOGINScreenNoTransition();
     }
 protected:
     FrontendHeapBase(touchgfx::AbstractPartition& presenters, touchgfx::AbstractPartition& views, touchgfx::AbstractPartition& transitions, FrontendApplication& app)

@@ -50,8 +50,7 @@ protected:
     touchgfx::Box __background;
     touchgfx::Box ecgBg;
     touchgfx::BoxWithBorder ecgWindowBorder;
-    touchgfx::GraphWrapAndClear<150> ecgGraph;
-    touchgfx::GraphElementGridX ecgGraphMajorXAxisGrid;
+    touchgfx::GraphWrapAndClear<130> ecgGraph;
     touchgfx::GraphElementLine ecgGraphLine1;
     touchgfx::PainterRGB565 ecgGraphLine1Painter;
     touchgfx::TextArea ecgTitleText;

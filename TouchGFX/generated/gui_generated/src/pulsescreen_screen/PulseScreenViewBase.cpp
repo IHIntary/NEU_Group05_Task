@@ -20,7 +20,7 @@ PulseScreenViewBase::PulseScreenViewBase() :
     pulseBg.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     add(pulseBg);
 
-    pulseTitleText.setXY(277, 24);
+    pulseTitleText.setXY(12, 29);
     pulseTitleText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     pulseTitleText.setLinespacing(0);
     pulseTitleText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_P0RO));
@@ -41,7 +41,7 @@ PulseScreenViewBase::PulseScreenViewBase() :
     pulseProgress.setValue(0);
     add(pulseProgress);
 
-    spo2Text.setXY(17, 202);
+    spo2Text.setXY(12, 207);
     spo2Text.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     spo2Text.setLinespacing(0);
     spo2Text.setWildcard(touchgfx::TypedText(T___SINGLEUSE_G3YR).getText());

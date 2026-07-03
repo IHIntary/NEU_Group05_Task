@@ -2980,6 +2980,16 @@
               <FilePath>../touchgfx/gui/src/ledscreen_screen/ledscreenview.cpp</FilePath>
             </File>
             <File>
+              <FileName>LOGINPresenter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/gui/src/login_screen/loginpresenter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LOGINView.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/gui/src/login_screen/loginview.cpp</FilePath>
+            </File>
+            <File>
               <FileName>Model.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../touchgfx/gui/src/model/model.cpp</FilePath>
@@ -3045,14 +3055,9 @@
               <FilePath>../touchgfx/generated/fonts/src/font_verdana_26_4bpp_0.cpp</FilePath>
             </File>
             <File>
-              <FileName>Font_verdana_40_4bpp_0.cpp</FileName>
+              <FileName>Font_verdana_45_4bpp_0.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>../touchgfx/generated/fonts/src/font_verdana_40_4bpp_0.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Font_vinet_29_4bpp_0.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>../touchgfx/generated/fonts/src/font_vinet_29_4bpp_0.cpp</FilePath>
+              <FilePath>../touchgfx/generated/fonts/src/font_verdana_45_4bpp_0.cpp</FilePath>
             </File>
             <File>
               <FileName>FontCache.cpp</FileName>
@@ -3130,6 +3135,26 @@
               <FilePath>../touchgfx/generated/images/src/__generated/image_alternate_theme_images_widgets_button_regular_height_50_tiny_round_disabled.cpp</FilePath>
             </File>
             <File>
+              <FileName>image_analogclock_small_hour_plain_light.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/generated/images/src/__generated/image_analogclock_small_hour_plain_light.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>image_analogclock_small_minute_plain_light.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/generated/images/src/__generated/image_analogclock_small_minute_plain_light.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>image_analogclock_small_plain_light.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/generated/images/src/__generated/image_analogclock_small_plain_light.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>image_analogclock_small_second_plain_light.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/generated/images/src/__generated/image_analogclock_small_second_plain_light.cpp</FilePath>
+            </File>
+            <File>
               <FileName>image_clay_theme_images_widgets_button_regular_height_36_large_rounded_action.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../touchgfx/generated/images/src/__generated/image_clay_theme_images_widgets_button_regular_height_36_large_rounded_action.cpp</FilePath>
@@ -3145,9 +3170,9 @@
               <FilePath>../touchgfx/generated/images/src/__generated/image_dark_theme_images_widgets_boxprogress_thick_large.cpp</FilePath>
             </File>
             <File>
-              <FileName>image_icon_theme_images_action_accessible_forward_50_50_000000.svg.cpp</FileName>
+              <FileName>image_icon_theme_images_notification_airline_seat_flat_angled_50_50_000000.svg.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>../touchgfx/generated/images/src/__generated/image_icon_theme_images_action_accessible_forward_50_50_000000.svg.cpp</FilePath>
+              <FilePath>../touchgfx/generated/images/src/__generated/image_icon_theme_images_notification_airline_seat_flat_angled_50_50_000000.svg.cpp</FilePath>
             </File>
             <File>
               <FileName>IMUScreenViewBase.cpp</FileName>
@@ -3170,14 +3195,9 @@
               <FilePath>../touchgfx/generated/fonts/src/kerning_verdana_26_4bpp.cpp</FilePath>
             </File>
             <File>
-              <FileName>Kerning_verdana_40_4bpp.cpp</FileName>
+              <FileName>Kerning_verdana_45_4bpp.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>../touchgfx/generated/fonts/src/kerning_verdana_40_4bpp.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Kerning_vinet_29_4bpp.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>../touchgfx/generated/fonts/src/kerning_vinet_29_4bpp.cpp</FilePath>
+              <FilePath>../touchgfx/generated/fonts/src/kerning_verdana_45_4bpp.cpp</FilePath>
             </File>
             <File>
               <FileName>LanguageGb.cpp</FileName>
@@ -3188,6 +3208,11 @@
               <FileName>LEDScreenViewBase.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>../touchgfx/generated/gui_generated/src/ledscreen_screen/ledscreenviewbase.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LOGINViewBase.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>../touchgfx/generated/gui_generated/src/login_screen/loginviewbase.cpp</FilePath>
             </File>
             <File>
               <FileName>PulseScreenViewBase.cpp</FileName>
@@ -3215,14 +3240,9 @@
               <FilePath>../touchgfx/generated/fonts/src/table_verdana_26_4bpp.cpp</FilePath>
             </File>
             <File>
-              <FileName>Table_verdana_40_4bpp.cpp</FileName>
+              <FileName>Table_verdana_45_4bpp.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>../touchgfx/generated/fonts/src/table_verdana_40_4bpp.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Table_vinet_29_4bpp.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>../touchgfx/generated/fonts/src/table_vinet_29_4bpp.cpp</FilePath>
+              <FilePath>../touchgfx/generated/fonts/src/table_verdana_45_4bpp.cpp</FilePath>
             </File>
             <File>
               <FileName>Texts.cpp</FileName>

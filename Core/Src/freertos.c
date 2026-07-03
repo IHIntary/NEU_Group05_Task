@@ -366,18 +366,12 @@ static void Group05_TaskKEY0(void *argument)
       if (Group05_LED0Handle == NULL)
       {
         Group05_LED0Handle = osThreadNew(Group05_TaskLED0, NULL, &Group05_LED0_attributes);
-        AppPrintf("Group05_LED0 create\r\n");
       }
       else
       {
         if (osThreadTerminate(Group05_LED0Handle) == osOK)
         {
           Group05_LED0Handle = NULL;
-          AppPrintf("Group05_LED0 delete\r\n");
-        }
-        else
-        {
-          AppPrintf("Group05_LED0 delete failed\r\n");
         }
       }
 
@@ -407,7 +401,6 @@ static void Group05_TaskKEY2(void *argument)
         if (osThreadSuspend(Group05_KEYLED1Handle) == osOK)
         {
           keyLed1Suspended = 1U;
-          AppPrintf("Group05_KEYLED1 suspend\r\n");
         }
       }
       else if (Group05_KEYLED1Handle != NULL)
@@ -415,7 +408,6 @@ static void Group05_TaskKEY2(void *argument)
         if (osThreadResume(Group05_KEYLED1Handle) == osOK)
         {
           keyLed1Suspended = 0U;
-          AppPrintf("Group05_KEYLED1 resume\r\n");
         }
       }
 
@@ -440,7 +432,6 @@ static void Group05_TaskMPS20(void *argument)
     key = key_scan(0);
     if (key == WKUP_PRES)
     {
-      AppPrintf("SP20 Pressure: %.1f mmhg\r\n", Pressure_GetMmHg());
       while (key_scan(0) == WKUP_PRES)
       {
         osDelay(10);
@@ -459,7 +450,6 @@ static void Group05_TaskMAX301(void *argument)
   {
     if (MAX30102_Get_DATA(&HeartRate, &Spo2) == MAX30102_DATA_OK)
     {
-      AppPrintf("HeartRate:%d    SPO2:%.2f %%\r\n", HeartRate, Spo2);
     }
 
     osDelay(1);
@@ -467,4 +457,3 @@ static void Group05_TaskMAX301(void *argument)
 }
 
 /* USER CODE END Application */
-

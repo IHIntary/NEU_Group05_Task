@@ -62,9 +62,12 @@ private:
 
     AppRtcDateTime_t editTime;
     AppRtcDateTime_t lastRtcTime;
+    AppRtcDateTime_t displayedRtcTime;
+    AppRtcStatus_t displayedRtcStatus;
     EditField selectedField;
     uint8_t digitalMode;
     uint8_t editInitialized;
+    uint8_t rtcDisplayValid;
 };
 
 #endif // CLOCKSCREENVIEW_HPP

@@ -42,6 +42,9 @@
     <ClCompile Include="..\..\gui\src\clockscreen_screen\ClockScreenPresenter.cpp"/>
     <ClCompile Include="..\..\gui\src\clockscreen_screen\ClockScreenView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\clockscreen_screen\ClockScreenViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\login_screen\LOGINPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\login_screen\LOGINView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\login_screen\LOGINViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -213,6 +216,9 @@
     <ClInclude Include="..\..\gui\include\gui\clockscreen_screen\ClockScreenPresenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\clockscreen_screen\ClockScreenView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\clockscreen_screen\ClockScreenViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\login_screen\LOGINPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\login_screen\LOGINView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\login_screen\LOGINViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

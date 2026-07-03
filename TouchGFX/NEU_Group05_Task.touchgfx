@@ -2,12 +2,80 @@
   "Application": {
     "Screens": [
       {
+        "Name": "LOGIN",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "Width": 1024,
+            "Height": 600,
+            "Color": {
+              "Red": 189,
+              "Green": 255,
+              "Blue": 253
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 207,
+            "Y": 211,
+            "Width": 611,
+            "Height": 54,
+            "TextId": "__SingleUse_SL09",
+            "TextRotation": "0",
+            "AutoSize": true
+          },
+          {
+            "Type": "Button",
+            "Name": "button1",
+            "X": 392,
+            "Y": 389,
+            "Width": 240,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_action.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea2",
+            "X": 479,
+            "Y": 402,
+            "Width": 66,
+            "Height": 24,
+            "TextId": "__SingleUse_PSXJ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "button1"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "HomeScreen"
+            }
+          }
+        ]
+      },
+      {
         "Name": "HomeScreen",
         "Includes": "",
         "Components": [
           {
             "Type": "Box",
             "Name": "homeBg",
+            "X": 1,
             "Width": 1024,
             "Height": 600,
             "Color": {
@@ -31,8 +99,8 @@
             "Name": "titleText",
             "X": 283,
             "Y": 68,
-            "Width": 459,
-            "Height": 49,
+            "Width": 516,
+            "Height": 54,
             "TextId": "__SingleUse_PC48",
             "TextRotation": "0",
             "AutoSize": true
@@ -51,10 +119,10 @@
           {
             "Type": "TextArea",
             "Name": "tipText",
-            "X": 323,
-            "Y": 284,
-            "Width": 379,
-            "Height": 39,
+            "X": 429,
+            "Y": 269,
+            "Width": 168,
+            "Height": 24,
             "TextId": "__SingleUse_9K9T",
             "TextRotation": "0",
             "AutoSize": true
@@ -105,7 +173,7 @@
           {
             "Type": "TextArea",
             "Name": "textAreaBP",
-            "X": 457,
+            "X": 458,
             "Y": 377,
             "Width": 111,
             "Height": 24,
@@ -121,17 +189,17 @@
           {
             "Type": "Image",
             "Name": "image1",
-            "X": 233,
-            "Y": 66,
+            "X": 234,
+            "Y": 70,
             "Width": 50,
             "Height": 50,
-            "RelativeFilename": "__generated\\icon_theme_images_action_accessible_forward_50_50_000000.svg.png"
+            "RelativeFilename": "__generated\\icon_theme_images_notification_airline_seat_flat_angled_50_50_000000.svg.png"
           },
           {
             "Type": "TextArea",
             "Name": "txtChipTemp",
-            "X": 386,
-            "Y": 147,
+            "X": 373,
+            "Y": 179,
             "Width": 280,
             "Height": 32,
             "TextId": "__SingleUse_XY3W",
@@ -144,7 +212,7 @@
             "Type": "Button",
             "Name": "ledButton",
             "X": 342,
-            "Y": 455,
+            "Y": 444,
             "Width": 340,
             "Height": 80,
             "Pressed": "__generated\\clay_theme_images_widgets_button_regular_height_36_large_rounded_pressed.png",
@@ -155,7 +223,7 @@
             "Type": "TextArea",
             "Name": "textAreaLED",
             "X": 456,
-            "Y": 483,
+            "Y": 472,
             "Width": 115,
             "Height": 24,
             "TextId": "__SingleUse_LED_HOME",
@@ -171,7 +239,7 @@
             "Type": "Button",
             "Name": "imuButton",
             "X": 690,
-            "Y": 455,
+            "Y": 444,
             "Width": 340,
             "Height": 80,
             "Pressed": "__generated\\clay_theme_images_widgets_button_regular_height_36_large_rounded_pressed.png",
@@ -182,7 +250,7 @@
             "Type": "TextArea",
             "Name": "textAreaIMU",
             "X": 808,
-            "Y": 483,
+            "Y": 472,
             "Width": 104,
             "Height": 24,
             "TextId": "__SingleUse_IMU_HOME",
@@ -197,7 +265,7 @@
           {
             "Type": "Button",
             "Name": "clockButton",
-            "Y": 455,
+            "Y": 444,
             "Width": 340,
             "Height": 80,
             "Pressed": "__generated\\clay_theme_images_widgets_button_regular_height_36_large_rounded_pressed.png",
@@ -208,7 +276,7 @@
             "Type": "TextArea",
             "Name": "textAreaClock",
             "X": 144,
-            "Y": 483,
+            "Y": 472,
             "Width": 53,
             "Height": 24,
             "TextId": "__SingleUse_CLOCK_HOME",
@@ -217,6 +285,33 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Button",
+            "Name": "button1",
+            "X": 342,
+            "Y": 524,
+            "Width": 340,
+            "Height": 80,
+            "Pressed": "__generated\\clay_theme_images_widgets_button_regular_height_36_large_rounded_pressed.png",
+            "Released": "__generated\\clay_theme_images_widgets_button_regular_height_36_large_rounded_action.png",
+            "Preset": "clay_theme\\presets\\button\\regular\\height_36\\large_rounded_action.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea4",
+            "X": 479,
+            "Y": 552,
+            "Width": 68,
+            "Height": 24,
+            "TextId": "__SingleUse_0JEU",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 252,
+              "Green": 252,
+              "Blue": 252
             },
             "AutoSize": true
           }
@@ -299,6 +394,18 @@
               "ScreenTransitionDirection": "East",
               "ActionComponent": "ClockScreen"
             }
+          },
+          {
+            "InteractionName": "Interaction3",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "button1"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "LOGIN"
+            }
           }
         ],
         "CustomActions": [
@@ -339,18 +446,18 @@
           {
             "Type": "DynamicGraph",
             "Name": "ecgGraph",
-            "X": 500,
-            "Y": 45,
-            "Width": 421,
-            "Height": 302,
+            "X": 477,
+            "Y": 37,
+            "Width": 456,
+            "Height": 322,
             "DataSeed": 11918985,
-            "NumberOfValues": 150,
+            "NumberOfValues": 130,
             "MaxY": 3500.0,
+            "MinY": 1000.0,
             "Precision": "1",
             "UseCustomVisibleDataPointRange": true,
-            "LastIndex": 150,
+            "LastIndex": 130,
             "XAxisScale": 1.0,
-            "InsertRandomValues": true,
             "PaddingTop": 5,
             "PaddingBottom": 5,
             "PaddingLeft": 5,
@@ -367,32 +474,17 @@
                   "Blue": 147
                 }
               }
-            ],
-            "XAxisGrid": {
-              "Type": "GraphGrid",
-              "Color": {
-                "Red": 20,
-                "Green": 151,
-                "Blue": 197
-              },
-              "Interval": 50.0,
-              "LineWidth": 1
-            }
+            ]
           },
           {
             "Type": "TextArea",
             "Name": "ecgTitleText",
             "X": 34,
             "Y": 45,
-            "Width": 371,
-            "Height": 49,
+            "Width": 416,
+            "Height": 54,
             "TextId": "__SingleUse_N8L6",
             "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 190,
-              "Blue": 13
-            },
             "AutoSize": true
           },
           {
@@ -424,8 +516,8 @@
             "Name": "leadsOffText",
             "X": 108,
             "Y": 146,
-            "Width": 223,
-            "Height": 49,
+            "Width": 253,
+            "Height": 54,
             "TextId": "__SingleUse_IV1H",
             "TextRotation": "0",
             "Color": {
@@ -436,7 +528,7 @@
           {
             "Type": "Button",
             "Name": "startButton",
-            "X": 88,
+            "X": 89,
             "Y": 438,
             "Width": 214,
             "Height": 36,
@@ -472,7 +564,7 @@
             "X": 155,
             "Y": 443,
             "Width": 83,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_PGQT",
             "TextRotation": "0",
             "Color": {
@@ -488,7 +580,7 @@
             "X": 460,
             "Y": 443,
             "Width": 69,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_WENI",
             "TextRotation": "0",
             "Color": {
@@ -504,7 +596,7 @@
             "X": 455,
             "Y": 519,
             "Width": 78,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_8TOQ",
             "TextRotation": "0",
             "Color": {
@@ -531,7 +623,7 @@
             "X": 787,
             "Y": 443,
             "Width": 84,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_75JD",
             "TextRotation": "0",
             "Color": {
@@ -609,10 +701,10 @@
           {
             "Type": "TextArea",
             "Name": "pulseTitleText",
-            "X": 277,
-            "Y": 24,
-            "Width": 426,
-            "Height": 49,
+            "X": 12,
+            "Y": 29,
+            "Width": 481,
+            "Height": 54,
             "TextId": "__SingleUse_P0RO",
             "TextRotation": "0",
             "AutoSize": true
@@ -622,7 +714,7 @@
             "Name": "pulseStatusText",
             "X": 99,
             "Y": 104,
-            "Height": 49,
+            "Height": 54,
             "TextId": "__SingleUse_Z8F7",
             "TextRotation": "0",
             "AutoSize": true
@@ -649,10 +741,10 @@
           {
             "Type": "TextArea",
             "Name": "spo2Text",
-            "X": 17,
-            "Y": 202,
-            "Width": 183,
-            "Height": 49,
+            "X": 12,
+            "Y": 207,
+            "Width": 207,
+            "Height": 54,
             "TextId": "__SingleUse_KKU4",
             "TextRotation": "0",
             "AutoSize": true,
@@ -665,8 +757,8 @@
             "Name": "heartRateText",
             "X": 12,
             "Y": 251,
-            "Width": 193,
-            "Height": 49,
+            "Width": 217,
+            "Height": 54,
             "TextId": "__SingleUse_LE66",
             "TextRotation": "0",
             "AutoSize": true,
@@ -679,8 +771,8 @@
             "Name": "irText",
             "X": 12,
             "Y": 300,
-            "Width": 77,
-            "Height": 49,
+            "Width": 86,
+            "Height": 54,
             "TextId": "__SingleUse_PAUF",
             "TextRotation": "0",
             "AutoSize": true,
@@ -693,8 +785,8 @@
             "Name": "redText",
             "X": 12,
             "Y": 153,
-            "Width": 116,
-            "Height": 49,
+            "Width": 130,
+            "Height": 54,
             "TextId": "__SingleUse_FI0G",
             "TextRotation": "0",
             "AutoSize": true,
@@ -741,7 +833,7 @@
             "X": 284,
             "Y": 474,
             "Width": 83,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_57W8",
             "TextRotation": "0",
             "Color": {
@@ -757,7 +849,7 @@
             "X": 658,
             "Y": 474,
             "Width": 69,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_BT0V",
             "TextRotation": "0",
             "Color": {
@@ -773,7 +865,7 @@
             "X": 480,
             "Y": 540,
             "Width": 78,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_5UN1",
             "TextRotation": "0",
             "Color": {
@@ -1062,7 +1154,7 @@
             "X": 509,
             "Y": 419,
             "Width": 83,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_BP_START",
             "TextRotation": "0",
             "Color": {
@@ -1078,7 +1170,7 @@
             "X": 859,
             "Y": 420,
             "Width": 84,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_BP_RESET",
             "TextRotation": "0",
             "Color": {
@@ -1094,7 +1186,7 @@
             "X": 687,
             "Y": 503,
             "Width": 78,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_BP_HOME_BTN",
             "TextRotation": "0",
             "Color": {
@@ -1149,7 +1241,7 @@
             "X": 672,
             "Y": 34,
             "Width": 242,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_ENQY",
             "TextRotation": "0",
             "AutoSize": true
@@ -1222,8 +1314,8 @@
             "Name": "ledTitleText",
             "X": 386,
             "Y": 48,
-            "Width": 237,
-            "Height": 49,
+            "Width": 266,
+            "Height": 54,
             "TextId": "__SingleUse_LED_TITLE",
             "TextRotation": "0",
             "AutoSize": true
@@ -1234,7 +1326,7 @@
             "X": 90,
             "Y": 135,
             "Width": 138,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_5A6Y",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1248,7 +1340,7 @@
             "X": 438,
             "Y": 135,
             "Width": 138,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_YB85",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1262,7 +1354,7 @@
             "X": 710,
             "Y": 135,
             "Width": 162,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_BV2F",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1276,7 +1368,7 @@
             "X": 90,
             "Y": 225,
             "Width": 152,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_UOP7",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1290,7 +1382,7 @@
             "X": 438,
             "Y": 225,
             "Width": 216,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_2EEG",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1315,7 +1407,7 @@
             "X": 172,
             "Y": 360,
             "Width": 78,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_LED_MODE_BTN",
             "TextRotation": "0",
             "Color": {
@@ -1342,7 +1434,7 @@
             "X": 478,
             "Y": 360,
             "Width": 67,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_LED0_BTN",
             "TextRotation": "0",
             "Color": {
@@ -1369,7 +1461,7 @@
             "X": 774,
             "Y": 360,
             "Width": 67,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_ALARM_BTN",
             "TextRotation": "0",
             "Color": {
@@ -1396,7 +1488,7 @@
             "X": 473,
             "Y": 510,
             "Width": 78,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_LED_HOME_BTN",
             "TextRotation": "0",
             "Color": {
@@ -1498,8 +1590,8 @@
             "Name": "titleText",
             "X": 408,
             "Y": 44,
-            "Width": 321,
-            "Height": 49,
+            "Width": 359,
+            "Height": 54,
             "TextId": "__SingleUse_CLOCK_TITLE",
             "TextRotation": "0",
             "AutoSize": true
@@ -1509,8 +1601,8 @@
             "Name": "timeText",
             "X": 100,
             "Y": 223,
-            "Width": 186,
-            "Height": 49,
+            "Width": 214,
+            "Height": 54,
             "TextId": "__SingleUse_CLOCK_VALUE",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1524,7 +1616,7 @@
             "X": 100,
             "Y": 308,
             "Width": 242,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_CLOCK_DATE",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1538,7 +1630,7 @@
             "X": 100,
             "Y": 373,
             "Width": 259,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_CLOCK_STATUS",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1690,7 +1782,7 @@
             "X": 616,
             "Y": 141,
             "Width": 365,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_CLOCK_EDIT",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1852,18 +1944,18 @@
             "Width": 1024,
             "Height": 600,
             "Color": {
-              "Red": 224,
-              "Green": 252,
+              "Red": 255,
+              "Green": 255,
               "Blue": 255
             }
           },
           {
             "Type": "TextArea",
             "Name": "imuTitleText",
-            "X": 366,
-            "Y": 42,
-            "Width": 191,
-            "Height": 32,
+            "X": 60,
+            "Y": 39,
+            "Width": 330,
+            "Height": 54,
             "TextId": "__SingleUse_IMU_TITLE",
             "TextRotation": "0",
             "AutoSize": true
@@ -1871,10 +1963,10 @@
           {
             "Type": "TextArea",
             "Name": "txtImuStatus",
-            "X": 72,
+            "X": 262,
             "Y": 126,
             "Width": 193,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_IMU_STATUS",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1885,12 +1977,15 @@
           {
             "Type": "TextArea",
             "Name": "txtImuFall",
-            "X": 390,
+            "X": 578,
             "Y": 126,
             "Width": 176,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_IMU_FALL",
             "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
             "AutoSize": true,
             "Wildcard1": {
               "TextId": "imu_fall"
@@ -1902,7 +1997,7 @@
             "X": 72,
             "Y": 218,
             "Width": 175,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_IMU_AX",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1916,7 +2011,7 @@
             "X": 390,
             "Y": 218,
             "Width": 169,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_IMU_AY",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1930,7 +2025,7 @@
             "X": 722,
             "Y": 218,
             "Width": 175,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_IMU_AZ",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1955,7 +2050,7 @@
             "X": 331,
             "Y": 510,
             "Width": 54,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_IMU_ACK_BTN",
             "TextRotation": "0",
             "Color": {
@@ -1982,7 +2077,7 @@
             "X": 627,
             "Y": 510,
             "Width": 78,
-            "Height": 32,
+            "Height": 31,
             "TextId": "__SingleUse_IMU_HOME_BTN",
             "TextRotation": "0",
             "Color": {
@@ -2028,7 +2123,7 @@
       "Height": 600
     },
     "SelectedColorDepth": 16,
-    "StartupScreenName": "HomeScreen",
+    "StartupScreenName": "LOGIN",
     "SelectedStartupLanguage": "GB",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",
     "UIPath": ".",

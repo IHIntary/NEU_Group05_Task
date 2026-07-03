@@ -1,8 +1,10 @@
 #include <gui/model/Model.hpp>
 #include <gui/model/ModelListener.hpp>
+#include <gui/common/FrontendApplication.hpp>
 
 extern "C"
 {
+#include "cmsis_compiler.h"
 #include "app_sensor_service.h"
 #include "app_alarm_service.h"
 #include "app_buzzer_service.h"
@@ -10,12 +12,22 @@ extern "C"
 #include "app_rtc_service.h"
 #include "bp_service.h"
 #include "main.h"
+
+__WEAK void remote_init(void)
+{
+}
+
+__WEAK uint8_t remote_scan(void)
+{
+    return 0U;
+}
 }
 
 Model::Model()
     : modelListener(0),
       lastKey2Pressed(0),
       key2StableTicks(0),
+      lastRemoteKey(0U),
       ecgNotificationsEnabled(0U),
       pressureNotificationsEnabled(0U),
       pulseNotificationsEnabled(0U),
@@ -25,11 +37,13 @@ Model::Model()
     AppAlarm_Init();
     AppLightService_Init();
     AppRtcService_Init();
+    remote_init();
 }
 
 void Model::tick()
 {
     handleKey2();
+    handleRemote();
     AppLightService_Tick();
     BP_Service_Tick();
 
@@ -101,6 +115,30 @@ void Model::tick()
                                              alarmInput.bpResultValid);
             }
         }
+    }
+}
+
+void Model::handleRemote()
+{
+    uint8_t remoteKey = remote_scan();
+
+    if (remoteKey == 0U)
+    {
+        lastRemoteKey = 0U;
+        return;
+    }
+
+    if (remoteKey == lastRemoteKey)
+    {
+        return;
+    }
+
+    lastRemoteKey = remoteKey;
+
+    FrontendApplication* app = static_cast<FrontendApplication*>(touchgfx::Application::getInstance());
+    if (app != 0)
+    {
+        app->handleRemoteKey(remoteKey);
     }
 }
 

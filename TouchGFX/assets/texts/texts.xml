@@ -6,6 +6,15 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_0JEU" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Logout</Translation>
+      </Text>
+      <Text Id="__SingleUse_PSXJ" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">LOGIN</Translation>
+      </Text>
+      <Text Id="__SingleUse_SL09" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">HEALTH MONITOR SYSTEM</Translation>
+      </Text>
       <Text Id="__SingleUse_6CWX" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Clock</Translation>
       </Text>
@@ -54,7 +63,7 @@
       <Text Id="__SingleUse_ZQDX" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">HOME</Translation>
       </Text>
-      <Text Id="__SingleUse_CLOCK_HOME" Alignment="Left" TypographyId="Typography_01">
+      <Text Id="__SingleUse_CLOCK_HOME" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Clock</Translation>
       </Text>
       <Text Id="__SingleUse_CLOCK_TITLE" Alignment="Center" TypographyId="Large">
@@ -123,7 +132,7 @@
       <Text Id="__SingleUse_LED_TITLE" Alignment="Center" TypographyId="Large">
         <Translation Language="GB">LED Control</Translation>
       </Text>
-      <Text Id="__SingleUse_LED_HOME" Alignment="Left" TypographyId="Typography_01">
+      <Text Id="__SingleUse_LED_HOME" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">LED control</Translation>
       </Text>
       <Text Id="__SingleUse_LED_MODE_BTN" Alignment="Left" TypographyId="Typography_03">
@@ -168,7 +177,7 @@
       <Text Id="temp" Alignment="Left" TypographyId="Typography_03">
         <Translation Language="GB">--.-</Translation>
       </Text>
-      <Text Id="__SingleUse_XY3W" Alignment="Left" TypographyId="Typography_03">
+      <Text Id="__SingleUse_XY3W" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">Chip Temp: &lt;temp&gt; C</Translation>
       </Text>
       <Text Id="__SingleUse_ENQY" Alignment="Left" TypographyId="Typography_03">
@@ -195,13 +204,13 @@
       <Text Id="__SingleUse_PGQT" Alignment="Left" TypographyId="Typography_03">
         <Translation Language="GB">START</Translation>
       </Text>
-      <Text Id="__SingleUse_5UE2" Alignment="Left" TypographyId="Typography_01">
+      <Text Id="__SingleUse_5UE2" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Pulse monitor</Translation>
       </Text>
-      <Text Id="__SingleUse_OMPN" Alignment="Left" TypographyId="Typography_01">
+      <Text Id="__SingleUse_OMPN" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">ECG monitor</Translation>
       </Text>
-      <Text Id="__SingleUse_BP_HOME" Alignment="Left" TypographyId="Typography_01">
+      <Text Id="__SingleUse_BP_HOME" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">BP monitor</Translation>
       </Text>
       <Text Id="__SingleUse_BP_TITLE" Alignment="Left" TypographyId="Large">
@@ -303,7 +312,7 @@
       <Text Id="__SingleUse_3AVM" Alignment="Left" TypographyId="Default">
         <Translation Language="GB"></Translation>
       </Text>
-      <Text Id="__SingleUse_9K9T" Alignment="Left" TypographyId="Typography_02">
+      <Text Id="__SingleUse_9K9T" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Select a function</Translation>
       </Text>
       <Text Id="__SingleUse_PC48" Alignment="Center" TypographyId="Large">
@@ -315,10 +324,10 @@
       <Text Id="imu_status" Alignment="Left" TypographyId="Typography_03">
         <Translation Language="GB">READY</Translation>
       </Text>
-      <Text Id="__SingleUse_IMU_HOME" Alignment="Left" TypographyId="Typography_01">
+      <Text Id="__SingleUse_IMU_HOME" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">IMU alarm</Translation>
       </Text>
-      <Text Id="__SingleUse_IMU_TITLE" Alignment="Left" TypographyId="Typography_03">
+      <Text Id="__SingleUse_IMU_TITLE" Alignment="Left" TypographyId="Large">
         <Translation Language="GB">IMU Fall Alarm</Translation>
       </Text>
       <Text Id="__SingleUse_IMU_STATUS" Alignment="Left" TypographyId="Typography_03">
@@ -358,11 +367,8 @@
   </Texts>
   <Typographies>
     <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz :./%bpmHg" />
-    <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz :./%bpmHg" />
+    <Typography Id="Large" Font="verdana.ttf" Size="45" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz :./%bpmHg" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz :./%bpmHg" />
-    <Typography Id="Typography_00" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz :./%bpmHg" />
-    <Typography Id="Typography_01" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Typography_02" Font="vinet.ttf" Size="29" Bpp="4" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Typography_03" Font="verdana.ttf" Size="26" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz _.:/-%bpmHgREADYFALNORMACKmg" />
   </Typographies>
 </TextDatabase>

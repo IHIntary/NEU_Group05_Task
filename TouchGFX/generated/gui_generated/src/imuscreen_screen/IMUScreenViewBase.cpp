@@ -14,16 +14,16 @@ IMUScreenViewBase::IMUScreenViewBase() :
     add(__background);
 
     imuBg.setPosition(0, 0, 1024, 600);
-    imuBg.setColor(touchgfx::Color::getColorFromRGB(224, 252, 255));
+    imuBg.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     add(imuBg);
 
-    imuTitleText.setXY(366, 42);
+    imuTitleText.setXY(60, 39);
     imuTitleText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     imuTitleText.setLinespacing(0);
     imuTitleText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IMU_TITLE));
     add(imuTitleText);
 
-    txtImuStatus.setXY(72, 126);
+    txtImuStatus.setXY(262, 126);
     txtImuStatus.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     txtImuStatus.setLinespacing(0);
     txtImuStatus.setWildcard(touchgfx::TypedText(T_IMU_STATUS).getText());
@@ -31,8 +31,8 @@ IMUScreenViewBase::IMUScreenViewBase() :
     txtImuStatus.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IMU_STATUS));
     add(txtImuStatus);
 
-    txtImuFall.setXY(390, 126);
-    txtImuFall.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    txtImuFall.setXY(578, 126);
+    txtImuFall.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     txtImuFall.setLinespacing(0);
     txtImuFall.setWildcard(touchgfx::TypedText(T_IMU_FALL).getText());
     txtImuFall.resizeToCurrentText();

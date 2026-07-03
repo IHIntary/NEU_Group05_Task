@@ -13,7 +13,7 @@ HomeScreenViewBase::HomeScreenViewBase() :
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    homeBg.setPosition(0, 0, 1024, 600);
+    homeBg.setPosition(1, 0, 1024, 600);
     homeBg.setColor(touchgfx::Color::getColorFromRGB(224, 252, 255));
     add(homeBg);
 
@@ -33,7 +33,7 @@ HomeScreenViewBase::HomeScreenViewBase() :
     pulseButton.setAction(buttonCallback);
     add(pulseButton);
 
-    tipText.setXY(323, 284);
+    tipText.setXY(429, 269);
     tipText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     tipText.setLinespacing(0);
     tipText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_9K9T));
@@ -56,55 +56,66 @@ HomeScreenViewBase::HomeScreenViewBase() :
     bpButton.setAction(buttonCallback);
     add(bpButton);
 
-    textAreaBP.setXY(457, 377);
+    textAreaBP.setXY(458, 377);
     textAreaBP.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textAreaBP.setLinespacing(0);
     textAreaBP.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BP_HOME));
     add(textAreaBP);
 
-    image1.setXY(233, 66);
-    image1.setBitmap(touchgfx::Bitmap(BITMAP_ICON_THEME_IMAGES_ACTION_ACCESSIBLE_FORWARD_50_50_000000_SVG_ID));
+    image1.setXY(234, 70);
+    image1.setBitmap(touchgfx::Bitmap(BITMAP_ICON_THEME_IMAGES_NOTIFICATION_AIRLINE_SEAT_FLAT_ANGLED_50_50_000000_SVG_ID));
     add(image1);
 
-    txtChipTemp.setPosition(386, 147, 280, 32);
+    txtChipTemp.setPosition(373, 179, 280, 32);
     txtChipTemp.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     txtChipTemp.setLinespacing(0);
     txtChipTemp.setWildcard(touchgfx::TypedText(T_TEMP).getText());
     txtChipTemp.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XY3W));
     add(txtChipTemp);
 
-    ledButton.setXY(342, 455);
+    ledButton.setXY(342, 444);
     ledButton.setBitmaps(touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_ACTION_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_PRESSED_ID));
     ledButton.setAction(buttonCallback);
     add(ledButton);
 
-    textAreaLED.setXY(456, 483);
+    textAreaLED.setXY(456, 472);
     textAreaLED.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textAreaLED.setLinespacing(0);
     textAreaLED.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LED_HOME));
     add(textAreaLED);
 
-    imuButton.setXY(690, 455);
+    imuButton.setXY(690, 444);
     imuButton.setBitmaps(touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_ACTION_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_PRESSED_ID));
     imuButton.setAction(buttonCallback);
     add(imuButton);
 
-    textAreaIMU.setXY(808, 483);
+    textAreaIMU.setXY(808, 472);
     textAreaIMU.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textAreaIMU.setLinespacing(0);
     textAreaIMU.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IMU_HOME));
     add(textAreaIMU);
 
-    clockButton.setXY(0, 455);
+    clockButton.setXY(0, 444);
     clockButton.setBitmaps(touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_ACTION_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_PRESSED_ID));
     clockButton.setAction(buttonCallback);
     add(clockButton);
 
-    textAreaClock.setXY(144, 483);
+    textAreaClock.setXY(144, 472);
     textAreaClock.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textAreaClock.setLinespacing(0);
     textAreaClock.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CLOCK_HOME));
     add(textAreaClock);
+
+    button1.setXY(342, 524);
+    button1.setBitmaps(touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_ACTION_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_PRESSED_ID));
+    button1.setAction(buttonCallback);
+    add(button1);
+
+    textArea4.setXY(479, 552);
+    textArea4.setColor(touchgfx::Color::getColorFromRGB(252, 252, 252));
+    textArea4.setLinespacing(0);
+    textArea4.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0JEU));
+    add(textArea4);
 }
 
 HomeScreenViewBase::~HomeScreenViewBase()
@@ -160,5 +171,12 @@ void HomeScreenViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& s
         //When clockButton clicked change screen to ClockScreen
         //Go to ClockScreen with screen transition towards East
         application().gotoClockScreenScreenSlideTransitionEast();
+    }
+    if (&src == &button1)
+    {
+        //Interaction3
+        //When button1 clicked change screen to LOGIN
+        //Go to LOGIN with no screen transition
+        application().gotoLOGINScreenNoTransition();
     }
 }

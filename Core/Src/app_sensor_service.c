@@ -32,6 +32,7 @@ static uint32_t lastPulseLogTick = 0;
 
 static float pressureFilteredRaw = 0.0f;
 static uint8_t pressureFilterReady = 0U;
+static uint8_t pressureStartLogPending = 0U;
 
 static float ecgHighPassState = 0.0f;
 static uint16_t ecgPrevRaw = SENSOR_ECG_FILTER_BASELINE_RAW;
@@ -275,6 +276,7 @@ void SensorService_SetPressureRunning(uint8_t running)
 		{
 				pressureFilteredRaw = 0.0f;
 				pressureFilterReady = 0U;
+				pressureStartLogPending = 1U;
 		}
     osMutexRelease(Group05_SensMtx);
 }
@@ -451,6 +453,17 @@ static void SensorService_UpdatePressure(void)
     uint32_t mmHgTenths = (bpMmHg > 0.0f) ? (uint32_t)((bpMmHg * 10.0f) + 0.5f) : 0U;
     float percent = ((float)mv / (float)SENSOR_VREF_MV) * 100.0f;
     uint32_t now = HAL_GetTick();
+
+    if (pressureStartLogPending != 0U)
+    {
+        pressureStartLogPending = 0U;
+        printf("[MSP20] start raw=%u mv=%lu pressure=%lu.%lu mmHg percent=%lu\r\n",
+               raw,
+               (unsigned long)mv,
+               (unsigned long)(mmHgTenths / 10U),
+               (unsigned long)(mmHgTenths % 10U),
+               (unsigned long)((mv * 100U) / SENSOR_VREF_MV));
+    }
 
     if ((now - lastPressureLogTick) >= 250U)
     {

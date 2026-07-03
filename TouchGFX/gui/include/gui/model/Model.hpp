@@ -46,9 +46,11 @@ protected:
 
 private:
     void handleKey2();
+    void handleRemote();
 
     uint8_t lastKey2Pressed;
     uint8_t key2StableTicks;
+    uint8_t lastRemoteKey;
     uint8_t ecgNotificationsEnabled;
     uint8_t pressureNotificationsEnabled;
     uint8_t pulseNotificationsEnabled;

@@ -256,6 +256,18 @@
     <Filter Include="Header Files\generated\gui_generated\clockscreen_screen">
       <UniqueIdentifier>D372863E-D327-2A7F-D566-48A4C308BC0C</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gui\login_screen">
+      <UniqueIdentifier>D790CCF2-229F-134F-24DD-1182AA845E0F</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\login_screen">
+      <UniqueIdentifier>F4F3F7D7-1C92-77C8-F93A-0139450425FF</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\login_screen">
+      <UniqueIdentifier>49FBA3AC-932A-656D-188E-8951F30036CF</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\login_screen">
+      <UniqueIdentifier>1FAF8314-5373-B3BC-0068-736EE26C9ECD</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -350,6 +362,15 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\clockscreen_screen\ClockScreenViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\clockscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\login_screen\LOGINPresenter.cpp">
+      <Filter>Source Files\gui\login_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\login_screen\LOGINView.cpp">
+      <Filter>Source Files\gui\login_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\login_screen\LOGINViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\login_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -855,6 +876,15 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\clockscreen_screen\ClockScreenViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\clockscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\login_screen\LOGINPresenter.hpp">
+      <Filter>Header Files\gui\login_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\login_screen\LOGINView.hpp">
+      <Filter>Header Files\gui\login_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\login_screen\LOGINViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\login_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

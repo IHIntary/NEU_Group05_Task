@@ -4,6 +4,7 @@
 
 #define APP_RTC_BACKUP_MAGIC        0xA55A2026UL
 #define APP_RTC_LSE_TIMEOUT_MS      2000U
+#define APP_RTC_TX_ASCII_SIZE       ((APP_RTC_TX_FRAME_SIZE * 3U) + 2U)
 
 static RTC_HandleTypeDef hrtcApp;
 static AppRtcStatus_t rtcStatus;
@@ -277,6 +278,10 @@ void AppRtcService_BuildFrame(const AppRtcDateTime_t *dateTime, uint8_t *frame, 
 uint8_t AppRtcService_SendDateTimeHex(const AppRtcDateTime_t *dateTime)
 {
     uint8_t frame[APP_RTC_TX_FRAME_SIZE];
+    uint8_t ascii[APP_RTC_TX_ASCII_SIZE];
+    static const uint8_t hexDigits[] = "0123456789ABCDEF";
+    uint8_t pos = 0U;
+    uint8_t i;
 
     if (AppRtc_IsDateTimeValid(dateTime) == 0U)
     {
@@ -284,5 +289,20 @@ uint8_t AppRtcService_SendDateTimeHex(const AppRtcDateTime_t *dateTime)
     }
 
     AppRtcService_BuildFrame(dateTime, frame, APP_RTC_TX_FRAME_SIZE);
-    return (HAL_UART_Transmit(&huart1, frame, APP_RTC_TX_FRAME_SIZE, 100U) == HAL_OK) ? 1U : 0U;
+
+    for (i = 0U; i < APP_RTC_TX_FRAME_SIZE; i++)
+    {
+        ascii[pos++] = hexDigits[(frame[i] >> 4U) & 0x0FU];
+        ascii[pos++] = hexDigits[frame[i] & 0x0FU];
+
+        if (i < (APP_RTC_TX_FRAME_SIZE - 1U))
+        {
+            ascii[pos++] = ' ';
+        }
+    }
+
+    ascii[pos++] = '\r';
+    ascii[pos++] = '\n';
+
+    return (HAL_UART_Transmit(&huart1, ascii, pos, 100U) == HAL_OK) ? 1U : 0U;
 }

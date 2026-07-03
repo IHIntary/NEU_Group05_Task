@@ -101,18 +101,9 @@ static void LCD_ClearFrameBuffer(uint16_t color)
 
 static void Print_ResetCause(void)
 {
-  uint32_t csr = RCC->CSR;
+    uint32_t csr = RCC->CSR;
 
-  printf("Reset flags: 0x%08lX", (unsigned long)csr);
-
-  if ((csr & RCC_CSR_IWDGRSTF) != 0U) { printf(" IWDG"); }
-  if ((csr & RCC_CSR_WWDGRSTF) != 0U) { printf(" WWDG"); }
-  if ((csr & RCC_CSR_SFTRSTF) != 0U) { printf(" SW"); }
-  if ((csr & RCC_CSR_PORRSTF) != 0U) { printf(" POR/PDR"); }
-  if ((csr & RCC_CSR_PINRSTF) != 0U) { printf(" PIN"); }
-  if ((csr & RCC_CSR_BORRSTF) != 0U) { printf(" BOR"); }
-
-  printf("\r\n");
+  (void)csr;
   __HAL_RCC_CLEAR_RESET_FLAGS();
 }
 
@@ -296,8 +287,7 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* User can add his own implementation to report assert parameters. */
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

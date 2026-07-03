@@ -55,6 +55,8 @@ protected:
     touchgfx::TextArea textAreaIMU;
     touchgfx::Button clockButton;
     touchgfx::TextArea textAreaClock;
+    touchgfx::Button button1;
+    touchgfx::TextArea textArea4;
 
 private:
 

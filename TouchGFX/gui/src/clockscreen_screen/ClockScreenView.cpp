@@ -3,7 +3,8 @@
 ClockScreenView::ClockScreenView()
     : selectedField(FIELD_YEAR),
       digitalMode(1U),
-      editInitialized(0U)
+      editInitialized(0U),
+      rtcDisplayValid(0U)
 {
     editTime.year = 2026U;
     editTime.month = 1U;
@@ -12,6 +13,10 @@ ClockScreenView::ClockScreenView()
     editTime.minute = 0U;
     editTime.second = 0U;
     lastRtcTime = editTime;
+    displayedRtcTime = editTime;
+    displayedRtcStatus.ready = 0U;
+    displayedRtcStatus.usingLse = 0U;
+    displayedRtcStatus.backupValid = 0U;
 }
 
 void ClockScreenView::setupScreen()
@@ -32,8 +37,8 @@ void ClockScreenView::setupScreen()
 
     presenter->getRtcDateTime(lastRtcTime);
     syncEditFromRtc(lastRtcTime);
-    updateAnalogHands(lastRtcTime);
     setClockStyle(1U);
+    rtcDisplayValid = 0U;
 }
 
 void ClockScreenView::tearDownScreen()
@@ -77,6 +82,10 @@ void ClockScreenView::syncClicked()
 
 void ClockScreenView::updateRtc(const AppRtcDateTime_t& dateTime, const AppRtcStatus_t& status)
 {
+    uint8_t timeChanged;
+    uint8_t dateChanged;
+    uint8_t statusChanged;
+
     lastRtcTime = dateTime;
 
     if (editInitialized == 0U)
@@ -84,25 +93,66 @@ void ClockScreenView::updateRtc(const AppRtcDateTime_t& dateTime, const AppRtcSt
         syncEditFromRtc(dateTime);
     }
 
-    touchgfx::Unicode::snprintf(timeBuffer, TIME_TEXT_SIZE, "%02u:%02u:%02u",
-                                dateTime.hour, dateTime.minute, dateTime.second);
-    touchgfx::Unicode::snprintf(dateBuffer, DATE_TEXT_SIZE, "%04u-%02u-%02u",
-                                dateTime.year, dateTime.month, dateTime.day);
+    timeChanged = ((rtcDisplayValid == 0U) ||
+                   (dateTime.hour != displayedRtcTime.hour) ||
+                   (dateTime.minute != displayedRtcTime.minute) ||
+                   (dateTime.second != displayedRtcTime.second)) ? 1U : 0U;
+    dateChanged = ((rtcDisplayValid == 0U) ||
+                   (dateTime.year != displayedRtcTime.year) ||
+                   (dateTime.month != displayedRtcTime.month) ||
+                   (dateTime.day != displayedRtcTime.day)) ? 1U : 0U;
+    statusChanged = ((rtcDisplayValid == 0U) ||
+                     (status.ready != displayedRtcStatus.ready) ||
+                     (status.usingLse != displayedRtcStatus.usingLse) ||
+                     (status.backupValid != displayedRtcStatus.backupValid)) ? 1U : 0U;
 
-    if (status.ready == 0U)
+    if (timeChanged != 0U)
     {
-        touchgfx::Unicode::snprintf(statusBuffer, STATUS_TEXT_SIZE, "RTC INIT FAIL");
-    }
-    else
-    {
-        touchgfx::Unicode::snprintf(statusBuffer, STATUS_TEXT_SIZE,
-                                    (status.usingLse != 0U) ? "RTC OK LSE" : "LSE FAIL");
+        touchgfx::Unicode::snprintf(timeBuffer, TIME_TEXT_SIZE, "%02u:%02u:%02u",
+                                    dateTime.hour, dateTime.minute, dateTime.second);
+
+        if (digitalMode != 0U)
+        {
+            timeText.invalidate();
+        }
+        else
+        {
+            updateAnalogHands(dateTime);
+        }
     }
 
-    updateAnalogHands(dateTime);
-    timeText.invalidate();
-    dateText.invalidate();
-    statusText.invalidate();
+    if (dateChanged != 0U)
+    {
+        touchgfx::Unicode::snprintf(dateBuffer, DATE_TEXT_SIZE, "%04u-%02u-%02u",
+                                    dateTime.year, dateTime.month, dateTime.day);
+
+        if (digitalMode != 0U)
+        {
+            dateText.invalidate();
+        }
+    }
+
+    if (statusChanged != 0U)
+    {
+        if (status.ready == 0U)
+        {
+            touchgfx::Unicode::snprintf(statusBuffer, STATUS_TEXT_SIZE, "RTC INIT FAIL");
+        }
+        else
+        {
+            touchgfx::Unicode::snprintf(statusBuffer, STATUS_TEXT_SIZE,
+                                        (status.usingLse != 0U) ? "RTC OK LSE" : "LSE FAIL");
+        }
+
+        if (digitalMode != 0U)
+        {
+            statusText.invalidate();
+        }
+    }
+
+    displayedRtcTime = dateTime;
+    displayedRtcStatus = status;
+    rtcDisplayValid = 1U;
 }
 
 void ClockScreenView::syncEditFromRtc(const AppRtcDateTime_t& dateTime)
@@ -120,6 +170,8 @@ void ClockScreenView::updateAnalogHands(const AppRtcDateTime_t& dateTime)
 
 void ClockScreenView::setClockStyle(uint8_t digital)
 {
+    uint8_t oldDigitalMode = digitalMode;
+
     digitalMode = digital ? 1U : 0U;
 
     timeText.setVisible(digitalMode != 0U);
@@ -127,10 +179,28 @@ void ClockScreenView::setClockStyle(uint8_t digital)
     statusText.setVisible(digitalMode != 0U);
     analogClock.setVisible(digitalMode == 0U);
 
-    timeText.invalidate();
-    dateText.invalidate();
-    statusText.invalidate();
-    analogClock.invalidate();
+    if (digitalMode != 0U)
+    {
+        if (oldDigitalMode == 0U)
+        {
+            analogClock.invalidate();
+        }
+
+        timeText.invalidate();
+        dateText.invalidate();
+        statusText.invalidate();
+    }
+    else
+    {
+        if (oldDigitalMode != 0U)
+        {
+            timeText.invalidate();
+            dateText.invalidate();
+            statusText.invalidate();
+        }
+
+        updateAnalogHands(lastRtcTime);
+    }
 }
 
 void ClockScreenView::selectNextField()

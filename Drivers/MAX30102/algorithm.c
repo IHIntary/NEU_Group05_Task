@@ -259,8 +259,6 @@ void maxim_heart_rate_and_oxygen_saturation(uint32_t *pun_ir_buffer,  int32_t n_
     else
         n_ratio_average = an_ratio[n_middle_idx ];
 	
-	//printf("%f\r\n", -45.060*n_ratio_average* n_ratio_average/10000 + 30.354 *n_ratio_average/100 + 94.845);
-
     if( n_ratio_average>2 && n_ratio_average <184){
         n_spo2_calc= uch_spo2_table[n_ratio_average] ;
         *pn_spo2 = n_spo2_calc ;
@@ -387,4 +385,3 @@ void maxim_sort_indices_descend(int32_t *pn_x, int32_t *pn_indx, int32_t n_size)
         pn_indx[j] = n_temp;
     }
 }
-

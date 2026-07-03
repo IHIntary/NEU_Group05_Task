@@ -70,11 +70,7 @@ static BP_Context_t bp;
 
 static const char *BP_StateToText(BP_State_t state);
 
-#if (BP_DEBUG_ENABLE != 0U)
-#define BP_DEBUG_PRINTF(...)      printf(__VA_ARGS__)
-#else
 #define BP_DEBUG_PRINTF(...)
-#endif
 
 static void BP_LoadDefaultCalibration(void)
 {
