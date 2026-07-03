@@ -554,6 +554,7 @@
       },
       {
         "Name": "PulseScreen",
+        "CanvasBufferSize": 15360,
         "Components": [
           {
             "Type": "Box",
@@ -572,7 +573,7 @@
             "X": 277,
             "Y": 24,
             "Width": 426,
-            "Height": 48,
+            "Height": 49,
             "TextId": "__SingleUse_P0RO",
             "TextRotation": "0",
             "AutoSize": true
@@ -582,7 +583,7 @@
             "Name": "pulseStatusText",
             "X": 99,
             "Y": 104,
-            "Height": 48,
+            "Height": 49,
             "TextId": "__SingleUse_Z8F7",
             "TextRotation": "0",
             "AutoSize": true
@@ -590,8 +591,8 @@
           {
             "Type": "BoxProgress",
             "Name": "pulseProgress",
-            "X": 319,
-            "Y": 417,
+            "X": 23,
+            "Y": 414,
             "Width": 400,
             "Height": 18,
             "Color": {
@@ -609,10 +610,10 @@
           {
             "Type": "TextArea",
             "Name": "spo2Text",
-            "X": 157,
-            "Y": 195,
+            "X": 12,
+            "Y": 163,
             "Width": 183,
-            "Height": 48,
+            "Height": 49,
             "TextId": "__SingleUse_KKU4",
             "TextRotation": "0",
             "AutoSize": true,
@@ -623,10 +624,10 @@
           {
             "Type": "TextArea",
             "Name": "heartRateText",
-            "X": 168,
-            "Y": 307,
+            "X": 23,
+            "Y": 275,
             "Width": 193,
-            "Height": 48,
+            "Height": 49,
             "TextId": "__SingleUse_LE66",
             "TextRotation": "0",
             "AutoSize": true,
@@ -637,10 +638,10 @@
           {
             "Type": "TextArea",
             "Name": "irText",
-            "X": 572,
-            "Y": 307,
+            "X": 341,
+            "Y": 275,
             "Width": 77,
-            "Height": 48,
+            "Height": 49,
             "TextId": "__SingleUse_PAUF",
             "TextRotation": "0",
             "AutoSize": true,
@@ -651,10 +652,10 @@
           {
             "Type": "TextArea",
             "Name": "redText",
-            "X": 572,
-            "Y": 195,
+            "X": 341,
+            "Y": 163,
             "Width": 116,
-            "Height": 48,
+            "Height": 49,
             "TextId": "__SingleUse_FI0G",
             "TextRotation": "0",
             "AutoSize": true,
@@ -701,7 +702,7 @@
             "X": 284,
             "Y": 474,
             "Width": 83,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_57W8",
             "TextRotation": "0",
             "Color": {
@@ -717,7 +718,7 @@
             "X": 658,
             "Y": 474,
             "Width": 69,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_BT0V",
             "TextRotation": "0",
             "Color": {
@@ -733,7 +734,7 @@
             "X": 480,
             "Y": 540,
             "Width": 78,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_5UN1",
             "TextRotation": "0",
             "Color": {
@@ -742,6 +743,48 @@
               "Blue": 255
             },
             "AutoSize": true
+          },
+          {
+            "Type": "BoxWithBorder",
+            "Name": "boxWithBorder1",
+            "X": 558,
+            "Y": 115,
+            "Width": 399,
+            "Height": 300,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "BorderSize": 5
+          },
+          {
+            "Type": "DynamicGraph",
+            "Name": "pulseGraph",
+            "X": 558,
+            "Y": 115,
+            "Width": 399,
+            "Height": 300,
+            "DataSeed": -531859431,
+            "NumberOfValues": 100,
+            "MaxY": 200.0,
+            "Precision": "1",
+            "LastIndex": 99,
+            "XAxisScale": 1.0,
+            "InsertRandomValues": true,
+            "GraphType": "GraphWrapClear",
+            "GraphDrawers": [
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 2,
+                "FileNameImage": "",
+                "Color": {
+                  "Red": 20,
+                  "Green": 151,
+                  "Blue": 197
+                }
+              }
+            ]
           }
         ],
         "Interactions": [

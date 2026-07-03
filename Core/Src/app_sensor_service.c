@@ -38,6 +38,14 @@ static uint8_t ecgAvgIndex = 0U;
 static uint8_t ecgAvgCount = 0U;
 static uint32_t ecgAvgSum = 0U;
 
+static uint8_t SensorService_IsPulseResultValid(uint16_t heartRate, float spo2)
+{
+    return ((heartRate >= 40U) &&
+            (heartRate <= 180U) &&
+            (spo2 >= 70.0f) &&
+            (spo2 <= 100.0f)) ? 1U : 0U;
+}
+
 static void SensorService_ResetEcgFilter(uint16_t raw)
 {
     uint8_t i;
@@ -190,6 +198,8 @@ void SensorService_SetEcgRunning(uint8_t running)
 
 void SensorService_SetPulseRunning(uint8_t running)
 {
+    uint8_t logStart = 0U;
+
     osMutexAcquire(Group05_SensMtx, osWaitForever);
     g_sensorData.pulseRunning = running ? 1U : 0U;
     if (running)
@@ -206,8 +216,15 @@ void SensorService_SetPulseRunning(uint8_t running)
         ppgGroupIndex = 0;
         ppgHeartRateSum = 0;
         ppgSpo2Sum = 0.0f;
+        lastPulseLogTick = 0U;
+        logStart = 1U;
     }
     osMutexRelease(Group05_SensMtx);
+
+    if (logStart != 0U)
+    {
+        printf("[MAX30102] start\r\n");
+    }
 }
 
 void SensorService_SetPressureRunning(uint8_t running)
@@ -322,6 +339,7 @@ static void SensorService_UpdatePulse(void)
     int logSpo2Tenths = 0;
     uint16_t groupHeartRate = 0U;
     float groupSpo2 = 0.0f;
+    uint8_t groupValid = 0U;
 
     max30102_fifo_read(data);
 
@@ -338,39 +356,59 @@ static void SensorService_UpdatePulse(void)
         irBuffer[ppgIndex] = (float)ir;
         redBuffer[ppgIndex] = (float)red;
         ppgIndex++;
-        g_sensorData.pulseValidCount = (uint16_t)((ppgGroupIndex * SENSOR_PPG_GROUP_SAMPLES) + ppgIndex);
+        g_sensorData.pulseValidCount = (uint16_t)(ppgGroupIndex * SENSOR_PPG_GROUP_SAMPLES);
         g_sensorData.pulseProgressPercent = (uint8_t)((g_sensorData.pulseValidCount * 100U) / SENSOR_PPG_TOTAL_SAMPLES);
 
         if (ppgIndex >= SENSOR_PPG_GROUP_SAMPLES)
         {
             groupHeartRate = max30102_getHeartRate(irBuffer, SENSOR_PPG_GROUP_SAMPLES);
             groupSpo2 = max30102_getSpO2(irBuffer, redBuffer, SENSOR_PPG_GROUP_SAMPLES);
-
-            ppgHeartRateSum += groupHeartRate;
-            ppgSpo2Sum += groupSpo2;
-            ppgGroupIndex++;
+            groupValid = SensorService_IsPulseResultValid(groupHeartRate, groupSpo2);
             ppgIndex = 0;
 
-            if (ppgGroupIndex >= SENSOR_PPG_GROUP_COUNT)
+            if (groupValid != 0U)
             {
-                g_sensorData.heartRate = (uint16_t)((ppgHeartRateSum + (SENSOR_PPG_GROUP_COUNT / 2U)) / SENSOR_PPG_GROUP_COUNT);
-                g_sensorData.spo2 = ppgSpo2Sum / (float)SENSOR_PPG_GROUP_COUNT;
-                g_sensorData.pulseDone = 1U;
-                g_sensorData.pulseRunning = 0U;
-                g_sensorData.pulseValidCount = SENSOR_PPG_TOTAL_SAMPLES;
-                g_sensorData.pulseProgressPercent = 100U;
-                logMode = 1U;
-                logHeartRate = g_sensorData.heartRate;
-                logSpo2Tenths = (int)(g_sensorData.spo2 * 10.0f);
-                ppgGroupIndex = 0;
-                ppgHeartRateSum = 0;
-                ppgSpo2Sum = 0.0f;
+                g_sensorData.heartRate = groupHeartRate;
+                g_sensorData.spo2 = groupSpo2;
+                ppgHeartRateSum += groupHeartRate;
+                ppgSpo2Sum += groupSpo2;
+                ppgGroupIndex++;
+                g_sensorData.pulseValidCount = (uint16_t)(ppgGroupIndex * SENSOR_PPG_GROUP_SAMPLES);
+                g_sensorData.pulseProgressPercent = (uint8_t)((g_sensorData.pulseValidCount * 100U) / SENSOR_PPG_TOTAL_SAMPLES);
+
+                if (ppgGroupIndex >= SENSOR_PPG_GROUP_COUNT)
+                {
+                    g_sensorData.heartRate = (uint16_t)((ppgHeartRateSum + (SENSOR_PPG_GROUP_COUNT / 2U)) / SENSOR_PPG_GROUP_COUNT);
+                    g_sensorData.spo2 = ppgSpo2Sum / (float)SENSOR_PPG_GROUP_COUNT;
+                    g_sensorData.pulseDone = 1U;
+                    g_sensorData.pulseRunning = 0U;
+                    g_sensorData.pulseValidCount = SENSOR_PPG_TOTAL_SAMPLES;
+                    g_sensorData.pulseProgressPercent = 100U;
+                    logMode = 1U;
+                    logHeartRate = g_sensorData.heartRate;
+                    logSpo2Tenths = (int)(g_sensorData.spo2 * 10.0f);
+                    ppgGroupIndex = 0;
+                    ppgHeartRateSum = 0;
+                    ppgSpo2Sum = 0.0f;
+                }
+                else if ((now - lastPulseLogTick) >= 250U)
+                {
+                    lastPulseLogTick = now;
+                    logMode = 2U;
+                    logCount = g_sensorData.pulseValidCount;
+                    logHeartRate = g_sensorData.heartRate;
+                    logSpo2Tenths = (int)(g_sensorData.spo2 * 10.0f);
+                }
             }
-            else if ((now - lastPulseLogTick) >= 250U)
+            else
             {
+                g_sensorData.pulseValidCount = (uint16_t)(ppgGroupIndex * SENSOR_PPG_GROUP_SAMPLES);
+                g_sensorData.pulseProgressPercent = (uint8_t)((g_sensorData.pulseValidCount * 100U) / SENSOR_PPG_TOTAL_SAMPLES);
                 lastPulseLogTick = now;
-                logMode = 2U;
+                logMode = 4U;
                 logCount = g_sensorData.pulseValidCount;
+                logHeartRate = groupHeartRate;
+                logSpo2Tenths = (int)(groupSpo2 * 10.0f);
             }
         }
         else if ((now - lastPulseLogTick) >= 250U)
@@ -378,11 +416,16 @@ static void SensorService_UpdatePulse(void)
             lastPulseLogTick = now;
             logMode = 2U;
             logCount = g_sensorData.pulseValidCount;
+            logHeartRate = g_sensorData.heartRate;
+            logSpo2Tenths = (int)(g_sensorData.spo2 * 10.0f);
         }
     }
     else
     {
         g_sensorData.pulseDataValid = 0U;
+        ppgIndex = 0U;
+        g_sensorData.pulseValidCount = (uint16_t)(ppgGroupIndex * SENSOR_PPG_GROUP_SAMPLES);
+        g_sensorData.pulseProgressPercent = (uint8_t)((g_sensorData.pulseValidCount * 100U) / SENSOR_PPG_TOTAL_SAMPLES);
         if ((now - lastPulseLogTick) >= 500U)
         {
             lastPulseLogTick = now;
@@ -394,26 +437,40 @@ static void SensorService_UpdatePulse(void)
 
     if (logMode == 1U)
     {
-        printf("[MAX30102] done ir=%lu red=%lu hr=%u spo2=%d.%d\r\n",
-               (unsigned long)ir,
-               (unsigned long)red,
-               logHeartRate,
+        printf("[MAX30102] done spo2=%d.%d hr=%u red=%lu ir=%lu\r\n",
                logSpo2Tenths / 10,
-               logSpo2Tenths % 10);
+               logSpo2Tenths % 10,
+               logHeartRate,
+               (unsigned long)red,
+               (unsigned long)ir);
     }
     else if (logMode == 2U)
     {
-        printf("[MAX30102] sample=%u/%u ir=%lu red=%lu\r\n",
+        printf("[MAX30102] sample=%u/%u spo2=%d.%d hr=%u red=%lu ir=%lu\r\n",
                logCount,
                (unsigned int)SENSOR_PPG_TOTAL_SAMPLES,
-               (unsigned long)ir,
-               (unsigned long)red);
+               logSpo2Tenths / 10,
+               logSpo2Tenths % 10,
+               logHeartRate,
+               (unsigned long)red,
+               (unsigned long)ir);
     }
     else if (logMode == 3U)
     {
-        printf("[MAX30102] no-finger ir=%lu red=%lu\r\n",
-               (unsigned long)ir,
-               (unsigned long)red);
+        printf("[MAX30102] no-finger spo2=0.0 hr=0 red=%lu ir=%lu\r\n",
+               (unsigned long)red,
+               (unsigned long)ir);
+    }
+    else if (logMode == 4U)
+    {
+        printf("[MAX30102] reject sample=%u/%u spo2=%d.%d hr=%u red=%lu ir=%lu\r\n",
+               logCount,
+               (unsigned int)SENSOR_PPG_TOTAL_SAMPLES,
+               logSpo2Tenths / 10,
+               logSpo2Tenths % 10,
+               logHeartRate,
+               (unsigned long)red,
+               (unsigned long)ir);
     }
 }
 

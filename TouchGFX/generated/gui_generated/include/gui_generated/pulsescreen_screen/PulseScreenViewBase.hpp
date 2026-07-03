@@ -12,6 +12,10 @@
 #include <touchgfx/containers/progress_indicators/BoxProgress.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/Button.hpp>
+#include <touchgfx/widgets/BoxWithBorder.hpp>
+#include <touchgfx/widgets/graph/GraphWrapAndClear.hpp>
+#include <touchgfx/widgets/graph/GraphElements.hpp>
+#include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 
 class PulseScreenViewBase : public touchgfx::View<PulseScreenPresenter>
 {
@@ -55,8 +59,18 @@ protected:
     touchgfx::TextArea textArea1;
     touchgfx::TextArea textArea2;
     touchgfx::TextArea textArea3;
+    touchgfx::BoxWithBorder boxWithBorder1;
+    touchgfx::GraphWrapAndClear<100> pulseGraph;
+    touchgfx::GraphElementLine pulseGraphLine1;
+    touchgfx::PainterRGB565 pulseGraphLine1Painter;
 
 private:
+
+    /*
+     * Canvas Buffer Size
+     */
+    static const uint32_t CANVAS_BUFFER_SIZE = 15360;
+    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 
     /*
      * Callback Declarations

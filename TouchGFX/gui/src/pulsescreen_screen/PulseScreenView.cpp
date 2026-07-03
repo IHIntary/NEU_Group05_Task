@@ -49,6 +49,8 @@ void PulseScreenView::clearPulse()
     heartRateText.invalidate();
     irText.invalidate();
     redText.invalidate();
+		pulseGraph.clear();
+		pulseGraph.invalidate();
 }
 
 void PulseScreenView::showPulseProgress(uint8_t progressPercent)
@@ -100,4 +102,18 @@ void PulseScreenView::showRed(uint32_t red)
         (unsigned int)red
     );
     redText.invalidate();
+}
+void PulseScreenView::addPulseGraphPoint(uint32_t heartRate)
+{
+    if (heartRate == 0U)
+    {
+        return;
+    }
+
+    if (heartRate > 200U)
+    {
+        heartRate = 200U;
+    }
+
+    pulseGraph.addDataPoint((int)heartRate);
 }

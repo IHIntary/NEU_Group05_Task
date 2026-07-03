@@ -23,6 +23,7 @@ public:
     void showHeartRate(uint16_t heartRate);
     void showIr(uint32_t ir);
     void showRed(uint32_t red);
+		void addPulseGraphPoint(uint32_t heartRate);
 
 protected:
     static const uint16_t SPO2TEXT_SIZE = 16;

@@ -64,6 +64,7 @@ void PulseScreenPresenter::pulseDataUpdated(uint32_t ir, uint32_t red, uint16_t 
     {
         lastHeartRate = heartRate;
         view.showHeartRate(heartRate);
+				view.addPulseGraphPoint(heartRate);
     }
 
     if (lastIr != ir)
