@@ -22,9 +22,7 @@
  ****************************************************************************************************
  */
 
-#include "./BSP/REMOTE/remote.h"
-#include "./SYSTEM/delay/delay.h"
-#include "./SYSTEM/usart/usart.h"
+#include "remote.h"
 
 
 TIM_HandleTypeDef g_tim_handle;      /* 定时器句柄 */
@@ -122,7 +120,7 @@ void REMOTE_IN_TIMX_CC_IRQHandler(void)
  * @param       htim:定时器句柄
  * @retval      无
  */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+void Remote_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     if (htim->Instance == REMOTE_IN_TIMX)
     {

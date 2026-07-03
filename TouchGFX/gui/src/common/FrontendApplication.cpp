@@ -1,12 +1,13 @@
 #include <gui/common/FrontendApplication.hpp>
 
-static const uint8_t REMOTE_KEY_BACK = 0x43U;
-static const uint8_t REMOTE_KEY_1 = 0x0CU;
-static const uint8_t REMOTE_KEY_2 = 0x18U;
-static const uint8_t REMOTE_KEY_3 = 0x5EU;
-static const uint8_t REMOTE_KEY_4 = 0x08U;
-static const uint8_t REMOTE_KEY_5 = 0x1CU;
-static const uint8_t REMOTE_KEY_6 = 0x5AU;
+static const uint8_t REMOTE_KEY_BACK = 0x4AU;
+static const uint8_t REMOTE_KEY_1 = 0x16U;
+static const uint8_t REMOTE_KEY_2 = 0x19U;
+static const uint8_t REMOTE_KEY_3 = 0x0DU;
+static const uint8_t REMOTE_KEY_4 = 0x0CU;
+static const uint8_t REMOTE_KEY_5 = 0x18U;
+static const uint8_t REMOTE_KEY_6 = 0x5EU;
+static const uint8_t REMOTE_KEY_LOG = 0x45U;
 
 FrontendApplication::FrontendApplication(Model& m, FrontendHeap& heap)
     : FrontendApplicationBase(m, heap),
@@ -69,8 +70,26 @@ void FrontendApplication::gotoIMUScreenScreenSlideTransitionEast()
     FrontendApplicationBase::gotoIMUScreenScreenSlideTransitionEast();
 }
 
+void FrontendApplication::setCurrentScreenHome()
+{
+    currentScreen = SCREEN_HOME;
+}
+
 void FrontendApplication::handleRemoteKey(uint8_t key)
 {
+    if (key == REMOTE_KEY_LOG)
+    {
+        if (currentScreen == SCREEN_LOGIN)
+        {
+            gotoHomeScreenScreenNoTransition();
+        }
+        else if (currentScreen == SCREEN_HOME)
+        {
+            gotoLOGINScreenNoTransition();
+        }
+        return;
+    }
+
     if (key == REMOTE_KEY_BACK)
     {
         if ((currentScreen != SCREEN_HOME) && (currentScreen != SCREEN_LOGIN))

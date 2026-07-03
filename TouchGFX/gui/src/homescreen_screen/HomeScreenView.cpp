@@ -8,6 +8,7 @@ HomeScreenView::HomeScreenView()
 void HomeScreenView::setupScreen()
 {
     HomeScreenViewBase::setupScreen();
+    application().setCurrentScreenHome();
     txtChipTemp.setWildcard(chipTempBuffer);
 
     updateChipTemp(0.0f, 0U);

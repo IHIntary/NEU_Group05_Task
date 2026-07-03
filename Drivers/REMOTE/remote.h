@@ -25,7 +25,7 @@
 #ifndef __REMOTE_H
 #define __REMOTE_H
 
-#include "./SYSTEM/sys/sys.h"
+#include "main.h"
 
 
 /******************************************************************************************/
@@ -63,6 +63,7 @@ extern uint8_t g_remote_cnt;            /* 按键按下的次数 */
 
 void remote_init(void);                 /* 红外传感器接收头引脚初始化 */
 uint8_t remote_scan(void);
+void Remote_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 
 #endif
 

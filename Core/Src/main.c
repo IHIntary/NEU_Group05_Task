@@ -20,6 +20,7 @@
 #include "dma2d.h"
 #include "i2c.h"
 #include "ltdc.h"
+#include "rtc.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -148,6 +149,7 @@ int main(void)
   MX_CRC_Init();
   MX_DMA2D_Init();
   MX_I2C3_Init();
+  MX_RTC_Init();
   MX_TouchGFX_Init();
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
@@ -194,7 +196,8 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSE;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
@@ -231,6 +234,10 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+__WEAK void Remote_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  (void)htim;
+}
 
 /* USER CODE END 4 */
 
@@ -252,6 +259,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
+  Remote_TIM_PeriodElapsedCallback(htim);
 
   /* USER CODE END Callback 1 */
 }

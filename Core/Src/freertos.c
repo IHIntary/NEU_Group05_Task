@@ -457,3 +457,4 @@ static void Group05_TaskMAX301(void *argument)
 }
 
 /* USER CODE END Application */
+

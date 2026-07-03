@@ -24,6 +24,7 @@ public:
     void gotoClockScreenScreenSlideTransitionEast();
     void gotoIMUScreenScreenSlideTransitionEast();
     void handleRemoteKey(uint8_t key);
+    void setCurrentScreenHome();
 
     virtual void handleTickEvent()
     {

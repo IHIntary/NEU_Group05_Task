@@ -102,12 +102,6 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(CT_IIC_SCL_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : GT9XXX_INT_Pin */
-  GPIO_InitStruct.Pin = GT9XXX_INT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GT9XXX_INT_GPIO_Port, &GPIO_InitStruct);
-
   /*Configure GPIO pin : CT_IIC_SDA_Pin */
   GPIO_InitStruct.Pin = CT_IIC_SDA_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
@@ -127,6 +121,12 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LCD_BL_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : GT9XXX_INT_Pin */
+  GPIO_InitStruct.Pin = GT9XXX_INT_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GT9XXX_INT_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI3_IRQn, 5, 0);
