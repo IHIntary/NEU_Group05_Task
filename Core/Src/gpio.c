@@ -38,6 +38,7 @@
         * Output
         * EVENT_OUT
         * EXTI
+     PA8   ------> I2C3_SCL
 */
 void MX_GPIO_Init(void)
 {
@@ -102,11 +103,19 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(CT_IIC_SCL_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : GT9XXX_INT_Pin */
-  GPIO_InitStruct.Pin = GT9XXX_INT_Pin;
+  /*Configure GPIO pin : PH7 */
+  GPIO_InitStruct.Pin = GPIO_PIN_7;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GT9XXX_INT_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PA8 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  GPIO_InitStruct.Alternate = GPIO_AF4_I2C3;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : CT_IIC_SDA_Pin */
   GPIO_InitStruct.Pin = CT_IIC_SDA_Pin;

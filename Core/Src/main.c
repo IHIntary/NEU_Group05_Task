@@ -59,54 +59,11 @@
 void SystemClock_Config(void);
 void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
-static uint8_t SDRAM_FrameBufferSelfTest(void);
-static void LCD_ClearFrameBuffer(uint16_t color);
-static void Print_ResetCause(void);
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-static uint8_t SDRAM_FrameBufferSelfTest(void)
-{
-  volatile uint16_t *framebuffer = (volatile uint16_t *)LCD_FRAME_BUFFER;
-  const uint16_t pattern[] = {0x0000U, 0xFFFFU, 0xF800U, 0x07E0U, 0x001FU, 0xA55AU, 0x5AA5U};
-  uint32_t i;
-
-  for (i = 0; i < (sizeof(pattern) / sizeof(pattern[0])); i++)
-  {
-    framebuffer[i] = pattern[i];
-  }
-
-  for (i = 0; i < (sizeof(pattern) / sizeof(pattern[0])); i++)
-  {
-    if (framebuffer[i] != pattern[i])
-    {
-      return 1U;
-    }
-  }
-
-  return 0U;
-}
-
-static void LCD_ClearFrameBuffer(uint16_t color)
-{
-  volatile uint16_t *framebuffer = (volatile uint16_t *)LCD_FRAME_BUFFER;
-  uint32_t index;
-
-  for (index = 0; index < (LCD_WIDTH * LCD_HEIGHT); index++)
-  {
-    framebuffer[index] = color;
-  }
-}
-
-static void Print_ResetCause(void)
-{
-    uint32_t csr = RCC->CSR;
-
-  (void)csr;
-  __HAL_RCC_CLEAR_RESET_FLAGS();
-}
 
 /* USER CODE END 0 */
 

@@ -2,18 +2,11 @@
 #include "i2c.h"
 #include "cmsis_os2.h"
 
-static osMutexId_t Group05_I2C2Mtx;
-
-static const osMutexAttr_t Group05_I2C2Mtx_attributes = {
-    .name = "Group05_I2C2Mtx",
-};
+extern osMutexId_t Group05_I2C2MtxHandle;
 
 void AppI2cBus_Init(void)
 {
-    if (Group05_I2C2Mtx == NULL)
-    {
-        Group05_I2C2Mtx = osMutexNew(&Group05_I2C2Mtx_attributes);
-    }
+    (void)Group05_I2C2MtxHandle;
 }
 
 static uint8_t AppI2c2_Lock(uint32_t timeout)
@@ -26,21 +19,21 @@ static uint8_t AppI2c2_Lock(uint32_t timeout)
     }
 
     AppI2cBus_Init();
-    if (Group05_I2C2Mtx == NULL)
+    if (Group05_I2C2MtxHandle == NULL)
     {
         return 0U;
     }
 
-    return (osMutexAcquire(Group05_I2C2Mtx, timeout) == osOK) ? 1U : 0U;
+    return (osMutexAcquire(Group05_I2C2MtxHandle, timeout) == osOK) ? 1U : 0U;
 }
 
 static void AppI2c2_Unlock(void)
 {
     osKernelState_t kernelState = osKernelGetState();
 
-    if (((kernelState == osKernelRunning) || (kernelState == osKernelReady)) && (Group05_I2C2Mtx != NULL))
+    if (((kernelState == osKernelRunning) || (kernelState == osKernelReady)) && (Group05_I2C2MtxHandle != NULL))
     {
-        (void)osMutexRelease(Group05_I2C2Mtx);
+        (void)osMutexRelease(Group05_I2C2MtxHandle);
     }
 }
 

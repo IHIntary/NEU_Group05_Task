@@ -26,10 +26,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "app_touchgfx.h"
-#include "adc.h"
-#include "key.h"
-#include "max30102.h"
-#include "ad8232.h"
 #include "gt9xxx.h"
 #include <stdarg.h>
 #include <stdio.h>
@@ -55,59 +51,6 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-uint16_t HeartRate = 0U;
-float Spo2 = 0.0f;
-float Pressure_GetMmHg(void);
-
-osThreadId_t Group05_LED0Handle;
-osThreadId_t Group05_KEYLED1Handle;
-osThreadId_t Group05_KEY0Handle;
-osThreadId_t Group05_KEY2Handle;
-osThreadId_t Group05_MPS20Handle;
-osThreadId_t Group05_MAX301Handle;
-osMutexId_t Group05_PrtMtxHandle;
-
-static uint8_t keyLed1Suspended = 0U;
-
-static const osThreadAttr_t Group05_LED0_attributes = {
-  .name = "Group05_LED0",
-  .stack_size = 192 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
-};
-
-static const osThreadAttr_t Group05_KEYLED1_attributes = {
-  .name = "Group05_KEYLED1",
-  .stack_size = 192 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
-};
-
-static const osThreadAttr_t Group05_KEY0_attributes = {
-  .name = "Group05_KEY0",
-  .stack_size = 192 * 4,
-  .priority = (osPriority_t) osPriorityAboveNormal,
-};
-
-static const osThreadAttr_t Group05_KEY2_attributes = {
-  .name = "Group05_KEY2",
-  .stack_size = 192 * 4,
-  .priority = (osPriority_t) osPriorityAboveNormal,
-};
-
-static const osThreadAttr_t Group05_MPS20_attributes = {
-  .name = "Group05_MPS20",
-  .stack_size = 256 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
-};
-
-static const osThreadAttr_t Group05_MAX301_attributes = {
-  .name = "Group05_MAX301",
-  .stack_size = 768 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
-};
-
-static const osMutexAttr_t Group05_PrtMtx_attributes = {
-  .name = "Group05_PrtMtx",
-};
 
 /* USER CODE END Variables */
 /* Definitions for Group05_DefTask */
@@ -145,19 +88,32 @@ const osThreadAttr_t Group05_Buzzer_attributes = {
   .stack_size = 384 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for Group05_BuzzerQ */
+osMessageQueueId_t Group05_BuzzerQHandle;
+const osMessageQueueAttr_t Group05_BuzzerQ_attributes = {
+  .name = "Group05_BuzzerQ"
+};
+/* Definitions for Group05_PrtMtx */
+osMutexId_t Group05_PrtMtxHandle;
+const osMutexAttr_t Group05_PrtMtx_attributes = {
+  .name = "Group05_PrtMtx"
+};
+/* Definitions for Group05_I2C2Mtx */
+osMutexId_t Group05_I2C2MtxHandle;
+const osMutexAttr_t Group05_I2C2Mtx_attributes = {
+  .name = "Group05_I2C2Mtx"
+};
+/* Definitions for Group05_SensMtx */
+osMutexId_t Group05_SensMtxHandle;
+const osMutexAttr_t Group05_SensMtx_attributes = {
+  .name = "Group05_SensMtx"
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 extern void TouchGFX_SignalVSync(void);
 extern void TouchGFX_Touch_SetReady(uint8_t ready);
-static void Group05_TaskLED0(void *argument);
-static void Group05_TaskKEYLED1(void *argument);
-static void Group05_TaskKEY0(void *argument);
-static void Group05_TaskKEY2(void *argument);
-static void Group05_TaskMPS20(void *argument);
-static void Group05_TaskMAX301(void *argument);
 static void AppPrintf(const char *format, ...);
-static uint16_t AppReadAdc(uint32_t channel);
 
 /* USER CODE END FunctionPrototypes */
 
@@ -176,10 +132,18 @@ void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
   */
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
-  Group05_PrtMtxHandle = osMutexNew(&Group05_PrtMtx_attributes);
   AppI2cBus_Init();
   AppBuzzerService_Init();
   /* USER CODE END Init */
+  /* Create the mutex(es) */
+  /* creation of Group05_PrtMtx */
+  Group05_PrtMtxHandle = osMutexNew(&Group05_PrtMtx_attributes);
+
+  /* creation of Group05_I2C2Mtx */
+  Group05_I2C2MtxHandle = osMutexNew(&Group05_I2C2Mtx_attributes);
+
+  /* creation of Group05_SensMtx */
+  Group05_SensMtxHandle = osMutexNew(&Group05_SensMtx_attributes);
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
@@ -192,6 +156,10 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_TIMERS */
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
+
+  /* Create the queue(s) */
+  /* creation of Group05_BuzzerQ */
+  Group05_BuzzerQHandle = osMessageQueueNew (8, sizeof(AppBuzzerRequest_t), &Group05_BuzzerQ_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -284,175 +252,6 @@ static void AppPrintf(const char *format, ...)
   if (Group05_PrtMtxHandle != NULL)
   {
     osMutexRelease(Group05_PrtMtxHandle);
-  }
-}
-
-float Pressure_GetMmHg(void)
-{
-  uint16_t raw = AppReadAdc(ADC_CHANNEL_5);
-  uint32_t mv = ((uint32_t)raw * 3300U) / 4095U;
-  return ((float)mv / 3300.0f) * 760.0f;
-}
-
-static uint16_t AppReadAdc(uint32_t channel)
-{
-  ADC_ChannelConfTypeDef sConfig = {0};
-  uint16_t value = 0U;
-
-  sConfig.Channel = channel;
-  sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_144CYCLES;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  if (HAL_ADC_Start(&hadc1) == HAL_OK)
-  {
-    if (HAL_ADC_PollForConversion(&hadc1, 10U) == HAL_OK)
-    {
-      value = (uint16_t)HAL_ADC_GetValue(&hadc1);
-    }
-    (void)HAL_ADC_Stop(&hadc1);
-  }
-
-  return value;
-}
-
-static void Group05_TaskLED0(void *argument)
-{
-  (void)argument;
-
-  for (;;)
-  {
-    HAL_GPIO_TogglePin(LED0_GPIO_Port, LED0_Pin);
-    osDelay(500);
-  }
-}
-
-static void Group05_TaskKEYLED1(void *argument)
-{
-  uint8_t key;
-
-  (void)argument;
-
-  for (;;)
-  {
-    key = key_scan(0);
-    if (key == KEY1_PRES)
-    {
-      HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
-      while (key_scan(0) == KEY1_PRES)
-      {
-        osDelay(10);
-      }
-    }
-
-    osDelay(50);
-  }
-}
-
-static void Group05_TaskKEY0(void *argument)
-{
-  uint8_t key;
-
-  (void)argument;
-
-  for (;;)
-  {
-    key = key_scan(0);
-    if (key == KEY0_PRES)
-    {
-      if (Group05_LED0Handle == NULL)
-      {
-        Group05_LED0Handle = osThreadNew(Group05_TaskLED0, NULL, &Group05_LED0_attributes);
-      }
-      else
-      {
-        if (osThreadTerminate(Group05_LED0Handle) == osOK)
-        {
-          Group05_LED0Handle = NULL;
-        }
-      }
-
-      while (key_scan(0) == KEY0_PRES)
-      {
-        osDelay(10);
-      }
-    }
-
-    osDelay(50);
-  }
-}
-
-static void Group05_TaskKEY2(void *argument)
-{
-  uint8_t key;
-
-  (void)argument;
-
-  for (;;)
-  {
-    key = key_scan(0);
-    if (key == KEY2_PRES)
-    {
-      if ((Group05_KEYLED1Handle != NULL) && (keyLed1Suspended == 0U))
-      {
-        if (osThreadSuspend(Group05_KEYLED1Handle) == osOK)
-        {
-          keyLed1Suspended = 1U;
-        }
-      }
-      else if (Group05_KEYLED1Handle != NULL)
-      {
-        if (osThreadResume(Group05_KEYLED1Handle) == osOK)
-        {
-          keyLed1Suspended = 0U;
-        }
-      }
-
-      while (key_scan(0) == KEY2_PRES)
-      {
-        osDelay(10);
-      }
-    }
-
-    osDelay(50);
-  }
-}
-
-static void Group05_TaskMPS20(void *argument)
-{
-  uint8_t key;
-
-  (void)argument;
-
-  for (;;)
-  {
-    key = key_scan(0);
-    if (key == WKUP_PRES)
-    {
-      while (key_scan(0) == WKUP_PRES)
-      {
-        osDelay(10);
-      }
-    }
-
-    osDelay(50);
-  }
-}
-
-static void Group05_TaskMAX301(void *argument)
-{
-  (void)argument;
-
-  for (;;)
-  {
-    if (MAX30102_Get_DATA(&HeartRate, &Spo2) == MAX30102_DATA_OK)
-    {
-    }
-
-    osDelay(1);
   }
 }
 

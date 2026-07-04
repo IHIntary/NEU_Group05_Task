@@ -16,6 +16,12 @@ typedef enum
     APP_BUZZER_PATTERN_CUSTOM
 } AppBuzzerPattern_t;
 
+typedef struct
+{
+    AppBuzzerPattern_t pattern;
+    uint16_t customDurationMs;
+} AppBuzzerRequest_t;
+
 void AppBuzzerService_Init(void);
 void AppBuzzerService_Task(void *argument);
 void AppBuzzer_SetOutput(uint8_t on);

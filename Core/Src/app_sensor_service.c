@@ -13,11 +13,7 @@
 #include <string.h>
 
 static SensorData_t g_sensorData;
-static osMutexId_t Group05_SensMtx;
-
-static const osMutexAttr_t Group05_SensMtx_attributes = {
-    .name = "Group05_SensMtx",
-};
+extern osMutexId_t Group05_SensMtxHandle;
 
 static float irBuffer[SENSOR_PPG_GROUP_SAMPLES];
 static float redBuffer[SENSOR_PPG_GROUP_SAMPLES];
@@ -216,16 +212,15 @@ static void SensorService_UpdateChipTemp(void)
     vsense = ((float)raw * 3.3f) / 4095.0f;
     tempC = ((vsense - SENSOR_TEMP_V25) / SENSOR_TEMP_AVG_SLOPE) + 25.0f;
 
-    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    osMutexAcquire(Group05_SensMtxHandle, osWaitForever);
     g_sensorData.chipTempC = tempC;
     g_sensorData.chipTempValid = 1U;
-    osMutexRelease(Group05_SensMtx);
+    osMutexRelease(Group05_SensMtxHandle);
 }
 
 void SensorService_Init(void)
 {
     memset(&g_sensorData, 0, sizeof(g_sensorData));
-    Group05_SensMtx = osMutexNew(&Group05_SensMtx_attributes);
     SensorService_ResetEcgFilter(SENSOR_ECG_FILTER_BASELINE_RAW);
     g_sensorData.ecgFiltered = SENSOR_ECG_FILTER_BASELINE_RAW;
 
@@ -240,28 +235,28 @@ void SensorService_GetData(SensorData_t *out)
         return;
     }
 
-    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    osMutexAcquire(Group05_SensMtxHandle, osWaitForever);
     *out = g_sensorData;
-    osMutexRelease(Group05_SensMtx);
+    osMutexRelease(Group05_SensMtxHandle);
 }
 
 void SensorService_SetEcgRunning(uint8_t running)
 {
-    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    osMutexAcquire(Group05_SensMtxHandle, osWaitForever);
     g_sensorData.ecgRunning = running ? 1U : 0U;
     if (running)
     {
         SensorService_ResetEcgFilter(g_sensorData.ecgRaw);
         g_sensorData.ecgFiltered = SENSOR_ECG_FILTER_BASELINE_RAW;
     }
-    osMutexRelease(Group05_SensMtx);
+    osMutexRelease(Group05_SensMtxHandle);
 }
 
 void SensorService_SetPulseRunning(uint8_t running)
 {
     uint8_t logStart = 0U;
 
-    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    osMutexAcquire(Group05_SensMtxHandle, osWaitForever);
     g_sensorData.pulseRunning = running ? 1U : 0U;
     if (running)
     {
@@ -280,21 +275,21 @@ void SensorService_SetPulseRunning(uint8_t running)
         lastPulseLogTick = 0U;
         logStart = 1U;
     }
-    osMutexRelease(Group05_SensMtx);
+    osMutexRelease(Group05_SensMtxHandle);
 
     if (logStart != 0U)
     {
         uint8_t ready = SensorService_InitMax30102("start");
-        osMutexAcquire(Group05_SensMtx, osWaitForever);
+        osMutexAcquire(Group05_SensMtxHandle, osWaitForever);
         g_sensorData.max30102Ready = ready;
-        osMutexRelease(Group05_SensMtx);
+        osMutexRelease(Group05_SensMtxHandle);
         printf("[MAX30102] start\r\n");
     }
 }
 
 void SensorService_SetPressureRunning(uint8_t running)
 {
-    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    osMutexAcquire(Group05_SensMtxHandle, osWaitForever);
     g_sensorData.pressureRunning = running ? 1U : 0U;
 		if (running)
 		{
@@ -302,12 +297,12 @@ void SensorService_SetPressureRunning(uint8_t running)
 				pressureFilterReady = 0U;
 				pressureStartLogPending = 1U;
 		}
-    osMutexRelease(Group05_SensMtx);
+    osMutexRelease(Group05_SensMtxHandle);
 }
 
 void SensorService_SetImuRunning(uint8_t running)
 {
-    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    osMutexAcquire(Group05_SensMtxHandle, osWaitForever);
     g_sensorData.imuRunning = running ? 1U : 0U;
     g_sensorData.imuDataValid = 0U;
 
@@ -321,16 +316,16 @@ void SensorService_SetImuRunning(uint8_t running)
         g_sensorData.imuAlarmActive = 0U;
     }
 
-    osMutexRelease(Group05_SensMtx);
+    osMutexRelease(Group05_SensMtxHandle);
 }
 
 void SensorService_ClearImuAlarm(void)
 {
-    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    osMutexAcquire(Group05_SensMtxHandle, osWaitForever);
     g_sensorData.imuFallDetected = 0U;
     g_sensorData.imuAlarmActive = 0U;
     imuRecalibrateBaseline = 1U;
-    osMutexRelease(Group05_SensMtx);
+    osMutexRelease(Group05_SensMtxHandle);
 }
 
 static void SensorService_TryInitImu(void)
@@ -346,12 +341,12 @@ static void SensorService_TryInitImu(void)
         ready = 0U;
     }
 
-    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    osMutexAcquire(Group05_SensMtxHandle, osWaitForever);
     g_sensorData.imuReady = ready;
     g_sensorData.imuDataValid = 0U;
     imuBaselineValid = 0U;
     imuRecalibrateBaseline = 1U;
-    osMutexRelease(Group05_SensMtx);
+    osMutexRelease(Group05_SensMtxHandle);
 }
 
 static void SensorService_UpdateImu(void)
@@ -368,7 +363,7 @@ static void SensorService_UpdateImu(void)
     accMg[1] = SensorService_AccRawToMg(accRaw[1]);
     accMg[2] = SensorService_AccRawToMg(accRaw[2]);
 
-    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    osMutexAcquire(Group05_SensMtxHandle, osWaitForever);
     if ((imuBaselineValid == 0U) || (imuRecalibrateBaseline != 0U))
     {
         imuBaselineMg[0] = accMg[0];
@@ -393,7 +388,7 @@ static void SensorService_UpdateImu(void)
         g_sensorData.imuFallDetected = 1U;
         g_sensorData.imuAlarmActive = 1U;
     }
-    osMutexRelease(Group05_SensMtx);
+    osMutexRelease(Group05_SensMtxHandle);
 
     if (latchAlarm != 0U)
     {
@@ -439,11 +434,11 @@ static void SensorService_UpdateEcg(void)
                lon);
     }
 
-    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    osMutexAcquire(Group05_SensMtxHandle, osWaitForever);
     g_sensorData.ecgLeadsOff = leadsOff;
     g_sensorData.ecgRaw = raw;
     g_sensorData.ecgFiltered = filtered;
-    osMutexRelease(Group05_SensMtx);
+    osMutexRelease(Group05_SensMtxHandle);
 }
 
 static void SensorService_UpdatePressure(void)
@@ -500,12 +495,12 @@ static void SensorService_UpdatePressure(void)
                (unsigned long)((mv * 100U) / SENSOR_VREF_MV));
     }
 
-    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    osMutexAcquire(Group05_SensMtxHandle, osWaitForever);
     g_sensorData.pressureRaw = raw;
     g_sensorData.pressureMv = mv;
     g_sensorData.pressureMmHgTenths = mmHgTenths;
     g_sensorData.pressurePercent = percent;
-    osMutexRelease(Group05_SensMtx);
+    osMutexRelease(Group05_SensMtxHandle);
 }
 
 static void SensorService_UpdatePulse(void)
@@ -527,7 +522,7 @@ static void SensorService_UpdatePulse(void)
     ir = (uint32_t)data[0];
     red = (uint32_t)data[1];
 
-    osMutexAcquire(Group05_SensMtx, osWaitForever);
+    osMutexAcquire(Group05_SensMtxHandle, osWaitForever);
     g_sensorData.ppgIr = ir;
     g_sensorData.ppgRed = red;
 
@@ -614,7 +609,7 @@ static void SensorService_UpdatePulse(void)
         }
     }
 
-    osMutexRelease(Group05_SensMtx);
+    osMutexRelease(Group05_SensMtxHandle);
 
     if (logMode == 1U)
     {
