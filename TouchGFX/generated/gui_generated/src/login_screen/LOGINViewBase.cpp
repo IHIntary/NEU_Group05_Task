@@ -14,7 +14,7 @@ LOGINViewBase::LOGINViewBase() :
     add(__background);
 
     box1.setPosition(0, 0, 1024, 600);
-    box1.setColor(touchgfx::Color::getColorFromRGB(189, 255, 253));
+    box1.setColor(touchgfx::Color::getColorFromRGB(224, 252, 255));
     add(box1);
 
     textArea1.setXY(207, 211);

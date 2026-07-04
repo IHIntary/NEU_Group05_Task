@@ -205,13 +205,13 @@
         <Translation Language="GB">START</Translation>
       </Text>
       <Text Id="__SingleUse_5UE2" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">Pulse monitor</Translation>
+        <Translation Language="GB">SPO2 monitor</Translation>
       </Text>
       <Text Id="__SingleUse_OMPN" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">ECG monitor</Translation>
       </Text>
       <Text Id="__SingleUse_BP_HOME" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">BP monitor</Translation>
+        <Translation Language="GB">Bloodpressure monitor</Translation>
       </Text>
       <Text Id="__SingleUse_BP_TITLE" Alignment="Left" TypographyId="Large">
         <Translation Language="GB">Blood Pressure Monitor</Translation>
@@ -367,7 +367,7 @@
   </Texts>
   <Typographies>
     <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz :./%bpmHg" />
-    <Typography Id="Large" Font="verdana.ttf" Size="45" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz :./%bpmHg" />
+    <Typography Id="Large" Font="verdana.ttf" Size="45" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz :./%bpmHg-" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz :./%bpmHg" />
     <Typography Id="Typography_03" Font="verdana.ttf" Size="26" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz _.:/-%bpmHgREADYFALNORMACKmg" />
   </Typographies>

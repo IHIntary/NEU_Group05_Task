@@ -28,7 +28,7 @@ HomeScreenViewBase::HomeScreenViewBase() :
     titleText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PC48));
     add(titleText);
 
-    pulseButton.setXY(690, 349);
+    pulseButton.setXY(342, 349);
     pulseButton.setBitmaps(touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_ACTION_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_PRESSED_ID));
     pulseButton.setAction(buttonCallback);
     add(pulseButton);
@@ -45,18 +45,18 @@ HomeScreenViewBase::HomeScreenViewBase() :
     textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_OMPN));
     add(textArea1);
 
-    textArea3.setXY(792, 377);
+    textArea3.setXY(443, 377);
     textArea3.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textArea3.setLinespacing(0);
     textArea3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_5UE2));
     add(textArea3);
 
-    bpButton.setXY(342, 349);
+    bpButton.setXY(690, 349);
     bpButton.setBitmaps(touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_ACTION_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_PRESSED_ID));
     bpButton.setAction(buttonCallback);
     add(bpButton);
 
-    textAreaBP.setXY(458, 377);
+    textAreaBP.setXY(747, 377);
     textAreaBP.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textAreaBP.setLinespacing(0);
     textAreaBP.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BP_HOME));
