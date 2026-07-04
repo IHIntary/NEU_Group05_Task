@@ -34,6 +34,27 @@ static float pressureFilteredRaw = 0.0f;
 static uint8_t pressureFilterReady = 0U;
 static uint8_t pressureStartLogPending = 0U;
 
+static uint8_t SensorService_InitMax30102(const char *tag)
+{
+    uint8_t partId = 0U;
+    uint8_t versionId = 0U;
+    HAL_StatusTypeDef partStatus;
+    HAL_StatusTypeDef versionStatus;
+
+    max30102_init();
+    partStatus = AppI2c2_MemRead8(I2C_WRITE_ADDR, PART_ID, &partId, 1U, 10U);
+    versionStatus = AppI2c2_MemRead8(I2C_WRITE_ADDR, VERSION_ID, &versionId, 1U, 10U);
+
+    printf("[MAX30102] init %s part=0x%02X ver=0x%02X status=%ld/%ld\r\n",
+           tag,
+           partId,
+           versionId,
+           (long)partStatus,
+           (long)versionStatus);
+
+    return ((partStatus == HAL_OK) && (versionStatus == HAL_OK)) ? 1U : 0U;
+}
+
 static float ecgHighPassState = 0.0f;
 static uint16_t ecgPrevRaw = SENSOR_ECG_FILTER_BASELINE_RAW;
 static uint16_t ecgAvgBuffer[SENSOR_ECG_FILTER_AVG_SIZE];
@@ -208,8 +229,7 @@ void SensorService_Init(void)
     SensorService_ResetEcgFilter(SENSOR_ECG_FILTER_BASELINE_RAW);
     g_sensorData.ecgFiltered = SENSOR_ECG_FILTER_BASELINE_RAW;
 
-    max30102_init();
-    g_sensorData.max30102Ready = 1U;
+    g_sensorData.max30102Ready = SensorService_InitMax30102("boot");
 
 }
 
@@ -264,6 +284,10 @@ void SensorService_SetPulseRunning(uint8_t running)
 
     if (logStart != 0U)
     {
+        uint8_t ready = SensorService_InitMax30102("start");
+        osMutexAcquire(Group05_SensMtx, osWaitForever);
+        g_sensorData.max30102Ready = ready;
+        osMutexRelease(Group05_SensMtx);
         printf("[MAX30102] start\r\n");
     }
 }

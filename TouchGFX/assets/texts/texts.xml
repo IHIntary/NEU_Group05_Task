@@ -180,8 +180,8 @@
       <Text Id="__SingleUse_XY3W" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">Chip Temp: &lt;temp&gt; C</Translation>
       </Text>
-      <Text Id="__SingleUse_ENQY" Alignment="Left" TypographyId="Typography_03">
-        <Translation Language="GB">Switch mmHg / Pa</Translation>
+      <Text Id="__SingleUse_ENQY" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Switch Unit</Translation>
       </Text>
       <Text Id="__SingleUse_75JD" Alignment="Left" TypographyId="Typography_03">
         <Translation Language="GB">RESET</Translation>
@@ -342,19 +342,19 @@
       <Text Id="imu_ax" Alignment="Left" TypographyId="Typography_03">
         <Translation Language="GB">0000</Translation>
       </Text>
-      <Text Id="__SingleUse_IMU_AX" Alignment="Left" TypographyId="Typography_03">
+      <Text Id="__SingleUse_IMU_AX" Alignment="Left" TypographyId="Large">
         <Translation Language="GB">AX: &lt;imu_ax&gt; mg</Translation>
       </Text>
       <Text Id="imu_ay" Alignment="Left" TypographyId="Typography_03">
         <Translation Language="GB">0000</Translation>
       </Text>
-      <Text Id="__SingleUse_IMU_AY" Alignment="Left" TypographyId="Typography_03">
+      <Text Id="__SingleUse_IMU_AY" Alignment="Left" TypographyId="Large">
         <Translation Language="GB">AY: &lt;imu_ay&gt; mg</Translation>
       </Text>
       <Text Id="imu_az" Alignment="Left" TypographyId="Typography_03">
         <Translation Language="GB">0000</Translation>
       </Text>
-      <Text Id="__SingleUse_IMU_AZ" Alignment="Left" TypographyId="Typography_03">
+      <Text Id="__SingleUse_IMU_AZ" Alignment="Left" TypographyId="Large">
         <Translation Language="GB">AZ: &lt;imu_az&gt; mg</Translation>
       </Text>
       <Text Id="__SingleUse_IMU_ACK_BTN" Alignment="Left" TypographyId="Typography_03">

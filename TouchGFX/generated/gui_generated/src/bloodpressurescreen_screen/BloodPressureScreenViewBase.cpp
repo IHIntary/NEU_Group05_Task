@@ -20,7 +20,7 @@ BloodPressureScreenViewBase::BloodPressureScreenViewBase() :
     bpBg.setColor(touchgfx::Color::getColorFromRGB(246, 250, 252));
     add(bpBg);
 
-    txtTitle.setPosition(40, 24, 463, 48);
+    txtTitle.setPosition(40, 24, 530, 48);
     txtTitle.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     txtTitle.setLinespacing(0);
     txtTitle.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BP_TITLE));
@@ -91,7 +91,7 @@ BloodPressureScreenViewBase::BloodPressureScreenViewBase() :
     btnResetBP.setAction(buttonCallback);
     add(btnResetBP);
 
-    btnHome.setXY(606, 494);
+    btnHome.setXY(606, 466);
     btnHome.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUND_ACTION_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUND_PRESSED_ID));
     btnHome.setAction(buttonCallback);
     add(btnHome);
@@ -108,7 +108,7 @@ BloodPressureScreenViewBase::BloodPressureScreenViewBase() :
     txtResetBPLabel.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BP_RESET));
     add(txtResetBPLabel);
 
-    txtHomeBPLabel.setXY(687, 503);
+    txtHomeBPLabel.setXY(687, 475);
     txtHomeBPLabel.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     txtHomeBPLabel.setLinespacing(0);
     txtHomeBPLabel.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BP_HOME_BTN));
@@ -227,12 +227,12 @@ BloodPressureScreenViewBase::BloodPressureScreenViewBase() :
     BPgraph.addDataPoint(245.71752f);
     add(BPgraph);
 
-    btnUnitToggle.setXY(537, 24);
+    btnUnitToggle.setXY(671, 24);
     btnUnitToggle.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_TINY_ROUND_DISABLED_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_TINY_ROUND_DISABLED_ID));
     btnUnitToggle.setAction(buttonCallback);
     add(btnUnitToggle);
 
-    textArea1.setXY(672, 34);
+    textArea1.setXY(789, 36);
     textArea1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_ENQY));

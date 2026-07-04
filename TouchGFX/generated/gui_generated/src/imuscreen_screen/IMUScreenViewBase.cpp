@@ -39,27 +39,24 @@ IMUScreenViewBase::IMUScreenViewBase() :
     txtImuFall.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IMU_FALL));
     add(txtImuFall);
 
-    txtImuAccX.setXY(72, 218);
+    txtImuAccX.setPosition(361, 204, 477, 54);
     txtImuAccX.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     txtImuAccX.setLinespacing(0);
     txtImuAccX.setWildcard(touchgfx::TypedText(T_IMU_AX).getText());
-    txtImuAccX.resizeToCurrentText();
     txtImuAccX.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IMU_AX));
     add(txtImuAccX);
 
-    txtImuAccY.setXY(390, 218);
+    txtImuAccY.setPosition(361, 273, 477, 54);
     txtImuAccY.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     txtImuAccY.setLinespacing(0);
     txtImuAccY.setWildcard(touchgfx::TypedText(T_IMU_AY).getText());
-    txtImuAccY.resizeToCurrentText();
     txtImuAccY.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IMU_AY));
     add(txtImuAccY);
 
-    txtImuAccZ.setXY(722, 218);
+    txtImuAccZ.setPosition(361, 342, 477, 54);
     txtImuAccZ.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     txtImuAccZ.setLinespacing(0);
     txtImuAccZ.setWildcard(touchgfx::TypedText(T_IMU_AZ).getText());
-    txtImuAccZ.resizeToCurrentText();
     txtImuAccZ.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IMU_AZ));
     add(txtImuAccZ);
 

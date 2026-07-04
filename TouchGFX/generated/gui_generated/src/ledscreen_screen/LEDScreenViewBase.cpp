@@ -17,7 +17,7 @@ LEDScreenViewBase::LEDScreenViewBase() :
     LEDBG.setColor(touchgfx::Color::getColorFromRGB(224, 252, 255));
     add(LEDBG);
 
-    ledTitleText.setXY(386, 48);
+    ledTitleText.setXY(85, 45);
     ledTitleText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     ledTitleText.setLinespacing(0);
     ledTitleText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LED_TITLE));

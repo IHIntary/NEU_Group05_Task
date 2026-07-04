@@ -21,7 +21,7 @@
             "X": 207,
             "Y": 211,
             "Width": 611,
-            "Height": 54,
+            "Height": 55,
             "TextId": "__SingleUse_SL09",
             "TextRotation": "0",
             "AutoSize": true
@@ -100,7 +100,7 @@
             "X": 283,
             "Y": 68,
             "Width": 516,
-            "Height": 54,
+            "Height": 55,
             "TextId": "__SingleUse_PC48",
             "TextRotation": "0",
             "AutoSize": true
@@ -482,7 +482,7 @@
             "X": 34,
             "Y": 45,
             "Width": 416,
-            "Height": 54,
+            "Height": 55,
             "TextId": "__SingleUse_N8L6",
             "TextRotation": "0",
             "AutoSize": true
@@ -517,7 +517,7 @@
             "X": 108,
             "Y": 146,
             "Width": 253,
-            "Height": 54,
+            "Height": 55,
             "TextId": "__SingleUse_IV1H",
             "TextRotation": "0",
             "Color": {
@@ -564,7 +564,7 @@
             "X": 155,
             "Y": 443,
             "Width": 83,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_PGQT",
             "TextRotation": "0",
             "Color": {
@@ -580,7 +580,7 @@
             "X": 460,
             "Y": 443,
             "Width": 69,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_WENI",
             "TextRotation": "0",
             "Color": {
@@ -596,7 +596,7 @@
             "X": 455,
             "Y": 519,
             "Width": 78,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_8TOQ",
             "TextRotation": "0",
             "Color": {
@@ -623,7 +623,7 @@
             "X": 787,
             "Y": 443,
             "Width": 84,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_75JD",
             "TextRotation": "0",
             "Color": {
@@ -704,7 +704,7 @@
             "X": 12,
             "Y": 29,
             "Width": 481,
-            "Height": 54,
+            "Height": 55,
             "TextId": "__SingleUse_P0RO",
             "TextRotation": "0",
             "AutoSize": true
@@ -714,7 +714,7 @@
             "Name": "pulseStatusText",
             "X": 99,
             "Y": 104,
-            "Height": 54,
+            "Height": 55,
             "TextId": "__SingleUse_Z8F7",
             "TextRotation": "0",
             "AutoSize": true
@@ -741,10 +741,10 @@
           {
             "Type": "TextArea",
             "Name": "spo2Text",
-            "X": 12,
-            "Y": 207,
+            "X": 67,
+            "Y": 206,
             "Width": 207,
-            "Height": 54,
+            "Height": 55,
             "TextId": "__SingleUse_KKU4",
             "TextRotation": "0",
             "AutoSize": true,
@@ -755,10 +755,10 @@
           {
             "Type": "TextArea",
             "Name": "heartRateText",
-            "X": 12,
-            "Y": 251,
+            "X": 67,
+            "Y": 250,
             "Width": 217,
-            "Height": 54,
+            "Height": 55,
             "TextId": "__SingleUse_LE66",
             "TextRotation": "0",
             "AutoSize": true,
@@ -769,10 +769,10 @@
           {
             "Type": "TextArea",
             "Name": "irText",
-            "X": 12,
-            "Y": 300,
+            "X": 67,
+            "Y": 299,
             "Width": 86,
-            "Height": 54,
+            "Height": 55,
             "TextId": "__SingleUse_PAUF",
             "TextRotation": "0",
             "AutoSize": true,
@@ -783,10 +783,10 @@
           {
             "Type": "TextArea",
             "Name": "redText",
-            "X": 12,
-            "Y": 153,
+            "X": 67,
+            "Y": 152,
             "Width": 130,
-            "Height": 54,
+            "Height": 55,
             "TextId": "__SingleUse_FI0G",
             "TextRotation": "0",
             "AutoSize": true,
@@ -833,7 +833,7 @@
             "X": 284,
             "Y": 474,
             "Width": 83,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_57W8",
             "TextRotation": "0",
             "Color": {
@@ -849,7 +849,7 @@
             "X": 658,
             "Y": 474,
             "Width": 69,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_BT0V",
             "TextRotation": "0",
             "Color": {
@@ -865,7 +865,7 @@
             "X": 480,
             "Y": 540,
             "Width": 78,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_5UN1",
             "TextRotation": "0",
             "Color": {
@@ -1000,7 +1000,7 @@
             "Name": "txtTitle",
             "X": 40,
             "Y": 24,
-            "Width": 463,
+            "Width": 530,
             "Height": 48,
             "TextId": "__SingleUse_BP_TITLE",
             "TextRotation": "0"
@@ -1141,7 +1141,7 @@
             "Type": "Button",
             "Name": "btnHome",
             "X": 606,
-            "Y": 494,
+            "Y": 466,
             "Width": 240,
             "Height": 50,
             "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_pressed.png",
@@ -1154,7 +1154,7 @@
             "X": 509,
             "Y": 419,
             "Width": 83,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_BP_START",
             "TextRotation": "0",
             "Color": {
@@ -1170,7 +1170,7 @@
             "X": 859,
             "Y": 420,
             "Width": 84,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_BP_RESET",
             "TextRotation": "0",
             "Color": {
@@ -1184,9 +1184,9 @@
             "Type": "TextArea",
             "Name": "txtHomeBPLabel",
             "X": 687,
-            "Y": 503,
+            "Y": 475,
             "Width": 78,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_BP_HOME_BTN",
             "TextRotation": "0",
             "Color": {
@@ -1227,7 +1227,7 @@
           {
             "Type": "Button",
             "Name": "btnUnitToggle",
-            "X": 537,
+            "X": 671,
             "Y": 24,
             "Width": 110,
             "Height": 50,
@@ -1238,10 +1238,10 @@
           {
             "Type": "TextArea",
             "Name": "textArea1",
-            "X": 672,
-            "Y": 34,
-            "Width": 242,
-            "Height": 31,
+            "X": 789,
+            "Y": 36,
+            "Width": 114,
+            "Height": 24,
             "TextId": "__SingleUse_ENQY",
             "TextRotation": "0",
             "AutoSize": true
@@ -1312,8 +1312,8 @@
           {
             "Type": "TextArea",
             "Name": "ledTitleText",
-            "X": 386,
-            "Y": 48,
+            "X": 85,
+            "Y": 45,
             "Width": 266,
             "Height": 54,
             "TextId": "__SingleUse_LED_TITLE",
@@ -1588,8 +1588,8 @@
           {
             "Type": "TextArea",
             "Name": "titleText",
-            "X": 408,
-            "Y": 44,
+            "X": 50,
+            "Y": 50,
             "Width": 359,
             "Height": 54,
             "TextId": "__SingleUse_CLOCK_TITLE",
@@ -1994,13 +1994,12 @@
           {
             "Type": "TextArea",
             "Name": "txtImuAccX",
-            "X": 72,
-            "Y": 218,
-            "Width": 175,
-            "Height": 31,
+            "X": 361,
+            "Y": 204,
+            "Width": 477,
+            "Height": 54,
             "TextId": "__SingleUse_IMU_AX",
             "TextRotation": "0",
-            "AutoSize": true,
             "Wildcard1": {
               "TextId": "imu_ax"
             }
@@ -2008,13 +2007,12 @@
           {
             "Type": "TextArea",
             "Name": "txtImuAccY",
-            "X": 390,
-            "Y": 218,
-            "Width": 169,
-            "Height": 31,
+            "X": 361,
+            "Y": 273,
+            "Width": 477,
+            "Height": 54,
             "TextId": "__SingleUse_IMU_AY",
             "TextRotation": "0",
-            "AutoSize": true,
             "Wildcard1": {
               "TextId": "imu_ay"
             }
@@ -2022,13 +2020,12 @@
           {
             "Type": "TextArea",
             "Name": "txtImuAccZ",
-            "X": 722,
-            "Y": 218,
-            "Width": 175,
-            "Height": 31,
+            "X": 361,
+            "Y": 342,
+            "Width": 477,
+            "Height": 54,
             "TextId": "__SingleUse_IMU_AZ",
             "TextRotation": "0",
-            "AutoSize": true,
             "Wildcard1": {
               "TextId": "imu_az"
             }

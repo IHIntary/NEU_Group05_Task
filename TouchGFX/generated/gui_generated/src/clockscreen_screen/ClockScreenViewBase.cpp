@@ -25,7 +25,7 @@ ClockScreenViewBase::ClockScreenViewBase() :
     homeButton.setAction(buttonCallback);
     add(homeButton);
 
-    titleText.setXY(408, 44);
+    titleText.setXY(50, 50);
     titleText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     titleText.setLinespacing(0);
     titleText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CLOCK_TITLE));

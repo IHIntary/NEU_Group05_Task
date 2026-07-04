@@ -41,7 +41,7 @@ PulseScreenViewBase::PulseScreenViewBase() :
     pulseProgress.setValue(0);
     add(pulseProgress);
 
-    spo2Text.setXY(12, 207);
+    spo2Text.setXY(67, 206);
     spo2Text.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     spo2Text.setLinespacing(0);
     spo2Text.setWildcard(touchgfx::TypedText(T___SINGLEUSE_G3YR).getText());
@@ -49,7 +49,7 @@ PulseScreenViewBase::PulseScreenViewBase() :
     spo2Text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KKU4));
     add(spo2Text);
 
-    heartRateText.setXY(12, 251);
+    heartRateText.setXY(67, 250);
     heartRateText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     heartRateText.setLinespacing(0);
     heartRateText.setWildcard(touchgfx::TypedText(T___SINGLEUSE_FSTJ).getText());
@@ -57,7 +57,7 @@ PulseScreenViewBase::PulseScreenViewBase() :
     heartRateText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LE66));
     add(heartRateText);
 
-    irText.setXY(12, 300);
+    irText.setXY(67, 299);
     irText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     irText.setLinespacing(0);
     irText.setWildcard(touchgfx::TypedText(T___SINGLEUSE_61WN).getText());
@@ -65,7 +65,7 @@ PulseScreenViewBase::PulseScreenViewBase() :
     irText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PAUF));
     add(irText);
 
-    redText.setXY(12, 153);
+    redText.setXY(67, 152);
     redText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     redText.setLinespacing(0);
     redText.setWildcard(touchgfx::TypedText(T___SINGLEUSE_S49V).getText());

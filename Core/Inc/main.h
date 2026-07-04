@@ -80,8 +80,8 @@ void Error_Handler(void);
 #define MAX30102_INT_EXTI_IRQn EXTI3_IRQn
 #define LCD_BL_Pin GPIO_PIN_5
 #define LCD_BL_GPIO_Port GPIOB
-#define GT9XXX_INT_Pin GPIO_PIN_4
-#define GT9XXX_INT_GPIO_Port GPIOI
+#define GT9XXX_INT_Pin GPIO_PIN_7
+#define GT9XXX_INT_GPIO_Port GPIOH
 
 /* USER CODE BEGIN Private defines */
 #define KEY2_Pin GPIO_PIN_13

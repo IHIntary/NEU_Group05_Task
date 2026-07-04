@@ -52,7 +52,7 @@ void max30102_i2c_write(uint8_t reg_adder, uint8_t data)
  */
 void max30102_i2c_read(uint8_t reg_adder, uint8_t *pdata, uint8_t data_size)
 {
-	AppI2c3_MemRead8(I2C_WRITE_ADDR, reg_adder, pdata, data_size, 10);
+	AppI2c2_MemRead8(I2C_WRITE_ADDR, reg_adder, pdata, data_size, 10);
 }
 
 /**
@@ -64,6 +64,7 @@ void max30102_init(void)
 	uint8_t data;
 
 	max30102_i2c_write(MODE_CONFIGURATION, 0x40); // reset the device
+	delay_ms(100);
 
 	max30102_i2c_write(INTERRUPT_ENABLE1, 0xE0);
 	max30102_i2c_write(INTERRUPT_ENABLE2, 0x00); // interrupt enable: FIFO almost full flag, new FIFO Data Ready,

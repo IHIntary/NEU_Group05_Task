@@ -45,9 +45,9 @@ extern "C" {
 #define GT9XXX_RST_GPIO_PIN             GPIO_PIN_8
 #define GT9XXX_RST_GPIO_CLK_ENABLE()    do{ __HAL_RCC_GPIOI_CLK_ENABLE(); }while(0)       /* PI口时钟使能 */
 
-#define GT9XXX_INT_GPIO_PORT            GPIOI
-#define GT9XXX_INT_GPIO_PIN             GPIO_PIN_4
-#define GT9XXX_INT_GPIO_CLK_ENABLE()    do{ __HAL_RCC_GPIOI_CLK_ENABLE(); }while(0)       /* PI口时钟使能 */
+#define GT9XXX_INT_GPIO_PORT            GPIOH
+#define GT9XXX_INT_GPIO_PIN             GPIO_PIN_7
+#define GT9XXX_INT_GPIO_CLK_ENABLE()    do{ __HAL_RCC_GPIOH_CLK_ENABLE(); }while(0)       /* PH口时钟使能 */
 
 /******************************************************************************************/
 

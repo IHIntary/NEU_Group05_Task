@@ -148,7 +148,6 @@ int main(void)
   MX_LTDC_Init();
   MX_CRC_Init();
   MX_DMA2D_Init();
-  MX_I2C3_Init();
   MX_RTC_Init();
   MX_TouchGFX_Init();
   /* Call PreOsInit function */

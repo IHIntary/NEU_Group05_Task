@@ -4,8 +4,8 @@
 /*******************************以下根据实际情况设置*******************************/
 #include "main.h"
 #include "app_i2c_bus.h"
-#define  i2c_transmit(pdata,data_size)              AppI2c3_MasterTransmit(I2C_WRITE_ADDR,pdata,data_size,10)
-#define  i2c_receive(pdata,data_size)   						AppI2c3_MasterReceive(I2C_READ_ADDR,pdata,data_size,10)
+#define  i2c_transmit(pdata,data_size)              AppI2c2_MasterTransmit(I2C_WRITE_ADDR,pdata,data_size,10)
+#define  i2c_receive(pdata,data_size)   						AppI2c2_MasterReceive(I2C_READ_ADDR,pdata,data_size,10)
 #define  delay_ms(ms)                                HAL_Delay(ms)
 /***********************************************************************************/
 
