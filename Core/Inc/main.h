@@ -71,8 +71,14 @@ void Error_Handler(void);
 #define AD8232_LOP_GPIO_Port GPIOC
 #define AD8232_LON_Pin GPIO_PIN_5
 #define AD8232_LON_GPIO_Port GPIOC
+#define LED1_Pin GPIO_PIN_0
+#define LED1_GPIO_Port GPIOB
+#define LED0_Pin GPIO_PIN_1
+#define LED0_GPIO_Port GPIOB
 #define CT_IIC_SCL_Pin GPIO_PIN_6
 #define CT_IIC_SCL_GPIO_Port GPIOH
+#define GT9XXX_INT_Pin GPIO_PIN_7
+#define GT9XXX_INT_GPIO_Port GPIOH
 #define CT_IIC_SDA_Pin GPIO_PIN_3
 #define CT_IIC_SDA_GPIO_Port GPIOI
 #define MAX30102_INT_Pin GPIO_PIN_3
@@ -82,12 +88,6 @@ void Error_Handler(void);
 #define LCD_BL_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-#define KEY2_Pin GPIO_PIN_13
-#define KEY2_GPIO_Port GPIOC
-#define LED1_Pin GPIO_PIN_0
-#define LED1_GPIO_Port GPIOB
-#define LED0_Pin GPIO_PIN_1
-#define LED0_GPIO_Port GPIOB
 
 /* USER CODE END Private defines */
 
