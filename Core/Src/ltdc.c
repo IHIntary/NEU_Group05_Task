@@ -23,7 +23,6 @@
 /* USER CODE BEGIN 0 */
 static void LTDC_ForceApolloConfig(void);
 static void LTDC_ForceApolloPins(void);
-static void LTDC_RestoreLedPins(void);
 
 /* USER CODE END 0 */
 
@@ -284,7 +283,6 @@ static void LTDC_ForceApolloPins(void)
   __HAL_RCC_GPIOG_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOI_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   __HAL_RCC_LTDC_CLK_DISABLE();
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_LTDC;
@@ -316,34 +314,6 @@ static void LTDC_ForceApolloPins(void)
                         GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7 | GPIO_PIN_9 |
                         GPIO_PIN_10;
   HAL_GPIO_Init(GPIOI, &GPIO_InitStruct);
-
-  LTDC_RestoreLedPins();
-}
-
-static void LTDC_RestoreLedPins(void)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-
-  if (LED0_GPIO_Port == LED1_GPIO_Port)
-  {
-    GPIO_InitStruct.Pin = LED0_Pin | LED1_Pin;
-    HAL_GPIO_Init(LED0_GPIO_Port, &GPIO_InitStruct);
-    HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin | LED1_Pin, GPIO_PIN_SET);
-  }
-  else
-  {
-    GPIO_InitStruct.Pin = LED0_Pin;
-    HAL_GPIO_Init(LED0_GPIO_Port, &GPIO_InitStruct);
-    HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, GPIO_PIN_SET);
-
-    GPIO_InitStruct.Pin = LED1_Pin;
-    HAL_GPIO_Init(LED1_GPIO_Port, &GPIO_InitStruct);
-    HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-  }
 }
 
 /* USER CODE END 1 */
