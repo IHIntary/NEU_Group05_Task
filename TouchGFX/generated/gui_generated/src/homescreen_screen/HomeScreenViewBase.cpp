@@ -73,12 +73,12 @@ HomeScreenViewBase::HomeScreenViewBase() :
     txtChipTemp.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XY3W));
     add(txtChipTemp);
 
-    ledButton.setXY(342, 444);
+    ledButton.setXY(0, 444);
     ledButton.setBitmaps(touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_ACTION_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_PRESSED_ID));
     ledButton.setAction(buttonCallback);
     add(ledButton);
 
-    textAreaLED.setXY(456, 472);
+    textAreaLED.setXY(114, 472);
     textAreaLED.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textAreaLED.setLinespacing(0);
     textAreaLED.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LED_HOME));
@@ -95,12 +95,12 @@ HomeScreenViewBase::HomeScreenViewBase() :
     textAreaIMU.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IMU_HOME));
     add(textAreaIMU);
 
-    clockButton.setXY(0, 444);
+    clockButton.setXY(343, 444);
     clockButton.setBitmaps(touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_ACTION_ID), touchgfx::Bitmap(BITMAP_CLAY_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_36_LARGE_ROUNDED_PRESSED_ID));
     clockButton.setAction(buttonCallback);
     add(clockButton);
 
-    textAreaClock.setXY(144, 472);
+    textAreaClock.setXY(487, 472);
     textAreaClock.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textAreaClock.setLinespacing(0);
     textAreaClock.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CLOCK_HOME));

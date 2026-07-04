@@ -211,7 +211,6 @@
           {
             "Type": "Button",
             "Name": "ledButton",
-            "X": 342,
             "Y": 444,
             "Width": 340,
             "Height": 80,
@@ -222,7 +221,7 @@
           {
             "Type": "TextArea",
             "Name": "textAreaLED",
-            "X": 456,
+            "X": 114,
             "Y": 472,
             "Width": 115,
             "Height": 24,
@@ -265,6 +264,7 @@
           {
             "Type": "Button",
             "Name": "clockButton",
+            "X": 343,
             "Y": 444,
             "Width": 340,
             "Height": 80,
@@ -275,7 +275,7 @@
           {
             "Type": "TextArea",
             "Name": "textAreaClock",
-            "X": 144,
+            "X": 487,
             "Y": 472,
             "Width": 53,
             "Height": 24,
