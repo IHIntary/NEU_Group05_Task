@@ -715,8 +715,3 @@ void StartTaskSensorService(void *argument)
 {
     SensorService_Task(argument);
 }
-
-void StartTask04(void *argument)
-{
-    SensorService_Task(argument);
-}

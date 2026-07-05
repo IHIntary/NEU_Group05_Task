@@ -46,7 +46,6 @@ typedef struct
 void SensorService_Init(void);
 void SensorService_Task(void *argument);
 void StartTaskSensorService(void *argument);
-void StartTask04(void *argument);
 
 void SensorService_GetData(SensorData_t *out);
 
