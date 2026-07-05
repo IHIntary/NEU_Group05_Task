@@ -118,7 +118,7 @@ ClockScreenViewBase::ClockScreenViewBase() :
     fieldText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CLOCK_FIELD));
     add(fieldText);
 
-    txText.setPosition(616, 241, 200, 32);
+    txText.setPosition(616, 241, 400, 32);
     txText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     txText.setLinespacing(0);
     txText.setWildcard(touchgfx::TypedText(T_TXHEXVALUE).getText());

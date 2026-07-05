@@ -23,27 +23,24 @@ LEDScreenViewBase::LEDScreenViewBase() :
     ledTitleText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LED_TITLE));
     add(ledTitleText);
 
-    txtAlarmState.setXY(90, 135);
+    txtAlarmState.setPosition(90, 135, 300, 32);
     txtAlarmState.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     txtAlarmState.setLinespacing(0);
     txtAlarmState.setWildcard(touchgfx::TypedText(T_ALARM).getText());
-    txtAlarmState.resizeToCurrentText();
     txtAlarmState.setTypedText(touchgfx::TypedText(T___SINGLEUSE_5A6Y));
     add(txtAlarmState);
 
-    txtLed0State.setXY(438, 135);
+    txtLed0State.setPosition(438, 135, 250, 32);
     txtLed0State.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     txtLed0State.setLinespacing(0);
     txtLed0State.setWildcard(touchgfx::TypedText(T_LED0).getText());
-    txtLed0State.resizeToCurrentText();
     txtLed0State.setTypedText(touchgfx::TypedText(T___SINGLEUSE_YB85));
     add(txtLed0State);
 
-    txtLightMode.setXY(710, 135);
+    txtLightMode.setPosition(710, 135, 300, 32);
     txtLightMode.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     txtLightMode.setLinespacing(0);
     txtLightMode.setWildcard(touchgfx::TypedText(T_MODE).getText());
-    txtLightMode.resizeToCurrentText();
     txtLightMode.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BV2F));
     add(txtLightMode);
 

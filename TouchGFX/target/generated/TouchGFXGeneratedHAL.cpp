@@ -19,12 +19,20 @@
 #include <TouchGFXGeneratedHAL.hpp>
 #include <touchgfx/hal/OSWrappers.hpp>
 #include <gui/common/FrontendHeap.hpp>
+#include <touchgfx/hal/GPIO.hpp>
 #include <touchgfx/hal/PaintImpl.hpp>
 #include <touchgfx/hal/PaintRGB565Impl.hpp>
 
 #include "stm32f4xx.h"
+#include "stm32f4xx_hal_ltdc.h"
 
 using namespace touchgfx;
+
+namespace
+{
+static uint16_t lcd_int_active_line;
+static uint16_t lcd_int_porch_line;
+}
 
 void TouchGFXGeneratedHAL::initialize()
 {
@@ -35,18 +43,28 @@ void TouchGFXGeneratedHAL::initialize()
 
 void TouchGFXGeneratedHAL::configureInterrupts()
 {
+    NVIC_SetPriority(LTDC_IRQn, 9);
 }
 
 void TouchGFXGeneratedHAL::enableInterrupts()
 {
+    NVIC_EnableIRQ(LTDC_IRQn);
 }
 
 void TouchGFXGeneratedHAL::disableInterrupts()
 {
+    NVIC_DisableIRQ(LTDC_IRQn);
 }
 
 void TouchGFXGeneratedHAL::enableLCDControllerInterrupt()
 {
+    lcd_int_active_line = (LTDC->BPCR & 0x7FF) - 1;
+    lcd_int_porch_line = (LTDC->AWCR & 0x7FF) - 1;
+
+    /* Sets the Line Interrupt position */
+    LTDC->LIPCR = lcd_int_active_line;
+    /* Line Interrupt Enable            */
+    LTDC->IER |= LTDC_IER_LIE;
 }
 
 bool TouchGFXGeneratedHAL::beginFrame()
@@ -59,22 +77,17 @@ void TouchGFXGeneratedHAL::endFrame()
     HAL::endFrame();
 }
 
-inline uint8_t* TouchGFXGeneratedHAL::advanceFrameBufferToRect(uint8_t* fbPtr, const touchgfx::Rect& rect) const
-{
-    //       Advance vertically                   Advance horizontally
-    fbPtr += rect.y * lcd().framebufferStride() + rect.x * 2;
-    return fbPtr;
-}
-
 uint16_t* TouchGFXGeneratedHAL::getTFTFrameBuffer() const
 {
-    //getTFTFrameBuffer() not used for selected Frame Buffer Strategy
-    return 0;
+    return (uint16_t*)LTDC_Layer1->CFBAR;
 }
 
 void TouchGFXGeneratedHAL::setTFTFrameBuffer(uint16_t* adr)
 {
-    //setTFTFrameBuffer() not used for selected display interface
+    LTDC_Layer1->CFBAR = (uint32_t)adr;
+
+    /* Reload immediate */
+    LTDC->SRCR = (uint32_t)LTDC_SRCR_IMR;
 }
 
 void TouchGFXGeneratedHAL::flushFrameBuffer(const touchgfx::Rect& rect)
@@ -87,4 +100,37 @@ bool TouchGFXGeneratedHAL::blockCopy(void* RESTRICT dest, const void* RESTRICT s
     return HAL::blockCopy(dest, src, numBytes);
 }
 
+extern "C"
+{
+    void HAL_LTDC_LineEventCallback(LTDC_HandleTypeDef* hltdc)
+    {
+        if (!HAL::getInstance())
+        {
+            return;
+        }
+
+        if (LTDC->LIPCR == lcd_int_active_line)
+        {
+            //entering active area
+            HAL_LTDC_ProgramLineEvent(hltdc, lcd_int_porch_line);
+            HAL::getInstance()->vSync();
+            OSWrappers::signalVSync();
+
+            // Swap frame buffers immediately instead of waiting for the task to be scheduled in.
+            // Note: task will also swap when it wakes up, but that operation is guarded and will not have
+            // any effect if already swapped.
+            HAL::getInstance()->swapFrameBuffers();
+            GPIO::set(GPIO::VSYNC_FREQ);
+        }
+        else
+        {
+            //exiting active area
+            HAL_LTDC_ProgramLineEvent(hltdc, lcd_int_active_line);
+
+            // Signal to the framework that display update has finished.
+            HAL::getInstance()->frontPorchEntered();
+            GPIO::clear(GPIO::VSYNC_FREQ);
+        }
+    }
+}
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -21,7 +21,7 @@
             "X": 207,
             "Y": 211,
             "Width": 611,
-            "Height": 54,
+            "Height": 55,
             "TextId": "__SingleUse_SL09",
             "TextRotation": "0",
             "AutoSize": true
@@ -1311,7 +1311,7 @@
             "X": 85,
             "Y": 45,
             "Width": 266,
-            "Height": 54,
+            "Height": 55,
             "TextId": "__SingleUse_LED_TITLE",
             "TextRotation": "0",
             "AutoSize": true
@@ -1321,11 +1321,10 @@
             "Name": "txtAlarmState",
             "X": 90,
             "Y": 135,
-            "Width": 138,
-            "Height": 31,
+            "Width": 300,
+            "Height": 32,
             "TextId": "__SingleUse_5A6Y",
             "TextRotation": "0",
-            "AutoSize": true,
             "Wildcard1": {
               "TextId": "alarm"
             }
@@ -1335,11 +1334,10 @@
             "Name": "txtLed0State",
             "X": 438,
             "Y": 135,
-            "Width": 138,
-            "Height": 31,
+            "Width": 250,
+            "Height": 32,
             "TextId": "__SingleUse_YB85",
             "TextRotation": "0",
-            "AutoSize": true,
             "Wildcard1": {
               "TextId": "led0"
             }
@@ -1349,11 +1347,10 @@
             "Name": "txtLightMode",
             "X": 710,
             "Y": 135,
-            "Width": 162,
-            "Height": 31,
+            "Width": 300,
+            "Height": 32,
             "TextId": "__SingleUse_BV2F",
             "TextRotation": "0",
-            "AutoSize": true,
             "Wildcard1": {
               "TextId": "mode"
             }
@@ -1364,7 +1361,7 @@
             "X": 90,
             "Y": 225,
             "Width": 152,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_UOP7",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1378,7 +1375,7 @@
             "X": 438,
             "Y": 225,
             "Width": 216,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_2EEG",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1403,7 +1400,7 @@
             "X": 172,
             "Y": 360,
             "Width": 78,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_LED_MODE_BTN",
             "TextRotation": "0",
             "Color": {
@@ -1430,7 +1427,7 @@
             "X": 478,
             "Y": 360,
             "Width": 67,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_LED0_BTN",
             "TextRotation": "0",
             "Color": {
@@ -1457,7 +1454,7 @@
             "X": 774,
             "Y": 360,
             "Width": 67,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_ALARM_BTN",
             "TextRotation": "0",
             "Color": {
@@ -1484,7 +1481,7 @@
             "X": 473,
             "Y": 510,
             "Width": 78,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_LED_HOME_BTN",
             "TextRotation": "0",
             "Color": {
@@ -1587,7 +1584,7 @@
             "X": 50,
             "Y": 50,
             "Width": 359,
-            "Height": 54,
+            "Height": 55,
             "TextId": "__SingleUse_CLOCK_TITLE",
             "TextRotation": "0",
             "AutoSize": true
@@ -1598,7 +1595,7 @@
             "X": 100,
             "Y": 223,
             "Width": 214,
-            "Height": 54,
+            "Height": 55,
             "TextId": "__SingleUse_CLOCK_VALUE",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1612,7 +1609,7 @@
             "X": 100,
             "Y": 308,
             "Width": 242,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_CLOCK_DATE",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1626,7 +1623,7 @@
             "X": 100,
             "Y": 373,
             "Width": 259,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_CLOCK_STATUS",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1778,7 +1775,7 @@
             "X": 616,
             "Y": 141,
             "Width": 365,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_CLOCK_EDIT",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1804,7 +1801,7 @@
             "Name": "txText",
             "X": 616,
             "Y": 241,
-            "Width": 200,
+            "Width": 400,
             "Height": 32,
             "TextId": "__SingleUse_CLOCK_TX",
             "TextRotation": "0",
@@ -1951,7 +1948,7 @@
             "X": 60,
             "Y": 39,
             "Width": 330,
-            "Height": 54,
+            "Height": 55,
             "TextId": "__SingleUse_IMU_TITLE",
             "TextRotation": "0",
             "AutoSize": true
@@ -1962,7 +1959,7 @@
             "X": 262,
             "Y": 126,
             "Width": 193,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_IMU_STATUS",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1976,7 +1973,7 @@
             "X": 578,
             "Y": 126,
             "Width": 176,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_IMU_FALL",
             "TextRotation": "0",
             "Color": {
@@ -2043,7 +2040,7 @@
             "X": 331,
             "Y": 510,
             "Width": 54,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_IMU_ACK_BTN",
             "TextRotation": "0",
             "Color": {
@@ -2070,7 +2067,7 @@
             "X": 627,
             "Y": 510,
             "Width": 78,
-            "Height": 31,
+            "Height": 32,
             "TextId": "__SingleUse_IMU_HOME_BTN",
             "TextRotation": "0",
             "Color": {

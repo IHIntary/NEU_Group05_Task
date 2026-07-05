@@ -37,12 +37,6 @@ extern "C" void TouchGFX_SignalVSync(void)
     touchgfx::OSWrappers::signalVSync();
 }
 
-extern "C" void HAL_LTDC_LineEventCallback(LTDC_HandleTypeDef* hltdc)
-{
-    TouchGFX_SignalVSync();
-    HAL_LTDC_ProgramLineEvent(hltdc, 0);
-}
-
 void TouchGFXHAL::initialize()
 {
     // Calling parent implementation of initialize().
