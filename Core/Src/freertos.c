@@ -206,8 +206,7 @@ void StartDefaultTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    TouchGFX_SignalVSync();
-    osDelay(16);
+    osDelay(1000);
   }
   /* USER CODE END StartDefaultTask */
 }
